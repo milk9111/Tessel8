@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: b49afb73ff7b43d44a09954b26c97a10
+  productGUID: 62651d8f45035364393668a604865bab
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -635,8 +635,8 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 60a4e2f1-15ea-46c3-b46d-4115217a305a
-  projectName: TrialByCombat
+  cloudProjectId: dcc9edc4-bc55-4ba2-a158-6f9f4f30ca75
+  projectName: TrialByCombat (1)
   organizationId: connor-lundberg
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
