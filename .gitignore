@@ -21,6 +21,7 @@ build/
 Temp/
 Library/
 TrialByCombat/Library/
+TrialByCombat/.idea/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
