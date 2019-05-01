@@ -20,4 +20,9 @@ public class WorldTile {
     public WorldTile ExploredFrom { get; set; }
 
     public int Cost { get; set; }
+
+    public Vector3 ToVector3()
+    {
+        return new Vector3(LocalPlace.x, LocalPlace.y, LocalPlace.z);
+    }
 }

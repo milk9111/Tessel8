@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Collections;
 using UnityEngine.Tilemaps;
@@ -11,6 +12,8 @@ public class PlayerTeleportController : MonoBehaviour
 	public float teleportRangeRadius = 4f;
 	[Range(0.1f, 1)]
 	public float teleportCircleThickness = 0.5f;
+
+	public ParticleSystem teleportSignal;
 	
 	private WorldTile _tile;
 	private LineRenderer _lineRenderer;
@@ -28,6 +31,8 @@ public class PlayerTeleportController : MonoBehaviour
 		_lineRenderer = GetComponent<LineRenderer>();
 		DrawCircle();
 		_lineRenderer.enabled = false;
+		
+		teleportSignal.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -38,6 +43,7 @@ public class PlayerTeleportController : MonoBehaviour
 		}
 		else if (Input.GetKeyUp(KeyCode.Mouse1))
 		{
+			teleportSignal.gameObject.SetActive(false);
 			_lineRenderer.enabled = false;
 		}
 		
@@ -46,7 +52,7 @@ public class PlayerTeleportController : MonoBehaviour
 			var worldPoint = GetMousePosition();
 			if (IsPointWithinRange(worldPoint))
 			{
-				if (!HoveringOverTile(worldPoint) && Input.GetMouseButtonDown(0))
+				if (IsValidTeleportLocation(worldPoint) && Input.GetMouseButtonDown(0))
 				{
 					TeleportPlayer();
 				}
@@ -60,6 +66,33 @@ public class PlayerTeleportController : MonoBehaviour
 		{
 			ClearTileColor(_lastTile);
 		}
+	}
+
+	private bool IsValidTeleportLocation(Vector3Int worldPoint)
+	{
+		if (HoveringOverTile(worldPoint))
+		{
+			teleportSignal.gameObject.SetActive(false);
+			return false;
+		}
+
+		var bottomTile = IsAboveTile(worldPoint);
+		if (bottomTile == null)
+		{
+			teleportSignal.gameObject.SetActive(false);
+			return false;
+		}
+
+		teleportSignal.gameObject.SetActive(true);
+		teleportSignal.gameObject.transform.SetPositionAndRotation(
+			new Vector3(_mousePos.x, worldPoint.y), 
+			teleportSignal.gameObject.transform.rotation);
+		if (!teleportSignal.isPlaying)
+		{
+			teleportSignal.Play();
+		}
+
+		return true;
 	}
 
 	private bool HoveringOverTile(Vector3Int worldPoint)
@@ -98,7 +131,6 @@ public class PlayerTeleportController : MonoBehaviour
 
 	private void TeleportPlayer()
 	{
-		
 		transform.SetPositionAndRotation(new Vector3(_mousePos.x, _mousePos.y), transform.rotation);
 		var tiles = GameTiles.instance.tiles;
 
@@ -142,14 +174,26 @@ public class PlayerTeleportController : MonoBehaviour
 		transform.SetPositionAndRotation(new Vector3(x, y), transform.rotation);
 	}
 
+	private WorldTile IsAboveTile(Vector3Int worldPoint)
+	{
+		var tiles = GameTiles.instance.tiles;		
+
+		var tilePosToCheck = new Vector3(
+			Mathf.FloorToInt(worldPoint.x),
+			Mathf.FloorToInt(worldPoint.y - tiles.First().Value.TilemapMember.cellSize.y));
+		
+		return tiles.ContainsKey(tilePosToCheck) ?
+			tiles[tilePosToCheck] : null;
+	}
+
 	private Side CollidingWithSurroundingTile(IDictionary<Vector3, WorldTile> tiles)
 	{
-		var tileOnLeft = tiles.ContainsKey(new Vector3(
-			Mathf.FloorToInt(transform.position.x - _collider.bounds.extents.x),
-			Mathf.FloorToInt(transform.position.y)));
-		if (tileOnLeft)
+		var tileOnBottom = tiles.ContainsKey(new Vector3(
+			Mathf.FloorToInt(transform.position.x),
+			Mathf.FloorToInt(transform.position.y - _collider.bounds.extents.y)));
+		if (tileOnBottom)
 		{
-			return Side.Left;
+			return Side.Bottom;
 		}
 		
 		var tileOnTop = tiles.ContainsKey(new Vector3(
@@ -159,6 +203,13 @@ public class PlayerTeleportController : MonoBehaviour
 		{
 			return Side.Top;
 		}
+		var tileOnLeft = tiles.ContainsKey(new Vector3(
+			Mathf.FloorToInt(transform.position.x - _collider.bounds.extents.x),
+			Mathf.FloorToInt(transform.position.y)));
+		if (tileOnLeft)
+		{
+			return Side.Left;
+		}		
 		
 		var tileOnRight = tiles.ContainsKey(new Vector3(
 			Mathf.FloorToInt(transform.position.x + _collider.bounds.extents.x),
@@ -166,14 +217,6 @@ public class PlayerTeleportController : MonoBehaviour
 		if (tileOnRight)
 		{
 			return Side.Right;
-		}
-		
-		var tileOnBottom = tiles.ContainsKey(new Vector3(
-			Mathf.FloorToInt(transform.position.x),
-			Mathf.FloorToInt(transform.position.y - _collider.bounds.extents.y)));
-		if (tileOnBottom)
-		{
-			return Side.Bottom;
 		}
 
 		return Side.None;
