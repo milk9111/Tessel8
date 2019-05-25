@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Collections;
 using UnityEngine.Tilemaps;
@@ -10,44 +11,51 @@ public class PlayerTeleportController : MonoBehaviour
 {
 
 	public float teleportRangeRadius = 4f;
-	[Range(0.1f, 1)]
+	[UnityEngine.Range(0.1f, 1)]
 	public float teleportCircleThickness = 0.5f;
+
+	public ParticleSystem teleportRange;
 
 	public ParticleSystem teleportSignal;
 	
 	private WorldTile _tile;
-	private LineRenderer _lineRenderer;
 	private Camera _mainCamera;
 	private WorldTile _lastTile;
 	private Vector3 _mousePos;
 	private Collider2D _collider;
+	private WorldTile _lastTeleportedBottomTile;
+	private PlayerPlatformerController _platformerController;
+	private bool _isTeleportRangeActivated;
 
 	void Awake()
 	{
 		_mainCamera = Camera.main;
 
 		_collider = GetComponent<Collider2D>();
-		
-		_lineRenderer = GetComponent<LineRenderer>();
-		DrawCircle();
-		_lineRenderer.enabled = false;
+
+		_platformerController = GetComponent<PlayerPlatformerController>();
 		
 		teleportSignal.gameObject.SetActive(false);
+		teleportRange.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Mouse1))
 		{
-			_lineRenderer.enabled = true;
+			_platformerController.StartPlayerMotionPause();
+			_isTeleportRangeActivated = true;
+			teleportRange.gameObject.SetActive(true);
 		}
 		else if (Input.GetKeyUp(KeyCode.Mouse1))
 		{
+			_platformerController.StopPlayerMotionPause();
 			teleportSignal.gameObject.SetActive(false);
-			_lineRenderer.enabled = false;
+			_isTeleportRangeActivated = false;
+			teleportRange.gameObject.SetActive(false);
 		}
 		
-		if (_lineRenderer.enabled)
+		if (_isTeleportRangeActivated)
 		{
 			var worldPoint = GetMousePosition();
 			if (IsPointWithinRange(worldPoint))
@@ -59,6 +67,7 @@ public class PlayerTeleportController : MonoBehaviour
 			}
 			else
 			{
+			    teleportSignal.gameObject.SetActive(false);
 				ClearTileColor(_lastTile);
 			}
 		}
@@ -76,8 +85,8 @@ public class PlayerTeleportController : MonoBehaviour
 			return false;
 		}
 
-		var bottomTile = IsAboveTile(worldPoint);
-		if (bottomTile == null)
+		_lastTeleportedBottomTile = IsAboveTile(worldPoint);
+		if (_lastTeleportedBottomTile == null)
 		{
 			teleportSignal.gameObject.SetActive(false);
 			return false;
@@ -131,15 +140,16 @@ public class PlayerTeleportController : MonoBehaviour
 
 	private void TeleportPlayer()
 	{
-		transform.SetPositionAndRotation(new Vector3(_mousePos.x, _mousePos.y), transform.rotation);
 		var tiles = GameTiles.instance.tiles;
+
+		transform.SetPositionAndRotation(new Vector3(_mousePos.x, 
+			_lastTeleportedBottomTile.LocalPlace.y + 1.1f), transform.rotation);
 
 		var foundTileOnSide = CollidingWithSurroundingTile(tiles);
 		
 		var tries = 0;
 		while (tries < 100 && foundTileOnSide != Side.None)
 		{
-			print("Collision on " + (int) foundTileOnSide);
 			AttemptTileCollisionResolution(foundTileOnSide);
 			foundTileOnSide = CollidingWithSurroundingTile(tiles);
 			tries++;
@@ -166,9 +176,6 @@ public class PlayerTeleportController : MonoBehaviour
 			case Side.Right:
 				x -= _collider.bounds.extents.x;
 				break; 
-			case Side.Bottom:
-				y += _collider.bounds.extents.y;
-				break;
 		}
 			
 		transform.SetPositionAndRotation(new Vector3(x, y), transform.rotation);
@@ -188,14 +195,6 @@ public class PlayerTeleportController : MonoBehaviour
 
 	private Side CollidingWithSurroundingTile(IDictionary<Vector3, WorldTile> tiles)
 	{
-		var tileOnBottom = tiles.ContainsKey(new Vector3(
-			Mathf.FloorToInt(transform.position.x),
-			Mathf.FloorToInt(transform.position.y - _collider.bounds.extents.y)));
-		if (tileOnBottom)
-		{
-			return Side.Bottom;
-		}
-		
 		var tileOnTop = tiles.ContainsKey(new Vector3(
 			Mathf.FloorToInt(transform.position.x),
 			Mathf.FloorToInt(transform.position.y + _collider.bounds.extents.y)));
@@ -228,10 +227,10 @@ public class PlayerTeleportController : MonoBehaviour
 		return new Vector3Int(Mathf.FloorToInt(_mousePos.x), Mathf.FloorToInt(_mousePos.y), 0);
 	}
 	
-	private void DrawCircle()
+	private void DrawCircle(LineRenderer lineRenderer)
 	{
 		const int segments = 360;
-		var line = _lineRenderer;
+		var line = lineRenderer;
 		line.useWorldSpace = false;
 		line.startWidth = teleportCircleThickness;
 		line.endWidth = teleportCircleThickness;

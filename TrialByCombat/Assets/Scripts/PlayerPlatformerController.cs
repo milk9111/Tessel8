@@ -9,17 +9,20 @@ public class PlayerPlatformerController : PhysicsObject {
     public float maxSpeed = 7;
     public float jumpTakeOffSpeed = 15;
     
-    [Range(0.01f, 2)]
-    public float gravityMultiplierAtApex = 1.5f;
+    [Range(1, 100)]
+    public int pausedFrames = 50;
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     
     private bool _gravMultHasBeenApplied;
+    private bool _hasEndedPause;
+    private bool _isPaused;
+    private int _currPausedFrame;
     
 
     // Use this for initialization
-    void Awake () 
+    void Awake ()
     {
         spriteRenderer = GetComponent<SpriteRenderer> ();
 
@@ -44,55 +47,76 @@ public class PlayerPlatformerController : PhysicsObject {
             foreach (var hit in hits)
             {
                 if (hit.collider == null) continue;
-                Debug.Log(hit.collider);
-                Debug.Log(hit.collider.gameObject);
                 hitsString += LayerMask.LayerToName(hit.collider.gameObject.layer) + ", ";
             }
+        }
+
+        if (_isPaused)
+        {
+            _currPausedFrame++;
         }
     }
 
     protected override void ComputeVelocity()
     {
-        if (grounded)
-        {
-            _gravMultHasBeenApplied = false;
-        }
-        
         var move = Vector2.zero;
 
-        move.x = Input.GetAxis ("Horizontal");
+        if (_isPaused)
+        {
+            return;
+        }
+        
+        move.x = Input.GetAxis("Horizontal");
 
-        if (Input.GetButtonDown ("Jump") && grounded) {
+        if (Input.GetButtonDown("Jump") && grounded)
+        {
             velocity.y = jumpTakeOffSpeed;
         } 
-        else if (Input.GetButtonUp("Jump") && !_gravMultHasBeenApplied || IsFallingFromApex())
+        else if (Input.GetButtonUp("Jump"))
         {
-            _gravMultHasBeenApplied = true;
-            //Debug.Log("!grounded: " + !grounded + "\nMath.Abs(velocity.y): " + Math.Abs(velocity.y) + "\nMath.Abs(velocity.y) <= 0.01f: " + (Math.Abs(velocity.y) <= 0.01f));
-            if (Math.Abs(velocity.y) > 0)
+            if (velocity.y > 0)
             {
-                var negate = velocity.y > 0 ? -1 : 3f;
-                velocity.y = velocity.y * negate * Math.Abs(gravityMultiplierAtApex);
+                velocity.y = velocity.y * 0.5f;
             }
         }
 
-        var flipSprite = spriteRenderer.flipX ? move.x > 0.01f : move.x < 0.01f;
-        if (flipSprite) 
+        var flipSprite = spriteRenderer.flipX ? move.x > 0.0f : move.x < 0.0f;
+        if (flipSprite)
         {
             spriteRenderer.flipX = !spriteRenderer.flipX;
         }
-
-        if (animator != null)
-        {
-            animator.SetBool("grounded", grounded);
-            animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
-        }
-
-        targetVelocity = move * maxSpeed;
+		
+        animator.SetBool("Walking", Mathf.Abs(velocity.x) / maxSpeed > 0);
+        
+        targetVelocity = move * maxSpeed;        
     }
 
-    private bool IsFallingFromApex()
+    public void StartPlayerMotionPause()
     {
-        return !grounded && velocity.y < 0 && Math.Abs(velocity.y) >= 0.3f && Math.Abs(velocity.y) <= 0.5f;
+        if (grounded) return;
+        _isPaused = true;
+        _hasEndedPause = false;
+        _currPausedFrame = 0;
+        StartCoroutine(PausePlayerMotion());
+    }
+
+    public void StopPlayerMotionPause()
+    {
+        _hasEndedPause = true;
+        _isPaused = false;
+    }
+    
+    private IEnumerator PausePlayerMotion()
+    {
+        var lastVelocity = velocity;
+        velocity = Vector2.zero;
+        
+        var lastGrav = gravityModifier;
+        gravityModifier = 0;
+        
+        yield return new WaitUntil(() => _currPausedFrame >= pausedFrames || _hasEndedPause );
+        StopPlayerMotionPause();
+        velocity = lastVelocity;
+        gravityModifier = lastGrav;
     }
 }
