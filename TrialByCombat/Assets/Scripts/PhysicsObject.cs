@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PhysicsObject : MonoBehaviour
 {
-
+	[Tooltip("The min ground normal Y")]
 	public float minGroundNormalY = 0.65f;
+	
+	[Tooltip("The gravity force amount")]
 	public float gravityModifier = 1f;
 
 	protected Vector2 targetVelocity;

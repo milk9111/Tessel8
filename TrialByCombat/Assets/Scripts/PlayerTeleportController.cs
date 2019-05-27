@@ -19,6 +19,7 @@ public class PlayerTeleportController : MonoBehaviour
 	public ParticleSystem teleportSignal;
 	
 	private WorldTile _tile;
+	//private LineRenderer _lineRenderer;
 	private Camera _mainCamera;
 	private WorldTile _lastTile;
 	private Vector3 _mousePos;
@@ -35,6 +36,10 @@ public class PlayerTeleportController : MonoBehaviour
 
 		_platformerController = GetComponent<PlayerPlatformerController>();
 		
+		//_lineRenderer = GetComponent<LineRenderer>();
+		//DrawCircle();
+		//_lineRenderer.enabled = false;
+		
 		teleportSignal.gameObject.SetActive(false);
 		teleportRange.gameObject.SetActive(false);
 	}
@@ -44,6 +49,7 @@ public class PlayerTeleportController : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Mouse1))
 		{
 			_platformerController.StartPlayerMotionPause();
+			//_lineRenderer.enabled = true;
 			_isTeleportRangeActivated = true;
 			teleportRange.gameObject.SetActive(true);
 		}
@@ -51,6 +57,7 @@ public class PlayerTeleportController : MonoBehaviour
 		{
 			_platformerController.StopPlayerMotionPause();
 			teleportSignal.gameObject.SetActive(false);
+			//_lineRenderer.enabled = false;
 			_isTeleportRangeActivated = false;
 			teleportRange.gameObject.SetActive(false);
 		}
