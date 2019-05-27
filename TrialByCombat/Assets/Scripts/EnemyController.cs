@@ -1,40 +1,28 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using EnemyStates;
 using NUnit.Framework;
 using UnityEngine;
 
 public class EnemyController : PhysicsObject {
-
-	[Tooltip("The movement speed of the enemy")]
-	[UnityEngine.Range(0.01f, 1)]
-	public float speed = 0.5f;
 	
-	[Tooltip("The speed of the jump take off")]
-	public float jumpTakeOffSpeed = 15;
-	
-	[Tooltip("The distance of the forward ground detection ray cast")]
-	public float raycastDistance = 5f;
-	
-	[Tooltip("The distance the enemy stops from the target")]
-	public float stoppingDistance = 0.1f;
-
-	[Tooltip("Follow target debug. Defaults to right direction.")]
-	public bool followTarget;
-	
-	[Tooltip("Show debug rays")]
-	public bool showRays;
-	
-	[Tooltip("The target transform to follow")]
-	public Transform target;
+	[Tooltip("The list of states for this enemy. It MUST have the names of the state classes")]
+	public StateHolder[] states;
 
 	private SpriteRenderer _spriteRenderer;
+	
 	private Animator _animator;
-	private bool _foundHit;
-	private LineRenderer _lineRenderer;
+	
 	private int _direction;
 	
-	// Use this for initialization
+	private IDictionary<States, IState> _stateObjects;
+	
+	private States _currState;
+
+	private float _speed;
+	
 	void Awake ()
 	{
 		_spriteRenderer = GetComponent<SpriteRenderer> ();
@@ -44,78 +32,76 @@ public class EnemyController : PhysicsObject {
 			_animator = GetComponent<Animator>();
 		}
 
-		if (showRays)
-		{
-			_lineRenderer = gameObject.AddComponent<LineRenderer>();
-		}
-
-		if (target == null)
-		{
-			target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-		}
+		GatherStates();
+		_currState = States.Idle;
 	}
 	
 	protected override void ChildUpdate()
 	{
-		_foundHit = Physics2D.Raycast(transform.position, transform.right, raycastDistance, (1<<LayerMask.NameToLayer("Ground")));
-		if (_foundHit && grounded)
+		switch (_currState)
 		{
-			velocity.y = jumpTakeOffSpeed;
+			case States.Idle:
+				((EnemyIdle)_stateObjects[_currState]).SetInStoppingDistance(
+					((EnemyWalking) _stateObjects[States.Walking]).IsTargetWithinStoppingDistance());
+				_stateObjects[_currState].DoAction();
+				break;
+			case States.Walking:
+				_stateObjects[_currState].DoAction();
+				break;
+			case States.Attacking:
+				_stateObjects[_currState].DoAction() ;
+				break;
+			default:
+				Debug.LogError("Hit default case!");
+				break;
 		}
-
-		var newX = Vector2.MoveTowards(rb2d.position,
-			           target.position,
-			           speed * Time.deltaTime).x;
-		if (Math.Abs(newX - target.position.x) <= stoppingDistance)
-		{
-			_direction = 0;
-		}
-		else
-		{
-			_direction = newX > rb2d.position.x ? 1 : -1;
-		}
-
-		if (!followTarget)
-		{
-			_direction = 1;
-		}
-		
-		DrawRay();
 	}
 
 	protected override void ComputeVelocity()
 	{
 		var move = Vector2.zero;
 
-		move.x = _direction * speed;
+		move.x = _direction * _speed;
 
 		var flipSprite = _spriteRenderer.flipX ? move.x > 0.0f : move.x < 0.0f;
 		if (flipSprite)
 		{
 			_spriteRenderer.flipX = !_spriteRenderer.flipX;
 		}
-		
-		_animator.SetBool("Walking", Mathf.Abs(velocity.x) / speed > 0);
         
 		targetVelocity = move;        
 	}
 
-	private void DrawRay()
+	public void ChangeState(States state)
 	{
-		if (_lineRenderer == null)
-		{
-			return;
-		}
-		
-		var material = new Material(Shader.Find("Custom/DefaultRayCast"));
-		material.color = _foundHit ? Color.green : Color.red;
-		
-		_lineRenderer.startColor = _lineRenderer.endColor = _foundHit ? Color.green : Color.red;
-		_lineRenderer.material = material;
-		_lineRenderer.startWidth =  0.25f;
-		_lineRenderer.endWidth = 0.25f;
-		_lineRenderer.SetVertexCount(2);
-		_lineRenderer.SetPosition(0, new Vector3(transform.position.x, transform.position.y, -1.02f));
-		_lineRenderer.SetPosition(1, new Vector3(transform.position.x + raycastDistance, transform.position.y, -1.02f));
+		_currState = state;
 	}
+
+	public void SetDirection(int direction)
+	{
+		_direction = direction;
+	}
+
+	public void SetSpeed(float speed)
+	{
+		_speed = speed;
+	}
+
+	private void GatherStates()
+	{
+		_stateObjects = new Dictionary<States, IState>();
+		foreach (var holder in states)
+		{
+			if (_stateObjects.ContainsKey(holder.stateType))
+			{
+				continue;
+			}
+			
+			_stateObjects[holder.stateType] = (IState)GetComponent(Type.GetType("EnemyStates." + holder.className));
+			_stateObjects[holder.stateType].SetupFields(this, _animator);
+			_stateObjects[holder.stateType].Init();
+		}
+	}
+
+	
 }

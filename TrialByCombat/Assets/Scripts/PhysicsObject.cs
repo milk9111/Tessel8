@@ -9,12 +9,14 @@ public class PhysicsObject : MonoBehaviour
 	
 	[Tooltip("The gravity force amount")]
 	public float gravityModifier = 1f;
+	
+	[Tooltip("The velocity of the physics object")]
+	public Vector2 velocity;
 
 	protected Vector2 targetVelocity;
 	protected bool grounded;
 	protected Vector2 groundNormal;
 	protected Rigidbody2D rb2d;
-	protected Vector2 velocity;
 	protected ContactFilter2D contactFilter;
 	protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
 	protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
@@ -109,7 +111,16 @@ public class PhysicsObject : MonoBehaviour
 		
 		rb2d.position = rb2d.position + move.normalized * distance;
 	}
-	
+
+	public bool isGrounded()
+	{
+		return grounded;
+	}
+
+	public Vector2 GetPosition()
+	{
+		return new Vector2(rb2d.position.x, rb2d.position.y);
+	}
 }
 
 public static class hasComponent
