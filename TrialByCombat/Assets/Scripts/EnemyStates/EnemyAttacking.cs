@@ -20,6 +20,11 @@ namespace EnemyStates
         void Awake()
         {
             _isReadyToAttack = true;
+
+            if (playerCombat == null)
+            {
+                playerCombat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombatController>();
+            }
         }
                 
         public override void DoAction()
@@ -30,7 +35,6 @@ namespace EnemyStates
                 return;
             }
             
-            //_animator.SetBool("Walking", false);
             _animator.SetBool("Attacking", true);
         }
 
@@ -42,7 +46,6 @@ namespace EnemyStates
                 playerCombat.DealDamage(damageOutput);
             }
 
-            //_animator.SetBool("Walking", true);
             _animator.SetBool("Attacking", false);
             _controller.ChangeState(States.Walking);
         }

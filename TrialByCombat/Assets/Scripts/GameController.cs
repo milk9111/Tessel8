@@ -6,26 +6,16 @@ namespace DefaultNamespace
 {
     public class GameController : MonoBehaviour
     {
-        private HashSet<EnemyController> _enemies;
+        private EnemySpawnController _spawnController;
         
         void Awake()
         {
-            _enemies = new HashSet<EnemyController>();
-            GatherStartingEnemies();
+            _spawnController = GetComponent<EnemySpawnController>();
         }
 
         public IList<EnemyController> GetAllEnemiesInGame()
         {
-            return _enemies.ToList();
-        }
-
-        private void GatherStartingEnemies()
-        {
-            var result = GameObject.FindGameObjectsWithTag("Enemy");
-            foreach (var enemy in result)
-            {
-                _enemies.Add(enemy.GetComponent<EnemyController>());
-            }
+            return _spawnController.GetAllEnemiesInGame();
         }
     }
 }

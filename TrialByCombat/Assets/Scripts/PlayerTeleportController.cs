@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DefaultNamespace;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Collections;
@@ -256,12 +257,5 @@ public class PlayerTeleportController : MonoBehaviour
 		line.endColor = Color.red;
 	}
 
-	enum Side
-	{
-		None = 0,
-		Left = 1,
-		Top = 2,
-		Right = 3,
-		Bottom = 4
-	}
+	
 }
