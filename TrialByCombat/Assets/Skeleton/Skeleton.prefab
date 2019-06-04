@@ -26,9 +26,12 @@ GameObject:
   - component: {fileID: 114691294957325640}
   - component: {fileID: 114359608273597184}
   - component: {fileID: 114064436708796312}
+  - component: {fileID: 114968875454917118}
+  - component: {fileID: 114978013753830524}
+  - component: {fileID: 114826359326056296}
   m_Layer: 10
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1437993875717856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.42, y: -2.47, z: 0}
+  m_LocalPosition: {x: -1.539, y: -2.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,13 +123,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5960900b598c4a578e4639227c148360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 0.39
   jumpTakeOffSpeed: 5
   raycastDistance: 0.3
   stoppingDistance: 0.2
   target: {fileID: 0}
   followTarget: 1
-  showRays: 0
 --- !u!114 &114691294957325640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,6 +148,51 @@ MonoBehaviour:
     className: EnemyIdle
   - stateType: 1
     className: EnemyWalking
+  - stateType: 2
+    className: EnemyAttacking
+  - stateType: 3
+    className: EnemyHit
+  - stateType: 4
+    className: EnemyDead
+--- !u!114 &114826359326056296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437993875717856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1e4a1e2d304f12a20a13c1b2d960ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCombat: {fileID: 0}
+  damageOutput: 10
+  secondsBetweenAttacks: 1
+--- !u!114 &114968875454917118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437993875717856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df3c4499a234da5a05be9a7a64b9d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  enemyHitFx: {fileID: 8300000, guid: a582a6ac04224304f9cc53f5db5af588, type: 3}
+--- !u!114 &114978013753830524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437993875717856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a7d1851981450fa2a05ca725fbf5a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isImmortal: 0
 --- !u!212 &212953546260831800
 SpriteRenderer:
   m_ObjectHideFlags: 1

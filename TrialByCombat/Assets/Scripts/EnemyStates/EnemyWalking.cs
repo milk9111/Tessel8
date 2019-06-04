@@ -6,7 +6,7 @@ namespace EnemyStates
     public class EnemyWalking : BaseState
     {
         [Tooltip("The movement speed of the enemy")]
-        [Range(0.01f, 1)]
+        [Range(0, 1)]
         public float speed = 0.5f;
 	
         [Tooltip("The speed of the jump take off")]
@@ -23,21 +23,12 @@ namespace EnemyStates
 
         [Tooltip("Follow target debug. Defaults to right direction.")]
         public bool followTarget;
-        
-        [Tooltip("Show debug rays")]
-        public bool showRays;
 	        
         private bool _foundHit;
-        private LineRenderer _lineRenderer;
         
         
         void Awake ()
         {
-            if (showRays)
-            {
-                _lineRenderer = gameObject.AddComponent<LineRenderer>();
-            }
-
             if (target == null)
             {
                 target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -69,7 +60,7 @@ namespace EnemyStates
             if (Math.Abs(newX - target.position.x) <= stoppingDistance)
             {
                 _controller.SetDirection(0);
-                _controller.ChangeState(States.Idle);
+                _controller.ChangeState(States.Attacking);
             }
             else
             {
@@ -82,30 +73,11 @@ namespace EnemyStates
             return Vector2.MoveTowards(_controller.GetPosition(), 
                 target.position,speed * Time.deltaTime).x;
         }
-
+        
         public bool IsTargetWithinStoppingDistance()
         {
             var newX = MoveTowardsX();
             return Math.Abs(newX - target.position.x) <= stoppingDistance;
-        }
-        
-        private void DrawRay()
-        {
-            if (_lineRenderer == null)
-            {
-                return;
-            }
-		
-            var material = new Material(Shader.Find("Custom/DefaultRayCast"));
-            material.color = _foundHit ? Color.green : Color.red;
-		
-            _lineRenderer.startColor = _lineRenderer.endColor = _foundHit ? Color.green : Color.red;
-            _lineRenderer.material = material;
-            _lineRenderer.startWidth =  0.25f;
-            _lineRenderer.endWidth = 0.25f;
-            _lineRenderer.SetVertexCount(2);
-            _lineRenderer.SetPosition(0, new Vector3(transform.position.x, transform.position.y, -1.02f));
-            _lineRenderer.SetPosition(1, new Vector3(transform.position.x + raycastDistance, transform.position.y, -1.02f));
         }
     }
 }

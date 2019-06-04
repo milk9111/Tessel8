@@ -36,10 +36,6 @@ public class PlayerTeleportController : MonoBehaviour
 
 		_platformerController = GetComponent<PlayerPlatformerController>();
 		
-		//_lineRenderer = GetComponent<LineRenderer>();
-		//DrawCircle();
-		//_lineRenderer.enabled = false;
-		
 		teleportSignal.gameObject.SetActive(false);
 		teleportRange.gameObject.SetActive(false);
 	}
@@ -49,7 +45,6 @@ public class PlayerTeleportController : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Mouse1))
 		{
 			_platformerController.StartPlayerMotionPause();
-			//_lineRenderer.enabled = true;
 			_isTeleportRangeActivated = true;
 			teleportRange.gameObject.SetActive(true);
 		}
@@ -57,7 +52,6 @@ public class PlayerTeleportController : MonoBehaviour
 		{
 			_platformerController.StopPlayerMotionPause();
 			teleportSignal.gameObject.SetActive(false);
-			//_lineRenderer.enabled = false;
 			_isTeleportRangeActivated = false;
 			teleportRange.gameObject.SetActive(false);
 		}
@@ -82,6 +76,11 @@ public class PlayerTeleportController : MonoBehaviour
 		{
 			ClearTileColor(_lastTile);
 		}
+	}
+
+	public bool IsTeleportRangeActivated()
+	{
+		return _isTeleportRangeActivated;
 	}
 
 	private bool IsValidTeleportLocation(Vector3Int worldPoint)

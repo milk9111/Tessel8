@@ -5,9 +5,10 @@ using System.Reflection;
 using EnemyStates;
 using NUnit.Framework;
 using UnityEngine;
+using Hellmade.Sound;
 
-public class EnemyController : PhysicsObject {
-	
+public class EnemyController : PhysicsObject
+{
 	[Tooltip("The list of states for this enemy. It MUST have the names of the state classes")]
 	public StateHolder[] states;
 
@@ -49,7 +50,13 @@ public class EnemyController : PhysicsObject {
 				_stateObjects[_currState].DoAction();
 				break;
 			case States.Attacking:
-				_stateObjects[_currState].DoAction() ;
+				_stateObjects[_currState].DoAction();
+				break;
+			case States.Hit:
+				_stateObjects[_currState].DoAction();
+				break;
+			case States.Dead:
+				_stateObjects[_currState].DoAction();
 				break;
 			default:
 				Debug.LogError("Hit default case!");
@@ -72,6 +79,11 @@ public class EnemyController : PhysicsObject {
 		targetVelocity = move;        
 	}
 
+	public bool IsPlayerWithinStoppingDistance()
+	{
+		return ((EnemyWalking) _stateObjects[States.Walking]).IsTargetWithinStoppingDistance();
+	}
+
 	public void ChangeState(States state)
 	{
 		_currState = state;
@@ -87,6 +99,11 @@ public class EnemyController : PhysicsObject {
 		_speed = speed;
 	}
 
+	public void DealDamage(int damage)
+	{
+		((EnemyHit)_stateObjects[States.Hit]).DealDamage(damage);
+	}
+	
 	private void GatherStates()
 	{
 		_stateObjects = new Dictionary<States, IState>();

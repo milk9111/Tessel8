@@ -4,6 +4,8 @@ namespace EnemyStates
     {
         Idle,
         Walking,
-        Attacking
+        Attacking,
+        Hit,
+        Dead
     }
 }

@@ -12,25 +12,13 @@ public class PlayerPlatformerController : PhysicsObject {
     [Range(1, 100)]
     public int pausedFrames = 50;
 
-    private SpriteRenderer spriteRenderer;
-    private Animator animator;
+    public SpriteRenderer spriteRenderer;
+    public Animator animator;
     
     private bool _gravMultHasBeenApplied;
     private bool _hasEndedPause;
     private bool _isPaused;
     private int _currPausedFrame;
-    
-
-    // Use this for initialization
-    void Awake ()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer> ();
-
-        if (gameObject.HasComponent<Animator>())
-        {
-            animator = GetComponent<Animator>();
-        }
-    }
 
     protected override void ChildUpdate()
     {
