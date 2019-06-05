@@ -29,7 +29,6 @@ namespace EnemyStates
 
             if (health <= 0)
             {
-                Debug.Log("Enemy is dead");
                 _isDead = true;
             }
         }

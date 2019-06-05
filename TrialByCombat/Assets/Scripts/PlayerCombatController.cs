@@ -26,27 +26,42 @@ namespace DefaultNamespace
 
         private PlayerTeleportController _teleportController;
 
+        private PlayerPlatformerController _platformerController;
+        
+        private bool _isAttacking;
+
+        private bool _isDead;
+
         void Awake()
         {
+            _isDead = false;
+            _isAttacking = false;
             _teleportController = GetComponent<PlayerTeleportController>();
+            _platformerController = GetComponent<PlayerPlatformerController>();
         }
 
         void Update()
         {
-            if (!_teleportController.IsTeleportRangeActivated() && Input.GetKeyDown(KeyCode.Mouse0))
+            if (!animator.GetCurrentAnimatorStateInfo(animator.GetLayerIndex("Base Layer")).IsName("Player_SpinKick") && !_isAttacking 
+                && !_teleportController.IsTeleportRangeActivated() && Input.GetKeyDown(KeyCode.Mouse0))
             {
+                _isAttacking = true;
                 animator.SetBool("Attacking", true);
             }
         }
         
         public void DealDamage(int damage)
         {
+            if (_isDead) return;
+            
+            animator.SetBool("Attacking", false);
+            animator.SetTrigger("Hit");
             health -= damage;
             EazySoundManager.PlaySound(playerHitFx, false);
             
             if (health <= 0)
             {
-                Debug.Log("Player is dead");
+                animator.SetTrigger("Dead");
             }
         }
 
@@ -64,11 +79,20 @@ namespace DefaultNamespace
         public void FinishAttack()
         {
             animator.SetBool("Attacking", false);
+            _isAttacking = false;
+        }
+
+        public void FinishDead()
+        {
+            _isDead = true;
+            _platformerController.DisableMovement();
+            _teleportController.DisableTeleport();
         }
 
         private bool IsWithinAttackRange(EnemyController enemy)
         {
-            return Math.Abs(transform.position.x - enemy.transform.position.x) <= attackRange;
+            return Math.Abs(transform.position.x - enemy.transform.position.x) <= attackRange
+                && Math.Abs(transform.position.y - enemy.transform.position.y) <= attackRange;
         }
     }
 }

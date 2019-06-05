@@ -57,10 +57,17 @@ namespace EnemyStates
             }
 
             var newX = MoveTowardsX();
-            if (Math.Abs(newX - target.position.x) <= stoppingDistance)
+            if (IsTargetWithinXStoppingDistance())
             {
                 _controller.SetDirection(0);
-                _controller.ChangeState(States.Attacking);
+                if (IsTargetWithinYStoppingDistance())
+                {
+                    _controller.ChangeState(States.Attacking);
+                }
+                else
+                {
+                    _controller.ChangeState(States.Idle);
+                }
             }
             else
             {
@@ -74,10 +81,15 @@ namespace EnemyStates
                 target.position,speed * Time.deltaTime).x;
         }
         
-        public bool IsTargetWithinStoppingDistance()
+        public bool IsTargetWithinXStoppingDistance()
         {
             var newX = MoveTowardsX();
             return Math.Abs(newX - target.position.x) <= stoppingDistance;
+        }
+
+        private bool IsTargetWithinYStoppingDistance()
+        {
+            return Math.Abs(transform.position.y - target.position.y) <= stoppingDistance;
         }
     }
 }

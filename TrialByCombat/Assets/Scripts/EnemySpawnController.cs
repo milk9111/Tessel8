@@ -12,13 +12,20 @@ namespace DefaultNamespace
         [Tooltip("The enemy prefab to spawn")]
         public GameObject enemyPrefab;
 
+        [Tooltip("The grid that contains all the platform tiles for the enemies to spawn on. Only works if useDesignatedSpawnPoints = false.")]
         public Grid grid;
+
+        [Tooltip("The array of designated spawn points. Only works if useDesignatedSpawnPoints = true.")]
+        public Transform[] spawnPoints;
         
         [Tooltip("The total number of enemies to spawn")]
         public int numberOfEnemies;
 
         [Tooltip("The time between enemy spawns in seconds")]
         public float timeBetweenEnemies;
+
+        [Tooltip("Use designated spawn points for enemies or let them randomly spawn around the arena (broken).")] 
+        public bool useDesignatedSpawnPoints;
         
         private HashSet<EnemyController> _enemies;
         private HashSet<Vector3> _validSpawnPositions;
@@ -74,6 +81,26 @@ namespace DefaultNamespace
 
         private void GatherValidSpawnPositions()
         {
+            if (useDesignatedSpawnPoints)
+            {
+                ValidDesignatedSpawnPointPositions();
+            }
+            else
+            {
+                ValidTilePositions();
+            }
+        }
+
+        private void ValidDesignatedSpawnPointPositions()
+        {
+            foreach (var spawnPoint in spawnPoints)
+            {
+                _validSpawnPositions.Add(spawnPoint.position);
+            }
+        }
+
+        private void ValidTilePositions()
+        {
             var tiles = GameTiles.instance.tiles;
             var borderTile = GameTiles.instance.borderTiles;
 
@@ -85,7 +112,7 @@ namespace DefaultNamespace
                 var floorPos = new Vector3(Mathf.FloorToInt(abovePos.x), Mathf.FloorToInt(abovePos.y));
                 var ceilPos = new Vector3(Mathf.CeilToInt(abovePos.x), Mathf.CeilToInt(abovePos.y));
                 if (tiles.ContainsKey(floorPos) || borderTile.ContainsKey(floorPos) 
-                    || tiles.ContainsKey(ceilPos) || borderTile.ContainsKey(ceilPos)) continue;
+                                                || tiles.ContainsKey(ceilPos) || borderTile.ContainsKey(ceilPos)) continue;
 
                 _validSpawnPositions.Add(abovePos);
             }

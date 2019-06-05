@@ -20,4 +20,9 @@ public class PlayerCombatControllerHelper : MonoBehaviour
     {
         _combatController.FinishAttack();
     }
+
+    public void FinishDead()
+    {
+        _combatController.FinishDead();
+    }
 }

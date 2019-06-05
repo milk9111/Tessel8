@@ -18,10 +18,13 @@ public class PlayerPlatformerController : PhysicsObject {
     private bool _gravMultHasBeenApplied;
     private bool _hasEndedPause;
     private bool _isPaused;
+    private bool _isDisabled;
     private int _currPausedFrame;
 
     protected override void ChildUpdate()
     {
+        if (_isDisabled) return;
+        
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             var contactFilter = new ContactFilter2D();
@@ -49,7 +52,7 @@ public class PlayerPlatformerController : PhysicsObject {
     {
         var move = Vector2.zero;
 
-        if (_isPaused)
+        if (_isPaused || _isDisabled)
         {
             return;
         }
@@ -77,6 +80,11 @@ public class PlayerPlatformerController : PhysicsObject {
         animator.SetBool("Walking", Mathf.Abs(velocity.x) / maxSpeed > 0);
         
         targetVelocity = move * maxSpeed;        
+    }
+
+    public void DisableMovement()
+    {
+        _isDisabled = true;
     }
 
     public void StartPlayerMotionPause()

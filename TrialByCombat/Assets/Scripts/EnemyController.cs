@@ -43,7 +43,7 @@ public class EnemyController : PhysicsObject
 		{
 			case States.Idle:
 				((EnemyIdle)_stateObjects[_currState]).SetInStoppingDistance(
-					((EnemyWalking) _stateObjects[States.Walking]).IsTargetWithinStoppingDistance());
+					((EnemyWalking) _stateObjects[States.Walking]).IsTargetWithinXStoppingDistance());
 				_stateObjects[_currState].DoAction();
 				break;
 			case States.Walking:
@@ -81,7 +81,7 @@ public class EnemyController : PhysicsObject
 
 	public bool IsPlayerWithinStoppingDistance()
 	{
-		return ((EnemyWalking) _stateObjects[States.Walking]).IsTargetWithinStoppingDistance();
+		return ((EnemyWalking) _stateObjects[States.Walking]).IsTargetWithinXStoppingDistance();
 	}
 
 	public void ChangeState(States state)

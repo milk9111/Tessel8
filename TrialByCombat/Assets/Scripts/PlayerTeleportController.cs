@@ -20,7 +20,8 @@ public class PlayerTeleportController : MonoBehaviour
 	public ParticleSystem teleportSignal;
 	
 	private WorldTile _tile;
-	//private LineRenderer _lineRenderer;
+
+	private IDictionary<Vector3, WorldTile> _tiles;
 	private Camera _mainCamera;
 	private WorldTile _lastTile;
 	private Vector3 _mousePos;
@@ -28,9 +29,12 @@ public class PlayerTeleportController : MonoBehaviour
 	private WorldTile _lastTeleportedBottomTile;
 	private PlayerPlatformerController _platformerController;
 	private bool _isTeleportRangeActivated;
+	private bool _isDisabled;
 
 	void Awake()
 	{
+		_tiles = null;
+		
 		_mainCamera = Camera.main;
 
 		_collider = GetComponent<Collider2D>();
@@ -39,10 +43,25 @@ public class PlayerTeleportController : MonoBehaviour
 		
 		teleportSignal.gameObject.SetActive(false);
 		teleportRange.gameObject.SetActive(false);
+
+		_isDisabled = false;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+		if (_isDisabled) return;
+		
+		if (_tiles == null)
+		{
+			_tiles = GameTiles.instance.tiles;
+			foreach (var tile in GameTiles.instance.borderTiles)
+			{
+				if (_tiles.ContainsKey(tile.Key)) continue;
+				_tiles.Add(tile.Key, tile.Value);
+			}
+		}
+		
 		if (Input.GetKeyDown(KeyCode.Mouse1))
 		{
 			_platformerController.StartPlayerMotionPause();
@@ -79,6 +98,11 @@ public class PlayerTeleportController : MonoBehaviour
 		}
 	}
 
+	public void DisableTeleport()
+	{
+		_isDisabled = true;
+	}
+
 	public bool IsTeleportRangeActivated()
 	{
 		return _isTeleportRangeActivated;
@@ -113,11 +137,9 @@ public class PlayerTeleportController : MonoBehaviour
 
 	private bool HoveringOverTile(Vector3Int worldPoint)
 	{
-		var tiles = GameTiles.instance.tiles; // This is our Dictionary of tiles
-
 		ClearTileColor(_lastTile);
 
-		if (tiles.TryGetValue(worldPoint, out _tile)) 
+		if (_tiles.TryGetValue(worldPoint, out _tile)) 
 		{
 			_tile.TilemapMember.SetTileFlags(_tile.LocalPlace, TileFlags.None);
 			_tile.TilemapMember.SetColor(_tile.LocalPlace, Color.red);
@@ -147,18 +169,17 @@ public class PlayerTeleportController : MonoBehaviour
 
 	private void TeleportPlayer()
 	{
-		var tiles = GameTiles.instance.tiles;
-
+		
 		transform.SetPositionAndRotation(new Vector3(_mousePos.x, 
 			_lastTeleportedBottomTile.LocalPlace.y + 1.1f), transform.rotation);
 
-		var foundTileOnSide = CollidingWithSurroundingTile(tiles);
+		var foundTileOnSide = CollidingWithSurroundingTile(_tiles);
 		
 		var tries = 0;
 		while (tries < 100 && foundTileOnSide != Side.None)
 		{
 			AttemptTileCollisionResolution(foundTileOnSide);
-			foundTileOnSide = CollidingWithSurroundingTile(tiles);
+			foundTileOnSide = CollidingWithSurroundingTile(_tiles);
 			tries++;
 		}
 
@@ -190,14 +211,12 @@ public class PlayerTeleportController : MonoBehaviour
 
 	private WorldTile IsAboveTile(Vector3Int worldPoint)
 	{
-		var tiles = GameTiles.instance.tiles;		
-
 		var tilePosToCheck = new Vector3(
 			Mathf.FloorToInt(worldPoint.x),
-			Mathf.FloorToInt(worldPoint.y - tiles.First().Value.TilemapMember.cellSize.y));
+			Mathf.FloorToInt(worldPoint.y - _tiles.First().Value.TilemapMember.cellSize.y));
 		
-		return tiles.ContainsKey(tilePosToCheck) ?
-			tiles[tilePosToCheck] : null;
+		return _tiles.ContainsKey(tilePosToCheck) ?
+			_tiles[tilePosToCheck] : null;
 	}
 
 	private Side CollidingWithSurroundingTile(IDictionary<Vector3, WorldTile> tiles)

@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5960900b598c4a578e4639227c148360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.39
+  speed: 0.6
   jumpTakeOffSpeed: 5
   raycastDistance: 0.3
   stoppingDistance: 0.2
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df3c4499a234da5a05be9a7a64b9d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 30
   enemyHitFx: {fileID: 8300000, guid: a582a6ac04224304f9cc53f5db5af588, type: 3}
 --- !u!114 &114978013753830524
 MonoBehaviour:
