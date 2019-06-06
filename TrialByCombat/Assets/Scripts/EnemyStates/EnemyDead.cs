@@ -12,7 +12,8 @@ namespace EnemyStates
 
         public void FinishDeath()
         {
-            Destroy(gameObject);
+
+            _controller.MarkAsDead();
         }
     }
 }

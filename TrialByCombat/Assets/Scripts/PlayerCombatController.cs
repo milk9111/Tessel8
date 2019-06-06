@@ -28,24 +28,20 @@ namespace DefaultNamespace
 
         private PlayerPlatformerController _platformerController;
         
-        private bool _isAttacking;
-
         private bool _isDead;
 
         void Awake()
         {
             _isDead = false;
-            _isAttacking = false;
             _teleportController = GetComponent<PlayerTeleportController>();
             _platformerController = GetComponent<PlayerPlatformerController>();
         }
 
         void Update()
-        {
-            if (!animator.GetCurrentAnimatorStateInfo(animator.GetLayerIndex("Base Layer")).IsName("Player_SpinKick") && !_isAttacking 
+        {            
+            if (!animator.GetCurrentAnimatorStateInfo(animator.GetLayerIndex("Base Layer")).IsName("Player_SpinKick")
                 && !_teleportController.IsTeleportRangeActivated() && Input.GetKeyDown(KeyCode.Mouse0))
             {
-                _isAttacking = true;
                 animator.SetBool("Attacking", true);
             }
         }
@@ -79,7 +75,6 @@ namespace DefaultNamespace
         public void FinishAttack()
         {
             animator.SetBool("Attacking", false);
-            _isAttacking = false;
         }
 
         public void FinishDead()
@@ -87,6 +82,16 @@ namespace DefaultNamespace
             _isDead = true;
             _platformerController.DisableMovement();
             _teleportController.DisableTeleport();
+        }
+
+        public void Pause()
+        {
+            _isDead = true;
+        }
+
+        public void Resume()
+        {
+            _isDead = false;
         }
 
         private bool IsWithinAttackRange(EnemyController enemy)

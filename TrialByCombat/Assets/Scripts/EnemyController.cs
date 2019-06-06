@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using EnemyStates;
-using NUnit.Framework;
 using UnityEngine;
-using Hellmade.Sound;
 
 public class EnemyController : PhysicsObject
 {
@@ -15,6 +11,8 @@ public class EnemyController : PhysicsObject
 	private SpriteRenderer _spriteRenderer;
 	
 	private Animator _animator;
+
+	private Collider2D _collider;
 	
 	private int _direction;
 	
@@ -23,6 +21,10 @@ public class EnemyController : PhysicsObject
 	private States _currState;
 
 	private float _speed;
+
+	private bool _isPaused;
+
+	private bool _isDead;
 	
 	void Awake ()
 	{
@@ -33,12 +35,16 @@ public class EnemyController : PhysicsObject
 			_animator = GetComponent<Animator>();
 		}
 
+		_collider = GetComponent<CapsuleCollider2D>();
+
 		GatherStates();
 		_currState = States.Idle;
 	}
 	
 	protected override void ChildUpdate()
 	{
+		if (_isPaused) return;
+		
 		switch (_currState)
 		{
 			case States.Idle:
@@ -79,6 +85,32 @@ public class EnemyController : PhysicsObject
 		targetVelocity = move;        
 	}
 
+	public void OnPause()
+	{
+		_isPaused = true;
+		
+		foreach (var state in _stateObjects.Values)
+		{
+			((BaseState) state).enabled = false;
+		}
+
+		_animator.enabled = false;
+		_collider.enabled = false;
+	}
+
+	public void OnPlay()
+	{
+		_isPaused = false;
+		
+		foreach (var state in _stateObjects.Values)
+		{
+			((BaseState) state).enabled = true;
+		}
+		
+		_animator.enabled = true;
+		_collider.enabled = true;
+	}
+
 	public bool IsPlayerWithinStoppingDistance()
 	{
 		return ((EnemyWalking) _stateObjects[States.Walking]).IsTargetWithinXStoppingDistance();
@@ -102,6 +134,16 @@ public class EnemyController : PhysicsObject
 	public void DealDamage(int damage)
 	{
 		((EnemyHit)_stateObjects[States.Hit]).DealDamage(damage);
+	}
+
+	public bool HasDied()
+	{
+		return _isDead;
+	}
+
+	public void MarkAsDead()
+	{
+		_isDead = true;
 	}
 	
 	private void GatherStates()

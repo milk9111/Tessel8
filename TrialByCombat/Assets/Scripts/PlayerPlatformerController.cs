@@ -87,6 +87,11 @@ public class PlayerPlatformerController : PhysicsObject {
         _isDisabled = true;
     }
 
+    public void Pause()
+    {
+        
+    }
+
     public void StartPlayerMotionPause()
     {
         if (grounded) return;

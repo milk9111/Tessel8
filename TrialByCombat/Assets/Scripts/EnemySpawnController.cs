@@ -31,6 +31,7 @@ namespace DefaultNamespace
         private HashSet<Vector3> _validSpawnPositions;
 
         private bool _isCooldownFinished;
+        private bool _isPaused;
 
         private Vector2 _gridCellSize;
         
@@ -47,11 +48,15 @@ namespace DefaultNamespace
 
         void Update()
         {
+            if (_isPaused) return;
+            
             if (_validSpawnPositions == null)
             {
                 _validSpawnPositions = new HashSet<Vector3>();
                 GatherValidSpawnPositions();
             }
+
+            ClearDeadEnemies();
             
             if (!_isCooldownFinished) return;
             _isCooldownFinished = false;
@@ -68,6 +73,45 @@ namespace DefaultNamespace
         public IList<EnemyController> GetAllEnemiesInGame()
         {
             return _enemies.ToList();
+        }
+
+        public void OnPause()
+        {
+            _isPaused = true;
+            
+            foreach (var enemy in _enemies)
+            {
+                enemy.OnPause();
+                enemy.enabled = false;
+            }
+        }
+
+        public void OnPlay()
+        {
+            _isPaused = false;
+            
+            foreach (var enemy in _enemies)
+            {
+                enemy.enabled = true;
+                enemy.OnPlay();
+            }
+        }
+
+        private void ClearDeadEnemies()
+        {
+            IList<EnemyController> deadEnemies = new List<EnemyController>();
+            foreach (var enemy in _enemies)
+            {
+                if (!enemy.HasDied()) continue;
+
+                deadEnemies.Add(enemy);
+            }
+
+            foreach (var enemy in deadEnemies)
+            {
+                _enemies.Remove(enemy);
+                Destroy(enemy.gameObject);
+            }
         }
 
         private void GatherStartingEnemies()

@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
-using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.Collections;
 using UnityEngine.Tilemaps;
 
 public class PlayerTeleportController : MonoBehaviour
 {
 
 	public float teleportRangeRadius = 4f;
-	[UnityEngine.Range(0.1f, 1)]
+	[Range(0.1f, 1)]
 	public float teleportCircleThickness = 0.5f;
 
 	public ParticleSystem teleportRange;
