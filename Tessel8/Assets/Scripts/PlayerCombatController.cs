@@ -30,11 +30,14 @@ namespace DefaultNamespace
         
         private bool _isDead;
 
+        private int currHealth;
+
         void Awake()
         {
             _isDead = false;
             _teleportController = GetComponent<PlayerTeleportController>();
             _platformerController = GetComponent<PlayerPlatformerController>();
+            currHealth = health;
         }
 
         void Update()
@@ -52,10 +55,10 @@ namespace DefaultNamespace
             
             animator.SetBool("Attacking", false);
             animator.SetTrigger("Hit");
-            health -= damage;
+            currHealth -= damage;
             EazySoundManager.PlaySound(playerHitFx, false);
             
-            if (health <= 0)
+            if (currHealth <= 0)
             {
                 animator.SetTrigger("Dead");
             }
@@ -82,6 +85,13 @@ namespace DefaultNamespace
             _isDead = true;
             _platformerController.DisableMovement();
             _teleportController.DisableTeleport();
+            gameController.GameOver();
+        }
+
+        public void ResetHealth()
+        {
+            _isDead = false;
+            currHealth = health;
         }
 
         public void Pause()

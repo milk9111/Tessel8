@@ -41,6 +41,7 @@ namespace DefaultNamespace
             
             _enemies = new HashSet<EnemyController>();
             GatherStartingEnemies();
+            ClearDeadEnemies();
             
             _validSpawnPositions = null;
             _isCooldownFinished = true;
@@ -94,6 +95,14 @@ namespace DefaultNamespace
             {
                 enemy.enabled = true;
                 enemy.OnPlay();
+            }
+        }
+
+        public void OnStart()
+        {
+            foreach (var enemy in _enemies)
+            {
+                enemy.MarkAsDead();
             }
         }
 

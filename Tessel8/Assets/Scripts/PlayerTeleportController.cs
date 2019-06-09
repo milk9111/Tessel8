@@ -99,6 +99,11 @@ public class PlayerTeleportController : MonoBehaviour
 	{
 		_isDisabled = true;
 	}
+	
+	public void EnableTeleport()
+	{
+		_isDisabled = false;
+	}
 
 	public bool IsTeleportRangeActivated()
 	{

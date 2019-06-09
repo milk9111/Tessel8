@@ -267,6 +267,7 @@
         <e p="PlayerTeleportController.cs" t="Include" />
         <e p="Side.cs" t="Include" />
         <e p="UserInterface" t="Include">
+          <e p="GameoverMenu.cs" t="Include" />
           <e p="PauseMenu.cs" t="Include" />
         </e>
         <e p="WorldTile.cs" t="Include" />

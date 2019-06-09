@@ -56,5 +56,14 @@ namespace DefaultNamespace
             _animator.enabled = true;
             _collider.enabled = true;
         }
+
+        public void OnStart(Vector3 startingPos, Quaternion startingRot)
+        {
+            _animator.Rebind();
+            _platformerController.EnableMovement();
+            _teleportController.EnableTeleport();
+            _combatController.ResetHealth();
+            gameObject.transform.SetPositionAndRotation(startingPos, startingRot);
+        }
     }
 }
