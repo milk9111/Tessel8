@@ -23,12 +23,12 @@ GameObject:
   - component: {fileID: 95794365207686288}
   - component: {fileID: 50351335622957516}
   - component: {fileID: 70759253444917178}
-  - component: {fileID: 114691294957325640}
-  - component: {fileID: 114359608273597184}
-  - component: {fileID: 114064436708796312}
-  - component: {fileID: 114968875454917118}
-  - component: {fileID: 114978013753830524}
-  - component: {fileID: 114826359326056296}
+  - component: {fileID: 114391561887184850}
+  - component: {fileID: 114806515734077304}
+  - component: {fileID: 114552384375554572}
+  - component: {fileID: 114664475420395444}
+  - component: {fileID: 114416837477880624}
+  - component: {fileID: 114231900431381460}
   m_Layer: 10
   m_Name: Skeleton
   m_TagString: Enemy
@@ -101,7 +101,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114064436708796312
+--- !u!114 &114231900431381460
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -109,10 +109,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1437993875717856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22b78dfffa05415fa586f0fe775b51d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 20ad43e69e094468a60921b5eb3590b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114359608273597184
+  isImmortal: 0
+--- !u!114 &114391561887184850
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -120,7 +121,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 1437993875717856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5960900b598c4a578e4639227c148360, type: 3}
+  m_Script: {fileID: 11500000, guid: fc4167ca67ae401bad462ef914bb2d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minGroundNormalY: 0.65
+  gravityModifier: 1
+  velocity: {x: 0, y: 0}
+  states:
+  - stateType: 0
+    className: SkeletonStates.SkeletonIdle
+  - stateType: 1
+    className: SkeletonStates.SkeletonWalking
+  - stateType: 2
+    className: SkeletonStates.SkeletonAttacking
+  - stateType: 3
+    className: SkeletonStates.SkeletonHit
+  - stateType: 4
+    className: SkeletonStates.SkeletonDead
+--- !u!114 &114416837477880624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437993875717856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88066e8f9d844cd88146094850b55ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 30
+  enemyHitFx: {fileID: 8300000, guid: a582a6ac04224304f9cc53f5db5af588, type: 3}
+--- !u!114 &114552384375554572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437993875717856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638f5a899f0a4707a25e74651a39827e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.6
@@ -129,7 +168,7 @@ MonoBehaviour:
   stoppingDistance: 0.2
   target: {fileID: 0}
   followTarget: 1
---- !u!114 &114691294957325640
+--- !u!114 &114664475420395444
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -137,38 +176,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1437993875717856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8f71662cd5aa274f87890bb93071633, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minGroundNormalY: 0.65
-  gravityModifier: 1
-  velocity: {x: 0, y: 0}
-  states:
-  - stateType: 0
-    className: EnemyIdle
-  - stateType: 1
-    className: EnemyWalking
-  - stateType: 2
-    className: EnemyAttacking
-  - stateType: 3
-    className: EnemyHit
-  - stateType: 4
-    className: EnemyDead
---- !u!114 &114826359326056296
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1437993875717856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee1e4a1e2d304f12a20a13c1b2d960ef, type: 3}
+  m_Script: {fileID: 11500000, guid: ef71f45e1a364d68b804e84e0b63bb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerCombat: {fileID: 0}
   damageOutput: 10
   secondsBetweenAttacks: 1
---- !u!114 &114968875454917118
+--- !u!114 &114806515734077304
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -176,23 +190,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1437993875717856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2df3c4499a234da5a05be9a7a64b9d19, type: 3}
+  m_Script: {fileID: 11500000, guid: 409443e1a82996941be90cacddee68c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
-  enemyHitFx: {fileID: 8300000, guid: a582a6ac04224304f9cc53f5db5af588, type: 3}
---- !u!114 &114978013753830524
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1437993875717856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51a7d1851981450fa2a05ca725fbf5a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isImmortal: 0
 --- !u!212 &212953546260831800
 SpriteRenderer:
   m_ObjectHideFlags: 1

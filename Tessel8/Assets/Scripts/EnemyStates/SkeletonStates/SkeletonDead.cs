@@ -1,6 +1,9 @@
-namespace EnemyStates
+
+using UnityEngine;
+
+namespace EnemyStates.SkeletonStates
 {
-    public class EnemyDead : BaseState
+    public class SkeletonDead : BaseState
     {
         public bool isImmortal;
         
@@ -12,7 +15,7 @@ namespace EnemyStates
 
         public void FinishDeath()
         {
-
+            Debug.Log("Finish death");
             _controller.MarkAsDead();
         }
     }

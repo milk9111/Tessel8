@@ -2,15 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using EnemyControllers;
+using Spawn.Domain;
+using Spawn.Domain.Round;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace DefaultNamespace
+namespace Spawn
 {
     public class EnemySpawnController : MonoBehaviour
     {
-        [Tooltip("The enemy prefab to spawn")]
-        public GameObject enemyPrefab;
+        public RoundHolder[] rounds;
 
         [Tooltip("The grid that contains all the platform tiles for the enemies to spawn on. Only works if useDesignatedSpawnPoints = false.")]
         public Grid grid;
@@ -18,33 +20,26 @@ namespace DefaultNamespace
         [Tooltip("The array of designated spawn points. Only works if useDesignatedSpawnPoints = true.")]
         public Transform[] spawnPoints;
         
-        [Tooltip("The total number of enemies to spawn")]
-        public int numberOfEnemies;
-
-        [Tooltip("The time between enemy spawns in seconds")]
-        public float timeBetweenEnemies;
-
-        [Tooltip("Use designated spawn points for enemies or let them randomly spawn around the arena (broken).")] 
-        public bool useDesignatedSpawnPoints;
-        
         private HashSet<EnemyController> _enemies;
         private HashSet<Vector3> _validSpawnPositions;
 
+        private IRound _currRound;
+        private int _roundIndex;
+
         private bool _isCooldownFinished;
         private bool _isPaused;
-
-        private Vector2 _gridCellSize;
         
         void Awake()
-        {
-            _gridCellSize = grid.cellSize;
-            
+        {            
             _enemies = new HashSet<EnemyController>();
             GatherStartingEnemies();
             ClearDeadEnemies();
             
             _validSpawnPositions = null;
             _isCooldownFinished = true;
+
+            _currRound = rounds[0].GetSelectedRound();
+            _roundIndex = 0;
         }
 
         void Update()
@@ -55,20 +50,24 @@ namespace DefaultNamespace
             {
                 _validSpawnPositions = new HashSet<Vector3>();
                 GatherValidSpawnPositions();
+                _currRound.Init(_validSpawnPositions, _enemies);
             }
 
             ClearDeadEnemies();
+
+            if (_currRound.IsRoundComplete())
+            {
+                _roundIndex++;
+                if (_roundIndex >= rounds.Length)
+                {
+                    return;
+                }
+                _currRound = rounds[_roundIndex].GetSelectedRound();
+                _currRound.Init(_validSpawnPositions, _enemies);
+                Debug.Log("Starting round " + (_roundIndex + 1));
+            }
             
-            if (!_isCooldownFinished) return;
-            _isCooldownFinished = false;
-            StartCoroutine(EnemySpawnCooldown());
-            SpawnEnemy();
-        }
-        
-        private void SpawnEnemy()
-        {
-            var newEnemy = Instantiate(enemyPrefab, RandomPositionFromValidPositions(), enemyPrefab.transform.rotation);
-            _enemies.Add(newEnemy.GetComponent<EnemyController>());
+            _currRound.UpdateRound();
         }
         
         public IList<EnemyController> GetAllEnemiesInGame()
@@ -104,6 +103,12 @@ namespace DefaultNamespace
             {
                 enemy.MarkAsDead();
             }
+            
+            ClearDeadEnemies();
+
+            _currRound = rounds[0].GetSelectedRound();
+            _currRound.Init(_validSpawnPositions, _enemies);
+            _roundIndex = 0;
         }
 
         private void ClearDeadEnemies()
@@ -134,14 +139,7 @@ namespace DefaultNamespace
 
         private void GatherValidSpawnPositions()
         {
-            if (useDesignatedSpawnPoints)
-            {
-                ValidDesignatedSpawnPointPositions();
-            }
-            else
-            {
-                ValidTilePositions();
-            }
+            ValidDesignatedSpawnPointPositions();
         }
 
         private void ValidDesignatedSpawnPointPositions()
@@ -150,37 +148,6 @@ namespace DefaultNamespace
             {
                 _validSpawnPositions.Add(spawnPoint.position);
             }
-        }
-
-        private void ValidTilePositions()
-        {
-            var tiles = GameTiles.instance.tiles;
-            var borderTile = GameTiles.instance.borderTiles;
-
-            foreach (var pos in tiles.Keys)
-            {
-                var abovePos = new Vector3(pos.x + enemyPrefab.transform.localScale.x, 
-                    pos.y + _gridCellSize.y + enemyPrefab.transform.localScale.y);
-                
-                var floorPos = new Vector3(Mathf.FloorToInt(abovePos.x), Mathf.FloorToInt(abovePos.y));
-                var ceilPos = new Vector3(Mathf.CeilToInt(abovePos.x), Mathf.CeilToInt(abovePos.y));
-                if (tiles.ContainsKey(floorPos) || borderTile.ContainsKey(floorPos) 
-                                                || tiles.ContainsKey(ceilPos) || borderTile.ContainsKey(ceilPos)) continue;
-
-                _validSpawnPositions.Add(abovePos);
-            }
-        }
-
-        private Vector3 RandomPositionFromValidPositions()
-        {
-            var arr = _validSpawnPositions.ToArray();
-            return arr[Random.Range(0, arr.Length)];
-        }
-
-        private IEnumerator EnemySpawnCooldown()
-        {
-            yield return new WaitForSeconds(timeBetweenEnemies);
-            _isCooldownFinished = true;
         }
     }
 }

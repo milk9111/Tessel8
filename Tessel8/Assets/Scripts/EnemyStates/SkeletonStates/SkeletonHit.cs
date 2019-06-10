@@ -1,9 +1,9 @@
 using Hellmade.Sound;
 using UnityEngine;
 
-namespace EnemyStates
+namespace EnemyStates.SkeletonStates
 {
-    public class EnemyHit : BaseState
+    public class SkeletonHit : BaseState
     {
         [Tooltip("The health of the enemy")]
         public int health = 30;

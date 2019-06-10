@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace EnemyStates
+namespace EnemyStates.SkeletonStates
 {
-    public class EnemyWalking : BaseState
+    public class SkeletonWalking : BaseState
     {
         [Tooltip("The movement speed of the enemy")]
         [Range(0, 1)]

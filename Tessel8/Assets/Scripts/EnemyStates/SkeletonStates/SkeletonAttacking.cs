@@ -1,10 +1,11 @@
 using System.Collections;
 using DefaultNamespace;
+using EnemyStates;
 using UnityEngine;
 
-namespace EnemyStates
+namespace EnemyStates.SkeletonStates
 {
-    public class EnemyAttacking : BaseState
+    public class SkeletonAttacking : BaseState
     {
         [Tooltip("The player's health component")]
         public PlayerCombatController playerCombat;

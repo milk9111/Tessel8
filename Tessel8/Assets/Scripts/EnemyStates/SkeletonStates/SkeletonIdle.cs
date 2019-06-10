@@ -1,8 +1,7 @@
-using UnityEngine;
 
-namespace EnemyStates
+namespace EnemyStates.SkeletonStates
 {
-    public class EnemyIdle : BaseState
+    public class SkeletonIdle : BaseState
     {
         private bool _inStoppingDistance;
         
