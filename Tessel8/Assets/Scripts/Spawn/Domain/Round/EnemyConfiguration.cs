@@ -11,5 +11,10 @@ namespace Spawn.Domain.Round
         public float spawnChance;
 
         public int maxNumberOfSpawns;
+
+        public string GetName()
+        {
+            return gameObject.name;
+        }
     }
 }

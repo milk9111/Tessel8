@@ -290,7 +290,6 @@
             <e p="RoundTypes.cs" t="Include" />
           </e>
           <e p="EnemySpawnController.cs" t="Include" />
-          <e p="SpawnController.cs" t="Include" />
         </e>
         <e p="UserInterface" t="Include">
           <e p="GameoverMenu.cs" t="Include" />

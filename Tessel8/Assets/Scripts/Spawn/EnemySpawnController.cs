@@ -50,6 +50,7 @@ namespace Spawn
             {
                 _validSpawnPositions = new HashSet<Vector3>();
                 GatherValidSpawnPositions();
+                Debug.Log("Starting round " + (_roundIndex + 1) + ": " + _currRound.GetName());
                 _currRound.Init(_validSpawnPositions, _enemies);
             }
 
@@ -60,11 +61,12 @@ namespace Spawn
                 _roundIndex++;
                 if (_roundIndex >= rounds.Length)
                 {
+                    Debug.Log("Finished all rounds!");
                     return;
                 }
                 _currRound = rounds[_roundIndex].GetSelectedRound();
+                Debug.Log("Starting round " + (_roundIndex + 1) + ": " + _currRound.GetName());
                 _currRound.Init(_validSpawnPositions, _enemies);
-                Debug.Log("Starting round " + (_roundIndex + 1));
             }
             
             _currRound.UpdateRound();
@@ -79,6 +81,8 @@ namespace Spawn
         {
             _isPaused = true;
             
+            _currRound.OnPause();
+            
             foreach (var enemy in _enemies)
             {
                 enemy.OnPause();
@@ -89,6 +93,8 @@ namespace Spawn
         public void OnPlay()
         {
             _isPaused = false;
+            
+            _currRound.OnPlay();
             
             foreach (var enemy in _enemies)
             {

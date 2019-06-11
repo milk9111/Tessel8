@@ -8,6 +8,7 @@ namespace Spawn.Domain.Round
     public class BaseRound : MonoBehaviour, IRound
     {
         protected bool _isComplete;
+        protected bool _isPaused;
         
         protected WaveConfiguration _currWave;
         
@@ -37,6 +38,23 @@ namespace Spawn.Domain.Round
         {
             var arr = _validSpawnPositions.ToArray();
             return arr[Random.Range(0, arr.Length)];
+        }
+
+        public virtual void OnPause()
+        {
+            _currWave.OnPause();
+            _isPaused = true;
+        }
+
+        public virtual void OnPlay()
+        {
+            _currWave.OnPlay();
+            _isPaused = false;
+        }
+
+        public virtual string GetName()
+        {
+            return "Base Round";
         }
     }
 }

@@ -15,7 +15,6 @@ namespace EnemyStates.SkeletonStates
 
         public void FinishDeath()
         {
-            Debug.Log("Finish death");
             _controller.MarkAsDead();
         }
     }
