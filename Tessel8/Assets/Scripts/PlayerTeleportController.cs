@@ -78,7 +78,7 @@ public class PlayerTeleportController : MonoBehaviour
 			var worldPoint = GetMousePosition();
 			if (IsPointWithinRange(worldPoint))
 			{
-				if (IsValidTeleportLocation(worldPoint) && Input.GetMouseButtonDown(0))
+				if (IsValidTeleportLocation(worldPoint) && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Q)))
 				{
 					TeleportPlayer();
 				}

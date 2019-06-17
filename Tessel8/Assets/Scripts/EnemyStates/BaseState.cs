@@ -15,6 +15,12 @@ namespace EnemyStates
         public void SetupFields(EnemyController controller, Animator animator)
         {
             _controller = controller;
+
+            if (animator == null)
+            {
+                animator = new Animator();
+            }
+
             _animator = animator;
         }
     }

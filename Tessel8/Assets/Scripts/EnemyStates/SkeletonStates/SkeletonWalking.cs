@@ -44,7 +44,7 @@ namespace EnemyStates.SkeletonStates
         {
             _controller.SetSpeed(speed);
             
-            _foundHit = Physics2D.Raycast(transform.position, transform.right, raycastDistance, (1<<LayerMask.NameToLayer("Ground")));
+            _foundHit = Physics2D.Raycast(transform.position, transform.right, raycastDistance, 1<<LayerMask.NameToLayer("Ground"));
             if (_foundHit && _controller.isGrounded())
             {
                 _controller.velocity.y = jumpTakeOffSpeed;
@@ -59,7 +59,7 @@ namespace EnemyStates.SkeletonStates
             var newX = MoveTowardsX();
             if (IsTargetWithinXStoppingDistance())
             {
-                _controller.SetDirection(0);
+                _controller.SetMovementStop(0);
                 if (IsTargetWithinYStoppingDistance())
                 {
                     _controller.ChangeState(States.Attacking);
@@ -71,8 +71,10 @@ namespace EnemyStates.SkeletonStates
             }
             else
             {
-                _controller.SetDirection(newX > _controller.GetPosition().x ? 1 : -1);
+                _controller.SetMovementStop(1);
             }
+
+            _controller.SetDirection(newX > _controller.GetPosition().x ? 1 : -1);
         }
 
         private float MoveTowardsX()

@@ -242,13 +242,18 @@
         <e p="DefaultRayCast.shader" t="Include" />
       </e>
       <e p="Assets\Scripts" t="Include">
+        <e p="BackgroundSoundController.cs" t="Include" />
         <e p="EnemyControllers" t="Include">
           <e p="EnemyController.cs" t="Include" />
+          <e p="LaserWallController.cs" t="Include" />
           <e p="SkeletonController.cs" t="Include" />
         </e>
         <e p="EnemyStates" t="Include">
           <e p="BaseState.cs" t="Include" />
           <e p="IState.cs" t="Include" />
+          <e p="LaserSkeletonStates" t="Include">
+            <e p="LaserSkeletonAttacking.cs" t="Include" />
+          </e>
           <e p="SkeletonStates" t="Include">
             <e p="SkeletonAttacking.cs" t="Include" />
             <e p="SkeletonDead.cs" t="Include" />
@@ -293,6 +298,8 @@
         </e>
         <e p="UserInterface" t="Include">
           <e p="GameoverMenu.cs" t="Include" />
+          <e p="HealthBar.cs" t="Include" />
+          <e p="MainMenu.cs" t="Include" />
           <e p="PauseMenu.cs" t="Include" />
         </e>
         <e p="WorldTile.cs" t="Include" />

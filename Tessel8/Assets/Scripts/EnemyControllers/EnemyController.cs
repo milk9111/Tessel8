@@ -17,6 +17,8 @@ namespace EnemyControllers
 		protected Collider2D _collider;
 	
 		protected int _direction;
+
+		protected int _movementStop;
 	
 		protected IDictionary<States, IState> _stateObjects;
 	
@@ -27,9 +29,13 @@ namespace EnemyControllers
 		protected bool _isPaused;
 
 		protected bool _isDead;
+
+		private int _lastMovingDirection;
 	
 		void Awake ()
 		{
+			_movementStop = 1;
+			
 			_spriteRenderer = GetComponent<SpriteRenderer> ();
 
 			if (gameObject.HasComponent<Animator>())
@@ -77,12 +83,28 @@ namespace EnemyControllers
 
 		public void ChangeState(States state)
 		{
+			//Debug.Log("Changing state to " + StatesHelper.GetStateName(state));
 			_currState = state;
 		}
 
 		public void SetDirection(int direction)
 		{
+			if (direction != 0)
+			{
+				_lastMovingDirection = direction;
+			}
+
 			_direction = direction;
+		}
+
+		public void SetMovementStop(int movement)
+		{
+			_movementStop = movement;
+		}
+		
+		public int GetDirection()
+		{
+			return _lastMovingDirection;
 		}
 
 		public void SetSpeed(float speed)

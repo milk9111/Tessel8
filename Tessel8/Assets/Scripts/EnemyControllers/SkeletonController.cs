@@ -47,10 +47,10 @@ namespace EnemyControllers
 	    {
 		    var move = Vector2.zero;
 
-		    move.x = _direction * _speed;
+		    move.x = _direction * _speed * _movementStop;
 
-		    var flipSprite = _spriteRenderer.flipX ? move.x > 0.0f : move.x < 0.0f;
-		    if (flipSprite)
+		    var flipSprite = _spriteRenderer.flipX ? _direction != -1 : _direction != 1;
+		    if (flipSprite && _direction != 0)
 		    {
 			    _spriteRenderer.flipX = !_spriteRenderer.flipX;
 		    }

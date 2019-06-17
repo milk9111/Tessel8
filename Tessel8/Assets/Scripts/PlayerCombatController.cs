@@ -4,6 +4,7 @@ using EnemyControllers;
 using EnemyStates;
 using UnityEngine;
 using Hellmade.Sound;
+using UserInterface;
 
 namespace DefaultNamespace
 {
@@ -23,6 +24,8 @@ namespace DefaultNamespace
         public Animator animator;
 
         public AudioClip playerHitFx;
+
+        public HealthBar healthBar;
         
 
         private PlayerTeleportController _teleportController;
@@ -44,7 +47,8 @@ namespace DefaultNamespace
         void Update()
         {            
             if (!animator.GetCurrentAnimatorStateInfo(animator.GetLayerIndex("Base Layer")).IsName("Player_SpinKick")
-                && !_teleportController.IsTeleportRangeActivated() && Input.GetKeyDown(KeyCode.Mouse0))
+                && !_teleportController.IsTeleportRangeActivated() && (Input.GetKeyDown(KeyCode.Mouse0) 
+                                                                       || Input.GetKeyDown(KeyCode.Q)))
             {
                 animator.SetBool("Attacking", true);
             }
@@ -57,6 +61,9 @@ namespace DefaultNamespace
             animator.SetBool("Attacking", false);
             animator.SetTrigger("Hit");
             currHealth -= damage;
+            
+            healthBar.OnHit(damage / (float)health);
+            
             EazySoundManager.PlaySound(playerHitFx, false);
             
             if (currHealth <= 0)

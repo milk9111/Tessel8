@@ -38,6 +38,11 @@ namespace Spawn
             _validSpawnPositions = null;
             _isCooldownFinished = true;
 
+            if (rounds.Length == 0)
+            {
+                _isPaused = true;
+                return;
+            }
             _currRound = rounds[0].GetSelectedRound();
             _roundIndex = 0;
         }

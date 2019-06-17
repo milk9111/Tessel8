@@ -1,5 +1,7 @@
+using System.Collections;
 using Hellmade.Sound;
 using UnityEngine;
+using UserInterface;
 
 namespace EnemyStates.SkeletonStates
 {
@@ -10,10 +12,20 @@ namespace EnemyStates.SkeletonStates
 
         public AudioClip enemyHitFx;
 
+        public HealthBar healthBar;
+
         private bool _isDead;
 
         private bool _hasBeenHit;
-        
+
+        private int _currHealth;
+
+
+        public override void Init()
+        {
+            _currHealth = health;
+        }
+
         public override void DoAction()
         {
             if (_hasBeenHit) return;
@@ -23,11 +35,14 @@ namespace EnemyStates.SkeletonStates
         
         public void DealDamage(int damage)
         {
-            health -= damage;
+            _currHealth -= damage;
+
+            healthBar.OnHit(damage / (float)health);
+            
             EazySoundManager.PlaySound(enemyHitFx, false);
             _controller.ChangeState(States.Hit);
 
-            if (health <= 0)
+            if (_currHealth <= 0)
             {
                 _isDead = true;
             }
@@ -38,5 +53,7 @@ namespace EnemyStates.SkeletonStates
             _hasBeenHit = false;
             _controller.ChangeState(_isDead ? States.Dead : States.Idle);
         }
+
+        
     }
 }
