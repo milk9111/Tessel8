@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerHitBox
   - Enemy
+  - FallingTile
   layers:
   - Default
   - TransparentFX

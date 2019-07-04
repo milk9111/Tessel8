@@ -11,6 +11,8 @@ public class PlayerTeleportController : MonoBehaviour
 	public float teleportRangeRadius = 4f;
 	[Range(0.1f, 1)]
 	public float teleportCircleThickness = 0.5f;
+	[Tooltip("The Y offset amount to add to player position on teleport (so player doesn't get stuck in tile collider)")]
+	public float teleportLandYOffset = 1.5f;
 
 	public ParticleSystem teleportRange;
 
@@ -171,9 +173,8 @@ public class PlayerTeleportController : MonoBehaviour
 
 	private void TeleportPlayer()
 	{
-		
 		transform.SetPositionAndRotation(new Vector3(_mousePos.x, 
-			_lastTeleportedBottomTile.LocalPlace.y + 1.1f), transform.rotation);
+			_lastTeleportedBottomTile.LocalPlace.y + teleportLandYOffset), transform.rotation);
 
 		var foundTileOnSide = CollidingWithSurroundingTile(_tiles);
 		

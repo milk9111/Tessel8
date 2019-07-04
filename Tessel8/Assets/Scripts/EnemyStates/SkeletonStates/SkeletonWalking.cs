@@ -50,6 +50,12 @@ namespace EnemyStates.SkeletonStates
                 _controller.velocity.y = jumpTakeOffSpeed;
             }
             
+            _foundHit = Physics2D.Raycast(transform.position, transform.right * -1, raycastDistance, 1<<LayerMask.NameToLayer("Ground"));
+            if (_foundHit && _controller.isGrounded())
+            {
+                _controller.velocity.y = jumpTakeOffSpeed;
+            }
+            
             if (!followTarget)
             {
                 _controller.SetDirection(1);

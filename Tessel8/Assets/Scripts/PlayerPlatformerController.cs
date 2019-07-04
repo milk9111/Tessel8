@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -21,9 +22,20 @@ public class PlayerPlatformerController : PhysicsObject {
     private bool _isDisabled;
     private int _currPausedFrame;
 
+    private GameObject _lastHit;
+
     protected override void ChildUpdate()
     {
         if (_isDisabled) return;
+
+        if (grounded)
+        {
+            var foundHit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 0.1f), transform.up * -1, 0.7f, 1<<LayerMask.NameToLayer("Ground"));
+            if (foundHit.rigidbody != null && foundHit.rigidbody.gameObject != null && string.Equals(foundHit.rigidbody.gameObject.tag, "FallingTile"))
+            {
+                foundHit.rigidbody.gameObject.GetComponent<FallingTile>().Touch();
+            }
+        }
         
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {

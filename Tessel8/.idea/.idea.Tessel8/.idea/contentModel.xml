@@ -240,9 +240,11 @@
       </e>
       <e p="Assets\Materials" t="Include">
         <e p="DefaultRayCast.shader" t="Include" />
+        <e p="Greyscale.shader" t="Include" />
       </e>
       <e p="Assets\Scripts" t="Include">
         <e p="BackgroundSoundController.cs" t="Include" />
+        <e p="DeathBorder.cs" t="Include" />
         <e p="EnemyControllers" t="Include">
           <e p="EnemyController.cs" t="Include" />
           <e p="LaserWallController.cs" t="Include" />
@@ -264,6 +266,7 @@
           <e p="StateHolder.cs" t="Include" />
           <e p="States.cs" t="Include" />
         </e>
+        <e p="FallingTile.cs" t="Include" />
         <e p="GameController.cs" t="Include" />
         <e p="GameTiles.cs" t="Include" />
         <e p="PerfectPixel.cs" t="Include" />

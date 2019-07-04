@@ -368,7 +368,7 @@ MonoBehaviour:
   speed: 0.6
   jumpTakeOffSpeed: 5
   raycastDistance: 0.5
-  stoppingDistance: 2
+  stoppingDistance: 5
   target: {fileID: 0}
   followTarget: 1
 --- !u!212 &212350130020727618
