@@ -18,6 +18,8 @@ namespace DefaultNamespace
         private PlayerControllerHelper _helper;
         private Vector3 _playerStartingPosition;
         private Quaternion _playerStartingRotation;
+
+        private IList<GameObject> _interactiveTiles;
         
         void Awake()
         {
@@ -28,6 +30,8 @@ namespace DefaultNamespace
                 _player.transform.position.y, _player.transform.position.z);
             _playerStartingRotation = new Quaternion(_player.transform.rotation.x, 
                 _player.transform.rotation.y, _player.transform.rotation.z, _player.transform.rotation.w);
+
+            _interactiveTiles = GameObject.FindGameObjectsWithTag("InteractiveTile");
         }
 
         public IList<EnemyController> GetAllEnemiesInGame()
@@ -51,6 +55,10 @@ namespace DefaultNamespace
             pauseMenu.gameObject.SetActive(true);
             _helper.OnPause();
             _spawnController.OnPause();
+            foreach (var tile in _interactiveTiles)
+            {
+                tile.GetComponent<FallingTile>().OnPause();
+            }
         }
 
         public void ResumeGame()
@@ -58,6 +66,10 @@ namespace DefaultNamespace
             pauseMenu.gameObject.SetActive(false);
             _helper.OnPlay();
             _spawnController.OnPlay();
+            foreach (var tile in _interactiveTiles)
+            {
+                tile.GetComponent<FallingTile>().OnPlay();
+            }
         }
 
         public void StartGame()
@@ -66,6 +78,10 @@ namespace DefaultNamespace
             pauseMenu.gameObject.SetActive(false);
             _spawnController.OnStart();
             _helper.OnStart(_playerStartingPosition, _playerStartingRotation);
+            foreach (var tile in _interactiveTiles)
+            {
+                tile.GetComponent<FallingTile>().OnStart();
+            }
         }
 
         public void GameOver()

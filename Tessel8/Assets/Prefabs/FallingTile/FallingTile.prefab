@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 95662538679456018}
   m_Layer: 8
   m_Name: FallingTile
-  m_TagString: FallingTile
+  m_TagString: InteractiveTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

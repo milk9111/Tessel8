@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4013888873410470}
   - component: {fileID: 61649973186376868}
   - component: {fileID: 50760788733610160}
-  - component: {fileID: 114187454613138848}
+  - component: {fileID: 114494494652289458}
   m_Layer: 0
   m_Name: LaserWall_v2
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1318009563330052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19, y: -5.51, z: 0}
+  m_LocalPosition: {x: -14.298937, y: -5.163044, z: 0}
   m_LocalScale: {x: 1, y: 12.137493, z: 1}
   m_Children:
   - {fileID: 4321843464116972}
@@ -118,7 +118,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6347444, y: 1.2532959}
   m_EdgeRadius: 0
---- !u!114 &114187454613138848
+--- !u!114 &114494494652289458
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -126,11 +126,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1318009563330052}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b28fc627b12e4ff6a17d900ef6eeaca4, type: 3}
+  m_Script: {fileID: 11500000, guid: 68b475371af04c86b5a4cc96ee025563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  secondsToSelfDestruct: 10
+  speed: 2
+  secondsToSelfDestruct: 5
 --- !u!198 &198762280583577420
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -191,7 +191,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 85579946
+  randomSeed: -530589080
   InitialModule:
     serializedVersion: 3
     enabled: 1

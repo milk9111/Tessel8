@@ -7,6 +7,8 @@ TagManager:
   - PlayerHitBox
   - Enemy
   - FallingTile
+  - Projectile
+  - InteractiveTile
   layers:
   - Default
   - TransparentFX

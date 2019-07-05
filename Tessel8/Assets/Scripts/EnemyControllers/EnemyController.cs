@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using EnemyStates;
 using UnityEngine;
 
@@ -31,6 +32,8 @@ namespace EnemyControllers
 		protected bool _isDead;
 
 		private int _lastMovingDirection;
+
+		private IList<GameObject> _childObjects;
 	
 		void Awake ()
 		{
@@ -44,6 +47,8 @@ namespace EnemyControllers
 			}
 
 			_collider = GetComponent<CapsuleCollider2D>();
+			
+			_childObjects = new List<GameObject>();
 
 			ChildAwake();
 		}
@@ -83,7 +88,6 @@ namespace EnemyControllers
 
 		public void ChangeState(States state)
 		{
-			//Debug.Log("Changing state to " + StatesHelper.GetStateName(state));
 			_currState = state;
 		}
 

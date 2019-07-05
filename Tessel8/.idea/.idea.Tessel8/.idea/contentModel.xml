@@ -247,7 +247,7 @@
         <e p="DeathBorder.cs" t="Include" />
         <e p="EnemyControllers" t="Include">
           <e p="EnemyController.cs" t="Include" />
-          <e p="LaserWallController.cs" t="Include" />
+          <e p="Projectile.cs" t="Include" />
           <e p="SkeletonController.cs" t="Include" />
         </e>
         <e p="EnemyStates" t="Include">
@@ -304,6 +304,7 @@
           <e p="HealthBar.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
           <e p="PauseMenu.cs" t="Include" />
+          <e p="StaminaBar.cs" t="Include" />
         </e>
         <e p="WorldTile.cs" t="Include" />
       </e>

@@ -31,7 +31,7 @@ public class PlayerPlatformerController : PhysicsObject {
         if (grounded)
         {
             var foundHit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 0.1f), transform.up * -1, 0.7f, 1<<LayerMask.NameToLayer("Ground"));
-            if (foundHit.rigidbody != null && foundHit.rigidbody.gameObject != null && string.Equals(foundHit.rigidbody.gameObject.tag, "FallingTile"))
+            if (foundHit.rigidbody != null && foundHit.rigidbody.gameObject != null && string.Equals(foundHit.rigidbody.gameObject.name, "FallingTile"))
             {
                 foundHit.rigidbody.gameObject.GetComponent<FallingTile>().Touch();
             }

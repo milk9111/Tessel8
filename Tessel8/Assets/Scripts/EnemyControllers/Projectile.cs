@@ -1,11 +1,10 @@
-using System;
 using System.Collections;
 using DefaultNamespace;
 using UnityEngine;
 
 namespace EnemyControllers
 {
-    public class LaserWallController : MonoBehaviour
+    public class Projectile : MonoBehaviour
     {
         public float speed;
         public float secondsToSelfDestruct;
@@ -13,12 +12,20 @@ namespace EnemyControllers
         private int _direction = 1;
         private int _damage;
 
+        private float _remainingSecondsOnTimer;
+
         private bool _firstCreated = true;
+        private bool _isPaused;
 
         private Coroutine _coroutine;
 
         void Update()
         {
+            if (_isPaused)
+            {
+                return;
+            }
+            
             if (_firstCreated)
             {
                 _coroutine = StartCoroutine(SelfDestructClock());
@@ -51,9 +58,27 @@ namespace EnemyControllers
             _damage = damage;
         }
 
+        public void OnPause()
+        {
+            if (_coroutine != null) StopCoroutine(_coroutine);
+            _isPaused = true;
+        }
+
+        public void OnPlay()
+        {
+            _coroutine = StartCoroutine(SelfDestructClock());
+            _isPaused = false;
+        }
+
         private IEnumerator SelfDestructClock()
         {
-            yield return new WaitForSeconds(secondsToSelfDestruct);
+            var timerLength = _remainingSecondsOnTimer > 0 ? _remainingSecondsOnTimer : secondsToSelfDestruct;
+            for (_remainingSecondsOnTimer = timerLength;
+                _remainingSecondsOnTimer > 0;
+                _remainingSecondsOnTimer -= Time.deltaTime)
+            {
+                yield return null;
+            }
             Destroy(gameObject);
         }
     }

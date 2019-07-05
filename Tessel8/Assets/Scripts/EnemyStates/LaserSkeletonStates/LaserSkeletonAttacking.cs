@@ -53,7 +53,7 @@ namespace EnemyStates.LaserSkeletonStates
                 var laserWall = Instantiate(laserWallPrefab, 
                     new Vector3(direction < 0 ? transform.position.x - 1 : transform.position.x + 1,
                         transform.position.y), laserWallPrefab.transform.rotation);
-                var wallController = laserWall.GetComponent<LaserWallController>();
+                var wallController = laserWall.GetComponent<Projectile>();
                 wallController.SetDirection(direction);
                 wallController.SetDamage(damageOutput);
             }

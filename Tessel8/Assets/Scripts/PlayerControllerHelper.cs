@@ -62,6 +62,7 @@ namespace DefaultNamespace
             _animator.Rebind();
             _platformerController.EnableMovement();
             _teleportController.EnableTeleport();
+            _teleportController.ResetStamina();
             _combatController.ResetHealth();
             gameObject.transform.SetPositionAndRotation(startingPos, startingRot);
         }

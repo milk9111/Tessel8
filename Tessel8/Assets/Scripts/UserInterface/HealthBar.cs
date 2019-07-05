@@ -9,6 +9,8 @@ namespace UserInterface
         public GameObject healthBar;
         public GameObject healthBG;
 
+        public bool isAlwaysVisible;
+
         [Tooltip("Time in seconds until fade effect starts")]
         public float waitSecondsToFade = 1;
         
@@ -35,28 +37,33 @@ namespace UserInterface
             _healthBarStartingXScale = _healthBarRect.localScale.x;
             _healthBarStartingAlpha = _healthBarImage.color.a;
             _healthBGStartingAlpha = _healthBGImage.color.a;
-            
-            FadeImage(_healthBarImage, _healthBarStartingAlpha);
-            FadeImage(_healthBGImage, _healthBGStartingAlpha);
+
+            if (!isAlwaysVisible)
+            {
+                FadeImage(_healthBarImage, _healthBarStartingAlpha);
+                FadeImage(_healthBGImage, _healthBGStartingAlpha);
+            }
         }
 
         public void OnHit(float damagePercent)
         {
-            if (_fadeCoroutine != null)
-            {
-                StopCoroutine(_fadeCoroutine);
-            }
-
-            ResetImageAlpha(_healthBarImage, _healthBarStartingAlpha);
-            ResetImageAlpha(_healthBGImage, _healthBGStartingAlpha);
-            
             var localScale = _healthBarRect.localScale;
             var newXScaleVal = localScale.x - _healthBarStartingXScale * damagePercent;
             newXScaleVal = newXScaleVal >= 0 ? newXScaleVal : 0;
             localScale = new Vector3(newXScaleVal, localScale.y, localScale.z);
             _healthBarRect.localScale = localScale;
-            
-            _fadeCoroutine = StartCoroutine(FadeHealthBar());
+
+            if (!isAlwaysVisible)
+            {
+                if (_fadeCoroutine != null)
+                {
+                    StopCoroutine(_fadeCoroutine);
+                }
+    
+                ResetImageAlpha(_healthBarImage, _healthBarStartingAlpha);
+                ResetImageAlpha(_healthBGImage, _healthBGStartingAlpha);
+                _fadeCoroutine = StartCoroutine(FadeHealthBar());
+            }
         }
         
         private IEnumerator FadeHealthBar()
@@ -79,6 +86,12 @@ namespace UserInterface
             var imageColor = image.color;
             image.color = new Color(imageColor.r,imageColor.g, 
                 imageColor.r, startingAlpha);
+        }
+
+        public void ResetHealthBar()
+        {
+            var localScale = _healthBarRect.localScale;
+            _healthBarRect.localScale = new Vector3(_healthBarStartingXScale, localScale.y, localScale.z);
         }
 
         private void FadeImage(Image image, float fadeAmount)

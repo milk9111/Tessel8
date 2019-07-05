@@ -93,6 +93,13 @@ namespace Spawn
                 enemy.OnPause();
                 enemy.enabled = false;
             }
+
+            foreach (var bullet in GameObject.FindGameObjectsWithTag("Projectile"))
+            {
+                var proj = bullet.GetComponent<Projectile>();
+                proj.OnPause();
+                proj.enabled = false;
+            }
         }
 
         public void OnPlay()
@@ -106,10 +113,22 @@ namespace Spawn
                 enemy.enabled = true;
                 enemy.OnPlay();
             }
+            
+            foreach (var bullet in GameObject.FindGameObjectsWithTag("Projectile"))
+            {
+                var proj = bullet.GetComponent<Projectile>();
+                proj.OnPlay();
+                proj.enabled = true;
+            }
         }
 
         public void OnStart()
         {
+            foreach (var bullet in GameObject.FindGameObjectsWithTag("Projectile"))
+            {
+                Destroy(bullet);
+            }
+            
             foreach (var enemy in _enemies)
             {
                 enemy.MarkAsDead();

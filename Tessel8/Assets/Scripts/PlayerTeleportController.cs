@@ -1,13 +1,21 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UserInterface;
 
 public class PlayerTeleportController : MonoBehaviour
 {
-
+	private const int TOTAL_RECHARGE_TIME_IN_SEC = 10;
+	
+	public int stamina = 100;
+	public int staminaRechargeRatePerSecond = 4;
+	public int staminaCostPerTeleport = 15;
+	public float waitTimeInSecTillStaminaRecharge = 1;
+	
 	public float teleportRangeRadius = 4f;
 	[Range(0.1f, 1)]
 	public float teleportCircleThickness = 0.5f;
@@ -17,6 +25,8 @@ public class PlayerTeleportController : MonoBehaviour
 	public ParticleSystem teleportRange;
 
 	public ParticleSystem teleportSignal;
+		
+	public StaminaBar staminaBar;
 	
 	private WorldTile _tile;
 
@@ -29,6 +39,13 @@ public class PlayerTeleportController : MonoBehaviour
 	private PlayerPlatformerController _platformerController;
 	private bool _isTeleportRangeActivated;
 	private bool _isDisabled;
+
+	private float _currStamina;
+
+	private float _remainingSecondsOnTimer;
+
+	private Coroutine _staminaRechargeWaitCoroutine;
+	private Coroutine __rechargeStaminaCoroutine;
 
 	void Awake()
 	{
@@ -44,6 +61,8 @@ public class PlayerTeleportController : MonoBehaviour
 		teleportRange.gameObject.SetActive(false);
 
 		_isDisabled = false;
+
+		_currStamina = stamina;
 	}
 	
 	// Update is called once per frame
@@ -80,9 +99,19 @@ public class PlayerTeleportController : MonoBehaviour
 			var worldPoint = GetMousePosition();
 			if (IsPointWithinRange(worldPoint))
 			{
-				if (IsValidTeleportLocation(worldPoint) && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Q)))
+				if (IsValidTeleportLocation(worldPoint) && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Q))
+				    && _currStamina - staminaCostPerTeleport >= 0)
 				{
+					if (_staminaRechargeWaitCoroutine != null && __rechargeStaminaCoroutine != null)
+					{
+						StopCoroutine(_staminaRechargeWaitCoroutine);
+						StopCoroutine(__rechargeStaminaCoroutine);
+					}
+
 					TeleportPlayer();
+					_currStamina -= staminaCostPerTeleport;
+					staminaBar.OnAction(staminaCostPerTeleport / (float)stamina);
+					_staminaRechargeWaitCoroutine = StartCoroutine(WaitForStaminaRechargeStart());
 				}
 			}
 			else
@@ -95,6 +124,12 @@ public class PlayerTeleportController : MonoBehaviour
 		{
 			ClearTileColor(_lastTile);
 		}
+	}
+
+	public void ResetStamina()
+	{
+		_currStamina = stamina;
+		staminaBar.ResetStaminaBar();
 	}
 
 	public void DisableTeleport()
@@ -254,6 +289,38 @@ public class PlayerTeleportController : MonoBehaviour
 	{
 		_mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
 		return new Vector3Int(Mathf.FloorToInt(_mousePos.x), Mathf.FloorToInt(_mousePos.y), 0);
+	}
+
+	private IEnumerator WaitForStaminaRechargeStart()
+	{
+		yield return new WaitForSeconds(waitTimeInSecTillStaminaRecharge);
+		__rechargeStaminaCoroutine = StartCoroutine(RechargeStamina());
+	}
+
+	private IEnumerator RechargeStamina()
+	{
+		var timerLength = _remainingSecondsOnTimer > 0 ? _remainingSecondsOnTimer : TOTAL_RECHARGE_TIME_IN_SEC;
+		for (_remainingSecondsOnTimer = timerLength;
+			_remainingSecondsOnTimer > 0;
+			_remainingSecondsOnTimer -= Time.deltaTime)
+		{
+			var amountToRecharge = _currStamina + staminaRechargeRatePerSecond < stamina
+				? staminaRechargeRatePerSecond
+				: stamina - _currStamina;
+
+			_currStamina = _currStamina + amountToRecharge;
+			
+			if (_currStamina <= stamina)
+			{
+				staminaBar.OnAction(-(amountToRecharge / stamina));
+			}
+			else
+			{
+				break;
+			}
+
+			yield return null;
+		}
 	}
 	
 	private void DrawCircle(LineRenderer lineRenderer)
