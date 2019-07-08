@@ -1,11 +1,9 @@
 
 using System.Collections;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class FallingTile : PhysicsObject
 {
-    public float fallSpeed;
     public float timeTillDropInSeconds;
     public float cooldownTimeInSeconds;
     

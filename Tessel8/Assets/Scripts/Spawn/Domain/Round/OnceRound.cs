@@ -12,14 +12,16 @@ namespace Spawn.Domain.Round
 
         private int _waveIndex;
                 
-        public override void Init(HashSet<Vector3> spawnPositions, HashSet<EnemyController> enemies)
+        public override void Init(HashSet<Vector3> spawnPositions, HashSet<EnemyController> enemies, 
+            SpawnUIController spawnUiController)
         {
+            base.Init(spawnPositions, enemies, spawnUiController);
             _validSpawnPositions = spawnPositions;
             _enemies = enemies;
             _currWave = waveConfigurations[0];
             _currWave.OverrideSecondsBetweenEnemies(0.1f);
             _waveIndex = 0;
-            Debug.Log("Starting wave " + (_waveIndex + 1) + ": " + _currWave.GetName());
+            _spawnUiController.NewWave(_waveIndex + 1);
         }
         
         public override void UpdateRound()
@@ -36,7 +38,7 @@ namespace Spawn.Domain.Round
                 }
 
                 _currWave = waveConfigurations[_waveIndex];
-                Debug.Log("Starting wave " + (_waveIndex + 1) + ": " + _currWave.GetName());
+                _spawnUiController.NewWave(_waveIndex + 1);
             }
 
             var enemy = _currWave.SpawnEnemy(RandomPositionFromValidPositions());
@@ -47,7 +49,7 @@ namespace Spawn.Domain.Round
         
         public override string GetName()
         {
-            return gameObject.name;
+            return GetType().Name;
         }
         
         public override void OnPause()

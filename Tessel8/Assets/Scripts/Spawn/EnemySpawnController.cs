@@ -26,11 +26,15 @@ namespace Spawn
         private IRound _currRound;
         private int _roundIndex;
 
+        private SpawnUIController _spawnUiController;
+
         private bool _isCooldownFinished;
         private bool _isPaused;
         
         void Awake()
-        {            
+        {
+            _spawnUiController = GetComponent<SpawnUIController>();
+            
             _enemies = new HashSet<EnemyController>();
             GatherStartingEnemies();
             ClearDeadEnemies();
@@ -55,8 +59,9 @@ namespace Spawn
             {
                 _validSpawnPositions = new HashSet<Vector3>();
                 GatherValidSpawnPositions();
-                Debug.Log("Starting round " + (_roundIndex + 1) + ": " + _currRound.GetName());
-                _currRound.Init(_validSpawnPositions, _enemies);
+                _spawnUiController.NewRound(RoundTypesHelper.GetTypeFromName(_currRound.GetName()), 
+                    _currRound, _roundIndex + 1);
+                _currRound.Init(_validSpawnPositions, _enemies, _spawnUiController);
             }
 
             ClearDeadEnemies();
@@ -66,12 +71,13 @@ namespace Spawn
                 _roundIndex++;
                 if (_roundIndex >= rounds.Length)
                 {
-                    Debug.Log("Finished all rounds!");
+                    if (!_spawnUiController.IsFinished()) _spawnUiController.NewVictory();
                     return;
                 }
                 _currRound = rounds[_roundIndex].GetSelectedRound();
-                Debug.Log("Starting round " + (_roundIndex + 1) + ": " + _currRound.GetName());
-                _currRound.Init(_validSpawnPositions, _enemies);
+                _spawnUiController.NewRound(RoundTypesHelper.GetTypeFromName(_currRound.GetName()), 
+                    _currRound, _roundIndex + 1);
+                _currRound.Init(_validSpawnPositions, _enemies, _spawnUiController);
             }
             
             _currRound.UpdateRound();
@@ -137,8 +143,10 @@ namespace Spawn
             ClearDeadEnemies();
 
             _currRound = rounds[0].GetSelectedRound();
-            _currRound.Init(_validSpawnPositions, _enemies);
+            _currRound.Init(_validSpawnPositions, _enemies, _spawnUiController);
             _roundIndex = 0;
+            _spawnUiController.NewRound(RoundTypesHelper.GetTypeFromName(_currRound.GetName()), 
+                _currRound, _roundIndex + 1);
         }
 
         private void ClearDeadEnemies()

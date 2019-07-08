@@ -16,6 +16,8 @@ namespace Spawn.Domain.Round
 
         protected HashSet<EnemyController> _enemies;
 
+        protected SpawnUIController _spawnUiController;
+
         public void SetSpawnPositions(HashSet<Vector3> spawnPositions)
         {
             _validSpawnPositions = spawnPositions;
@@ -30,8 +32,10 @@ namespace Spawn.Domain.Round
         {
         }
 
-        public virtual void Init(HashSet<Vector3> spawnPositions, HashSet<EnemyController> enemies)
+        public virtual void Init(HashSet<Vector3> spawnPositions, HashSet<EnemyController> enemies, 
+            SpawnUIController spawnUiController)
         {
+            _spawnUiController = spawnUiController;
         }
         
         protected Vector3 RandomPositionFromValidPositions()
@@ -55,6 +59,11 @@ namespace Spawn.Domain.Round
         public virtual string GetName()
         {
             return "Base Round";
+        }
+
+        public virtual float GetRemainingTime()
+        {
+            return 0.0f;
         }
     }
 }

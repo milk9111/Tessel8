@@ -10,7 +10,7 @@ namespace Spawn.Domain.Round
 
         void UpdateRound();
 
-        void Init(HashSet<Vector3> spawnPositions, HashSet<EnemyController> enemies);
+        void Init(HashSet<Vector3> spawnPositions, HashSet<EnemyController> enemies, SpawnUIController spawnUiController);
 
         void SetSpawnPositions(HashSet<Vector3> spawnPositions);
 
@@ -19,5 +19,7 @@ namespace Spawn.Domain.Round
         void OnPlay();
 
         string GetName();
+
+        float GetRemainingTime();
     }
 }

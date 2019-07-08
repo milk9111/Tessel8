@@ -5,9 +5,9 @@ namespace UserInterface
 {
     public class MainMenu : MonoBehaviour
     {
-        public void OnStart()
+        public void OnStart(string sceneName)
         {
-            SceneManager.LoadScene("tiles_main");
+            SceneManager.LoadScene(sceneName);
         }
         
         public void OnExit()

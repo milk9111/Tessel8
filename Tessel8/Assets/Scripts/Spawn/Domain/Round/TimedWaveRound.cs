@@ -23,13 +23,15 @@ namespace Spawn.Domain.Round
 
         private string _name;
                 
-        public override void Init(HashSet<Vector3> spawnPositions, HashSet<EnemyController> enemies)
+        public override void Init(HashSet<Vector3> spawnPositions, HashSet<EnemyController> enemies, 
+            SpawnUIController spawnUiController)
         {
+            base.Init(spawnPositions, enemies, spawnUiController);
             _validSpawnPositions = spawnPositions;
             _enemies = enemies;
             _currWave = waveConfigurations[0];
             _waveIndex = 0;
-            Debug.Log("Starting wave " + (_waveIndex + 1) + ": " + _currWave.GetName());
+            _spawnUiController.NewWave(_waveIndex + 1);
 
             _remainingSecondsOnTimer = 0;
             
@@ -51,7 +53,7 @@ namespace Spawn.Domain.Round
                 }
 
                 _currWave = waveConfigurations[_waveIndex];
-                Debug.Log("Time's up! Starting wave " + (_waveIndex + 1) + ": " + _currWave.GetName());
+                _spawnUiController.NewWave(_waveIndex + 1);
             }
             
             if (!_isTimerOn && _waveIndex < waveConfigurations.Length)
@@ -82,7 +84,12 @@ namespace Spawn.Domain.Round
 
         public override string GetName()
         {
-            return gameObject.name;
+            return GetType().Name;
+        }
+
+        public override float GetRemainingTime()
+        {
+            return _remainingSecondsOnTimer;
         }
 
         private IEnumerator WaveTimer()
