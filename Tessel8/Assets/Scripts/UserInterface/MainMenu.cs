@@ -5,9 +5,24 @@ namespace UserInterface
 {
     public class MainMenu : MonoBehaviour
     {
-        public void OnStart(string sceneName)
+        public GameObject startScreen;
+        public GameObject arenaSelection;
+
+        void Awake()
         {
-            SceneManager.LoadScene(sceneName);
+            OnBack();
+        }
+        
+        public void OnStart()
+        {
+            startScreen.SetActive(false);
+            arenaSelection.SetActive(true);
+        }
+
+        public void OnBack()
+        {
+            startScreen.SetActive(true);
+            arenaSelection.SetActive(false);
         }
         
         public void OnExit()
