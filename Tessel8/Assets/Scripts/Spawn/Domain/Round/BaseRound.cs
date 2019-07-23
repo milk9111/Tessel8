@@ -28,6 +28,11 @@ namespace Spawn.Domain.Round
             return _isComplete;
         }
 
+        public virtual void ResetRound()
+        {
+            _isComplete = false;
+        }
+
         public virtual void UpdateRound()
         {
         }
@@ -35,6 +40,8 @@ namespace Spawn.Domain.Round
         public virtual void Init(HashSet<Vector3> spawnPositions, HashSet<EnemyController> enemies, 
             SpawnUIController spawnUiController)
         {
+            _isPaused = false;
+            _isComplete = false;
             _spawnUiController = spawnUiController;
         }
         

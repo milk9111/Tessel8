@@ -56,6 +56,13 @@ namespace Spawn.Domain.Round
             return _isComplete;
         }
 
+        public void ResetWave()
+        {
+            _isComplete = false;
+            _isPaused = false;
+            _isCooldownFinished = true;
+        }
+
         public EnemyController SpawnEnemy(Vector3 pos)
         {
             if (_isComplete || !_isCooldownFinished || _isPaused) return null;

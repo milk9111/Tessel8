@@ -27,6 +27,15 @@ namespace Spawn.Domain.Round
             _spawnUiController.NewWave(_waveIndex + 1);
         }
         
+        public override void ResetRound()
+        {
+            base.ResetRound();
+            foreach (var wave in waveConfigurations)
+            {
+                wave.ResetWave();
+            }
+        }
+        
         public override void UpdateRound()
         {
             if (_isPaused) return;

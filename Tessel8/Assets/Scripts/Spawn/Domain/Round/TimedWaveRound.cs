@@ -39,6 +39,15 @@ namespace Spawn.Domain.Round
             _lastCoroutine = StartCoroutine(WaveTimer());
         }
         
+        public override void ResetRound()
+        {
+            base.ResetRound();
+            foreach (var wave in waveConfigurations)
+            {
+                wave.ResetWave();
+            }
+        }
+        
         public override void UpdateRound()
         {
             if (_isPaused) return;

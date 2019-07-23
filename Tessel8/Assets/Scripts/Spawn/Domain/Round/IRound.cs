@@ -8,6 +8,8 @@ namespace Spawn.Domain.Round
     {
         bool IsRoundComplete();
 
+        void ResetRound();
+
         void UpdateRound();
 
         void Init(HashSet<Vector3> spawnPositions, HashSet<EnemyController> enemies, SpawnUIController spawnUiController);

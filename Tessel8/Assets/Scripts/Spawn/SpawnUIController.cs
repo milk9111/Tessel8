@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using DefaultNamespace;
 using Spawn.Domain;
 using Spawn.Domain.Round;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace Spawn
         private Queue<SpawnQueueMember> _uiQueue;
         private SpawnQueueMember _currMember;
 
+        private GameController _gameController;
+
         private bool _isPaused;
         private bool _isFinished;
 
@@ -28,6 +31,7 @@ namespace Spawn
         void Awake()
         {
             _uiQueue = new Queue<SpawnQueueMember>();
+            _gameController = GetComponent<GameController>();
         }
 
         void Update()
@@ -66,6 +70,14 @@ namespace Spawn
             }
         }
 
+        public void OnStart()
+        {
+            _isFinished = false;
+            _isPaused = false;
+            _uiQueue = null;
+            _currMember = null;
+        }
+
         public void NewRound(RoundTypes type, IRound round, int roundNumber)
         {
             if (_uiQueue == null) _uiQueue = new Queue<SpawnQueueMember>();
@@ -79,7 +91,8 @@ namespace Spawn
 
         public void NewVictory()
         {
-            _uiQueue.Enqueue(new SpawnQueueMember(SpawnQueueMembers.Victory));
+            _isFinished = true;
+            _gameController.OpenVictoryMenu();
         }
 
         public bool IsFinished()

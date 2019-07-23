@@ -11,8 +11,11 @@ namespace DefaultNamespace
         public PauseMenu pauseMenu;
 
         public GameoverMenu gameOverMenu;
+
+        public GameoverMenu victoryMenu;
         
         private EnemySpawnController _spawnController;
+        private SpawnUIController _spawnUiController;
 
         private GameObject _player;
         private PlayerControllerHelper _helper;
@@ -24,6 +27,7 @@ namespace DefaultNamespace
         void Awake()
         {
             _spawnController = GetComponent<EnemySpawnController>();
+            _spawnUiController = GetComponent<SpawnUIController>();
             _player = GameObject.FindWithTag("Player");
             _helper = _player.GetComponent<PlayerControllerHelper>();
             _playerStartingPosition = new Vector3(_player.transform.position.x, 
@@ -43,6 +47,11 @@ namespace DefaultNamespace
         {
             pauseMenu.gameObject.SetActive(true);
             pauseMenu.OnPause();
+        }
+
+        public void OpenVictoryMenu()
+        {
+            victoryMenu.gameObject.SetActive(true);
         }
         
         public void ClosePauseMenu()
@@ -76,7 +85,9 @@ namespace DefaultNamespace
         {
             gameOverMenu.gameObject.SetActive(false);
             pauseMenu.gameObject.SetActive(false);
+            victoryMenu.gameObject.SetActive(false);
             _spawnController.OnStart();
+            _spawnUiController.OnStart();
             _helper.OnStart(_playerStartingPosition, _playerStartingRotation);
             foreach (var tile in _interactiveTiles)
             {
@@ -86,6 +97,7 @@ namespace DefaultNamespace
 
         public void GameOver()
         {
+            if (victoryMenu.gameObject.activeInHierarchy) return;
             gameOverMenu.gameObject.SetActive(true);
         }
     }

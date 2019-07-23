@@ -45,7 +45,6 @@ namespace EnemyStates.SkeletonStates
 
             if (_currHealth <= 0)
             {
-                Debug.Log("enemy dead");
                 _isDead = true;
             }
         }

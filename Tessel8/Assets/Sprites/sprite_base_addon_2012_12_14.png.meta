@@ -388,7 +388,7 @@ TextureImporter:
     21300766: sprite_base_addon_2012_12_14_383
     21300768: sprite_base_addon_2012_12_14_384
   externalObjects: {}
-  serializedVersion: 4
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -406,6 +406,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -416,7 +418,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -436,11 +438,13 @@ TextureImporter:
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -450,7 +454,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Standalone
+  - serializedVersion: 2
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -460,7 +465,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: WebGL
+  - serializedVersion: 2
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -487,6 +493,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 67843bbb5d842de4d9f6d998765ccdbf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_1
       rect:
@@ -501,6 +513,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2bdf8d12743f11747b113ee717b9943d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_2
       rect:
@@ -515,6 +533,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 354cd51bc587d1841b1e23e2e9c955aa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_3
       rect:
@@ -529,6 +553,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 99bbf556eb450fd42b9fb13f804233bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_4
       rect:
@@ -543,6 +573,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1944adaf43dda6e439cf77e86d076575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_5
       rect:
@@ -557,6 +593,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1ae7fc4ac9d31a244bc142752027cf62
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_6
       rect:
@@ -571,6 +613,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cae18906e204f1e44b7d9e0510fb827a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_7
       rect:
@@ -585,6 +633,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b7ef6861e7f7d4f429f745528fc4f70b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_8
       rect:
@@ -599,6 +653,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 92ada5bb9ed690546949ec29ea69d317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_9
       rect:
@@ -613,6 +673,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 92bb3af488e9d9542a5a762528ee39c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_10
       rect:
@@ -627,6 +693,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b0089257b14a5d84d82b243a0e5c855e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_11
       rect:
@@ -641,6 +713,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: dedafe8c3685af24f84dd3e4e2185d3d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_12
       rect:
@@ -655,6 +733,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6643d9c0118ac9b49849f4ef744c935c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_13
       rect:
@@ -669,6 +753,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5dbed1249ab5d9043a68ca59b894fb4f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_14
       rect:
@@ -683,6 +773,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 54f96575045019f45bad28f9ce88ccdc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_15
       rect:
@@ -697,6 +793,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5feab78d918523646995f7c735214518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_16
       rect:
@@ -711,6 +813,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b2be3d703cb2446408ea62ceb8db97c4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_17
       rect:
@@ -725,6 +833,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e039803bdbd4ef940b270c77b352bc30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_18
       rect:
@@ -739,6 +853,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b0e5f6a486f2dcd4487cf3cf93e49284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_19
       rect:
@@ -753,6 +873,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0a35a48cd94563f41b88bdc0b590b2af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_20
       rect:
@@ -767,6 +893,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 10cef49747161b3458bb2450f1abffc5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_21
       rect:
@@ -781,6 +913,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 609d378f2b7342244a749bb4217fce79
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_22
       rect:
@@ -795,6 +933,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5a0a97eee4bc1cf4499bcc994b98a6da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_23
       rect:
@@ -809,6 +953,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 32713480070a54f4d8fc01ce8ced23b8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_24
       rect:
@@ -823,6 +973,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e2e4a2d68549b744587512cca04edbb5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_25
       rect:
@@ -837,6 +993,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 51fbfab02451dce42b566a58337b7a10
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_26
       rect:
@@ -851,6 +1013,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ac55bbdda14e3704185e5ec4c095e58e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_27
       rect:
@@ -865,6 +1033,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 01afe012b4dfc1045a6a714412b0af52
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_28
       rect:
@@ -879,6 +1053,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 36825c59cd8e88d44acfd5b5613acbc5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_29
       rect:
@@ -893,6 +1073,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7948de8743b4f2844aadba3735cf97da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_30
       rect:
@@ -907,6 +1093,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8a9df0fd7b4ea0240946e1eb868e3b2a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_31
       rect:
@@ -921,6 +1113,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c6e0dccf1171283488d0e049aa7ba262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_32
       rect:
@@ -935,6 +1133,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0082542a07c2b8645bdb25b1da6a4c0a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_33
       rect:
@@ -949,6 +1153,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: bfc6b31dcd2855840840240c175307f9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_34
       rect:
@@ -963,6 +1173,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9242c95137cb0224a8964ce4e8042a9e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_35
       rect:
@@ -977,6 +1193,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c513557ea9571a043a2cf5954d1ad8f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_36
       rect:
@@ -991,6 +1213,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0b8b14628a35a6040a0e795ea374e92c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_37
       rect:
@@ -1005,6 +1233,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a92318d2c6c59d34a8f9987409141c02
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_38
       rect:
@@ -1019,6 +1253,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8f1316da5de4e924a9013cccd5f96e75
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_39
       rect:
@@ -1033,6 +1273,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 898bb1db3fca235409a75b0076efa335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_40
       rect:
@@ -1047,6 +1293,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0ab4f6500ff014b489d987a0e59cdd85
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_41
       rect:
@@ -1061,6 +1313,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ea6fad6910443d24d9b5fc3b090d036b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_42
       rect:
@@ -1075,6 +1333,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9a36a5a13f8051d4d975b2299406ae00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_43
       rect:
@@ -1089,6 +1353,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 690905997de8d6a4ea08698a61ea659b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_44
       rect:
@@ -1103,6 +1373,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3ee4c322f40af674bba9ce7e4867290a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_45
       rect:
@@ -1117,6 +1393,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 984ba1ef303cfae4385cd9cb8c5aaf73
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_46
       rect:
@@ -1131,6 +1413,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e2f891995e03a5248a0c73a439c790e3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_47
       rect:
@@ -1145,6 +1433,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2110acdb7be444d45a08d5c264f298b8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_48
       rect:
@@ -1159,6 +1453,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: dd6b26e594cf9e94ca549e153adc1ac8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_49
       rect:
@@ -1173,6 +1473,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e80b19ddd21a27c4ba6ebd78da180da0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_50
       rect:
@@ -1187,6 +1493,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 456a6162ccc6edd489a4e278ca17526f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_51
       rect:
@@ -1201,6 +1513,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a621ef40a7732894bba17d560835904e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_52
       rect:
@@ -1215,6 +1533,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 23bbfc15a4977f846ac4161ed188e50c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_53
       rect:
@@ -1229,6 +1553,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: bbc6035c6831c5c418b6c1ae8fba8a8d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_54
       rect:
@@ -1243,6 +1573,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ede2484ebad094146b66360cd2c4bbfe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_55
       rect:
@@ -1257,6 +1593,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 544c0de01a001234cba449f42ecf87ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_56
       rect:
@@ -1271,6 +1613,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: da9f60e1c4b624d45a48ccdd759835f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_57
       rect:
@@ -1285,6 +1633,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 10dd8dfa8ab63ce4f82edf7854ee9ad8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_58
       rect:
@@ -1299,6 +1653,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1a7e1ffe62e018043a36caa176d000ac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_59
       rect:
@@ -1313,6 +1673,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 396ad254e8f57bb439081d33128da0ac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_60
       rect:
@@ -1327,6 +1693,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b702ac9ec1a461d4f998f438471747b6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_61
       rect:
@@ -1341,6 +1713,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: dece0d78d57edeb41b9c89d23336e7b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_62
       rect:
@@ -1355,6 +1733,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: eef5d0f9de6ceb34e8e430d70625e6ea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_63
       rect:
@@ -1369,6 +1753,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 68888a6a92474d345a3dc52ce3fc4acb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_64
       rect:
@@ -1383,6 +1773,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7e2b5a8f1f48a6f439e00e1bdc39e16e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_65
       rect:
@@ -1397,6 +1793,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cdeb999a846c56445beca6de2adeb732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_66
       rect:
@@ -1411,6 +1813,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1b7ca7db5c1085146b7cd5074207e712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_67
       rect:
@@ -1425,6 +1833,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: dd6f1ef0bdbf1224a9c0a6585a0eae71
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_68
       rect:
@@ -1439,6 +1853,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9157f61ff9e400242a9a274bcf96e692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_69
       rect:
@@ -1453,6 +1873,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b4fb2f1e27ac55744be98edbf3edf97d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_70
       rect:
@@ -1467,6 +1893,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c6113ffe5f75d7046b2f1ce27f620cd8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_71
       rect:
@@ -1481,6 +1913,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 544cb336ecf7c6a45bdfe02d0853c55d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_72
       rect:
@@ -1495,6 +1933,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a0a2446336e0f3e4686078cdf2252776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_73
       rect:
@@ -1509,6 +1953,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 85969985833b63b4f90ee11549d39dbe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_74
       rect:
@@ -1523,6 +1973,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8028cb61c7ba8c1469d62a75fa4d9e1a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_75
       rect:
@@ -1537,6 +1993,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5ede08a864f8a7c40a3aa30df4361a68
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_76
       rect:
@@ -1551,6 +2013,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 30993c1b369360949b595b15479f6464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_77
       rect:
@@ -1565,6 +2033,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: bee1774aa6f048a4596e37f0b40d7fff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_78
       rect:
@@ -1579,6 +2053,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6cf6632517bb0db409bbeebc95641097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_79
       rect:
@@ -1593,6 +2073,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4cf3a7129df992943a66f61e5ea40680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_80
       rect:
@@ -1607,6 +2093,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1a87856b38f97e14495cc6a25c98e2c6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_81
       rect:
@@ -1621,6 +2113,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 823724e1524ec6b4f9b3c5f9cc6c0281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_82
       rect:
@@ -1635,6 +2133,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 47b85b2fc51a39f4b8f54cb2cc914c61
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_83
       rect:
@@ -1649,6 +2153,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 820155e804d09a746896812fc2e35616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_84
       rect:
@@ -1663,6 +2173,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b51e3d80b8810d348b25d21d3ec3f12f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_85
       rect:
@@ -1677,6 +2193,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c8aaa2fb74c9fae4ca734f08c6dc5d85
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_86
       rect:
@@ -1691,6 +2213,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6c601e4e462f7cd4fae2119190e3fd00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_87
       rect:
@@ -1705,6 +2233,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 43dde65cfb0aee04fa8ac08896d4dd65
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_88
       rect:
@@ -1719,6 +2253,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7852352e86e55f44a9f7b9bd2b2047a9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_89
       rect:
@@ -1733,6 +2273,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 312ca828ababdce4fbab6bd5f5f0104d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_90
       rect:
@@ -1747,6 +2293,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c2a0126b0a140a74cb4b635205ae611c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_91
       rect:
@@ -1761,6 +2313,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f0c1e07c3f161674ab2fd93e0117896f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_92
       rect:
@@ -1775,6 +2333,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0d93daeb27305274089b911b17ee2bda
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_93
       rect:
@@ -1789,6 +2353,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4b5666d021a35a54c98d5ca90df9f6e5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_94
       rect:
@@ -1803,6 +2373,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ee2a18124e3406f4eb0a9f6e6c004911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_95
       rect:
@@ -1817,6 +2393,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 787ebc85439976e4a9eaf18434b63cd1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_96
       rect:
@@ -1831,6 +2413,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0fbbbfe0b9cdf1f4fbb855e90f09b89e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_97
       rect:
@@ -1845,6 +2433,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f979700a4156ea2499e2e79b02465cff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_98
       rect:
@@ -1859,6 +2453,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: efb7784e94bcf5c4bba7d16637cb27db
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_99
       rect:
@@ -1873,6 +2473,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7e2abc148ae88174ca04a6d95fb808f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_100
       rect:
@@ -1887,6 +2493,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4b3a4e364389f1a47bfae1a30b1a4fc8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_101
       rect:
@@ -1901,6 +2513,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3fb6d9f159ba7e14dbe6b75fcffeaa83
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_102
       rect:
@@ -1915,6 +2533,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7be64cc21bae7ea43b97cc502e7d60a9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_103
       rect:
@@ -1929,6 +2553,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8b2c13e9cb17145408344e75a053dcf6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_104
       rect:
@@ -1943,6 +2573,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f507bc682f04b674cb933115311a1d6c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_105
       rect:
@@ -1957,6 +2593,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 081193c25d1531d40a0e14b79a5f64f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_106
       rect:
@@ -1971,6 +2613,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 19f26b5fe0e623a4e82e422f714f9e58
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_107
       rect:
@@ -1985,6 +2633,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 889aadecc7de1b84eb1951500be54077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_108
       rect:
@@ -1999,6 +2653,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2f3a8e961c15b4d439e816b91c986a30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_109
       rect:
@@ -2013,6 +2673,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4a9c77d2f22774d45b1958e5c0ffd15d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_110
       rect:
@@ -2027,6 +2693,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8f89d20b8b3495241ac9c30e665b892f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_111
       rect:
@@ -2041,6 +2713,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ffe5bb119e035fd42aea3d761d54d6a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_112
       rect:
@@ -2055,6 +2733,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a39e0fbad560ca744a07d0a71143a542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_113
       rect:
@@ -2069,6 +2753,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e50d440728f218941abff56c0697f8ea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_114
       rect:
@@ -2083,6 +2773,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 78a36508d4af1e946831c44f3de212b7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_115
       rect:
@@ -2097,6 +2793,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a0432638192a56b499061fce94523366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_116
       rect:
@@ -2111,6 +2813,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ef19167ae09ec3349bd94cc813b6c1a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_117
       rect:
@@ -2125,6 +2833,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c41e5ffbe6adb2842a6ef9ff4123aa1c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_118
       rect:
@@ -2139,6 +2853,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5c95eab47a215ef498d118ff257acf45
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_119
       rect:
@@ -2153,6 +2873,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7b041be6869fd24439aec0417b94cea4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_120
       rect:
@@ -2167,6 +2893,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 01d8c01f869ae104cbfd2496e9de3b0e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_121
       rect:
@@ -2181,6 +2913,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b8dc340e2c2eec84eaff7007ce753c39
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_122
       rect:
@@ -2195,6 +2933,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8a6477ead025db642ab082693b6ea7a7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_123
       rect:
@@ -2209,6 +2953,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1923e00260053354a8c53ff956289375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_124
       rect:
@@ -2223,6 +2973,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2c2a2dfad3ae3124ab29df375cf52812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_125
       rect:
@@ -2237,6 +2993,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 426cf3a97ff2ddb4c84c8b1652072c69
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_126
       rect:
@@ -2251,6 +3013,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6672f2c6bd1079b4191f421b57b6e332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_127
       rect:
@@ -2265,6 +3033,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ee156d326c0da80449008848d8bc09c2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_128
       rect:
@@ -2279,6 +3053,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5d67de671d1419b4984fdc7488ede128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_129
       rect:
@@ -2293,6 +3073,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 406308b555e736343957c529c4082935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_130
       rect:
@@ -2307,6 +3093,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 70ce43c79a11a2d4d900d90990ccbcaa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_131
       rect:
@@ -2321,6 +3113,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: deff8a07f3e49c64aa8fa1c0290523b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_132
       rect:
@@ -2335,6 +3133,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 074be541b0553dd48b056ea07347251d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_133
       rect:
@@ -2349,6 +3153,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 266a7915ab271314c8162bf1467d4f50
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_134
       rect:
@@ -2363,6 +3173,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 655f876769d4f5043a64435ce79d86ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_135
       rect:
@@ -2377,6 +3193,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 51176bb85d5692b4ebe51279b7d7842d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_136
       rect:
@@ -2391,6 +3213,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 49f6bdaaf3caf964686a6e3a8fada590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_137
       rect:
@@ -2405,6 +3233,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b9e104a157cf7da49bf433d115dcf260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_138
       rect:
@@ -2419,6 +3253,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c36fdd5cf93672e42b1b9f5b4c66f483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_139
       rect:
@@ -2433,6 +3273,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0d8a237295948734aadba8224050e860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_140
       rect:
@@ -2447,6 +3293,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 64aeca761bbfd69458b07175cbc60c31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_141
       rect:
@@ -2461,6 +3313,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e7ab47afe8c868b40b13d28f21d6919c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_142
       rect:
@@ -2475,6 +3333,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4645292e999a9d84c8b7e2d7d6f31ad1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_143
       rect:
@@ -2489,6 +3353,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8a236796b9958af489f28ccfd18cea01
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_144
       rect:
@@ -2503,6 +3373,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: d854bd14364e5e2448f0cd379ceada59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_145
       rect:
@@ -2517,6 +3393,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8a565f462cb1e9447a242703a27aa4ec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_146
       rect:
@@ -2531,6 +3413,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 981a518c735f2a94d99108582ebabfe1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_147
       rect:
@@ -2545,6 +3433,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e2bbcfbd32f6f884e986eed9cd0084f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_148
       rect:
@@ -2559,6 +3453,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5195fb0dcd21b324fbebd46003e90ac4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_149
       rect:
@@ -2573,6 +3473,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: edb2678aab4d97f40997d54521bc4ca0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_150
       rect:
@@ -2587,6 +3493,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: bc55231f37c6ef34bb98df3865dbc4f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_151
       rect:
@@ -2601,6 +3513,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: faf1566f39fef4c4dbe900a5512cc75e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_152
       rect:
@@ -2615,6 +3533,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: febe3b04d6864964c8a219f68d29b98b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_153
       rect:
@@ -2629,6 +3553,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e6cf9b9e43e9a564bb5f09051b7fc26f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_154
       rect:
@@ -2643,6 +3573,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 97c85d22ef0ee9d4ba16a65cec85efed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_155
       rect:
@@ -2657,6 +3593,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1b5a45f9607422d4ba41a6420e84df00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_156
       rect:
@@ -2671,6 +3613,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ef415bbf980fc784aac1d19b0ec05df7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_157
       rect:
@@ -2685,6 +3633,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a73584c7feef4a24b9ee7263392f1ebd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_158
       rect:
@@ -2699,6 +3653,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 24a8415fff7e13946b5dabff625102e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_159
       rect:
@@ -2713,6 +3673,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 39bc3f095de77554c997a099228eb18f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_160
       rect:
@@ -2727,6 +3693,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6bea67d7a9a59d64cac1a7c2296f47a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_161
       rect:
@@ -2741,6 +3713,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0bb68c84d0acf224ba32ae1c93d84be0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_162
       rect:
@@ -2755,6 +3733,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 41aeb376835a35648a156c876a434424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_163
       rect:
@@ -2769,6 +3753,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 742c718d1cac5a44fb758d73ffdd4ef9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_164
       rect:
@@ -2783,6 +3773,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7b846cb1ce8e8d64aa0e703b3e91421f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_165
       rect:
@@ -2797,6 +3793,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 09d8cd9b178cab948a35349b0aef99bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_166
       rect:
@@ -2811,6 +3813,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b8f3d3b1ea0360d46af2f8c71a65719c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_167
       rect:
@@ -2825,6 +3833,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cd34c9bbccb294b4786c9ade4bc4d061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_168
       rect:
@@ -2839,6 +3853,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a41dca141ab4a2c48958543c85fd1eb2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_169
       rect:
@@ -2853,6 +3873,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f4f0ad8e7f636cc4fb020eda960c50ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_170
       rect:
@@ -2867,6 +3893,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3b176e1a65a62694b8738162804bd8db
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_171
       rect:
@@ -2881,6 +3913,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8ee92d5f4e5416b48acbe8344773182d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_172
       rect:
@@ -2895,6 +3933,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1d83926afe45cd148a8454c4a4612a33
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_173
       rect:
@@ -2909,6 +3953,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ccaa9c7ce11065147b65f22121a1f86e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_174
       rect:
@@ -2923,6 +3973,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 93ab83f67348bcc4f9b420511e0ac1bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_175
       rect:
@@ -2937,6 +3993,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ed66e96ab36b3c2468f315b623226b14
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_176
       rect:
@@ -2951,6 +4013,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3897ce85877772e4d87b6fe16cff3957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_177
       rect:
@@ -2965,6 +4033,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 831f34cebfe184f488795912447caf97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_178
       rect:
@@ -2979,6 +4053,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ad6d198a57f8ef343bca039823f8462a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_179
       rect:
@@ -2993,6 +4073,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1cf1f2c60915e004ca68f3aa5f3da156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_180
       rect:
@@ -3007,6 +4093,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b3187a553396fcc4aabe0a557763842b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_181
       rect:
@@ -3021,6 +4113,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 274e4fecf0a0d9546bfa82a8cc62fadd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_182
       rect:
@@ -3035,6 +4133,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 56a2ab9dfd7113f4e989ddc1da85cbb1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_183
       rect:
@@ -3049,6 +4153,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 13ad648f49b27e14cadc655177252f4b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_184
       rect:
@@ -3063,6 +4173,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 176bf8a42cd82ac46a361173e05d714b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_185
       rect:
@@ -3077,6 +4193,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: dd96b4244f80a834da8c3b1703da9937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_186
       rect:
@@ -3091,6 +4213,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9deb8e498e09c0e40be61e3903883c00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_187
       rect:
@@ -3105,6 +4233,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ee6c6f61dede4ef41bdfcceb0037e5c9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_188
       rect:
@@ -3119,6 +4253,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 366fb478392ce2a4c899ec6e8685dc99
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_189
       rect:
@@ -3133,6 +4273,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7945cbefa41e1434189318005a7a49b6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_190
       rect:
@@ -3147,6 +4293,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c5afcefaaaeb0fa42bf8399c1500687d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_191
       rect:
@@ -3161,6 +4313,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c458bcc1e9cdf844683ff39df488d9dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_192
       rect:
@@ -3175,6 +4333,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f2ada6e2c884f934fa8ce7d86fd237b0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_193
       rect:
@@ -3189,6 +4353,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 95c33d4d2ad4c714ca82073992ef6e69
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_194
       rect:
@@ -3203,6 +4373,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 128ab104ee117c94db74a1674ae37fe8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_195
       rect:
@@ -3217,6 +4393,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b59f416a2e890d747b2581db4a0d4d1c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_196
       rect:
@@ -3231,6 +4413,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 427eb1e32d2f94c489b2a13d0d9d4b92
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_197
       rect:
@@ -3245,6 +4433,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 09e21835c6a21c942b815800531374b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_198
       rect:
@@ -3259,6 +4453,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: fdcc9df0bb7e046488236deb93dbe8af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_199
       rect:
@@ -3273,6 +4473,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e97d569ed8f6a0c479f35623c7ff35bc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_200
       rect:
@@ -3287,6 +4493,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9140d6431a4638f42b44fc8399ca30e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_201
       rect:
@@ -3301,6 +4513,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6fbb145e101f2ce4eba23827f0fb4058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_202
       rect:
@@ -3315,6 +4533,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7e0a35d5ff3f16c40841fb20ec156804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_203
       rect:
@@ -3329,6 +4553,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 99df6efb9e3efc646a636f344ab7c519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_204
       rect:
@@ -3343,6 +4573,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: dccd99deda7b3bb41bc55b7398f1a424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_205
       rect:
@@ -3357,6 +4593,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 19cf1c370e2223241bf5e308a27b9d2f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_206
       rect:
@@ -3371,6 +4613,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e6ea31a5421dd0c45b5d78a39b03975d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_207
       rect:
@@ -3385,6 +4633,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c99100b5d7416bf41850b49c937d19a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_208
       rect:
@@ -3399,6 +4653,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2882cdd000910234c82ab40b3b879674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_209
       rect:
@@ -3413,6 +4673,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 34f7e794c10c8424385d0f8e3e86f7cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_210
       rect:
@@ -3427,6 +4693,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4f0d3f15f50c532439276337fc47e2d5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_211
       rect:
@@ -3441,6 +4713,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 48d86d101ae19aa4b8b3297dfa4cff2e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_212
       rect:
@@ -3455,6 +4733,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7d7ce88b9a19c604d93324166d5d4a3b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_213
       rect:
@@ -3469,6 +4753,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 226dd81dac4e45c49acd8c02bcd686cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_214
       rect:
@@ -3483,6 +4773,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2f0243f4448049a408aaa8729289a52e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_215
       rect:
@@ -3497,6 +4793,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: be828c1091acaa64ba0d93eee4a8c25e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_216
       rect:
@@ -3511,6 +4813,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: d26948466b7471f47a44df263e797e17
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_217
       rect:
@@ -3525,6 +4833,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9709d8ea460be6f47aa471df6879d2ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_218
       rect:
@@ -3539,6 +4853,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5782beccd1921cf4ea4f083b9ffe21bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_219
       rect:
@@ -3553,6 +4873,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2d988fdf0d93c3a408ae38fd39dd455c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_220
       rect:
@@ -3567,6 +4893,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 76b1221da83e4d34e970e3ee6497abb1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_221
       rect:
@@ -3581,6 +4913,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f990170ba2511ee40b80b786da098225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_222
       rect:
@@ -3595,6 +4933,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: bb8892cd5fd1d0c4f9c3c40b24ebd05c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_223
       rect:
@@ -3609,6 +4953,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8a16250d640da52479e75d10a5bbbdbc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_224
       rect:
@@ -3623,6 +4973,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2eb332503ad82164caecce61053a1d4b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_225
       rect:
@@ -3637,6 +4993,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1c5b37583db64a244bdad6bd25a098a9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_226
       rect:
@@ -3651,6 +5013,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c1a4fc9c9279c5d43abed2f6b40e5970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_227
       rect:
@@ -3665,6 +5033,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3b375d06b594dac4c9d5c63470b75bcd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_228
       rect:
@@ -3679,6 +5053,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e7d43375f0be96046ba8ed5fca2879b6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_229
       rect:
@@ -3693,6 +5073,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f8db68129f42ed946b5292187bfbac9d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_230
       rect:
@@ -3707,6 +5093,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ba19e80a801dd9148b3e5536832bc1e5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_231
       rect:
@@ -3721,6 +5113,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1a78555f80062274eb0af83032f50251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_232
       rect:
@@ -3735,6 +5133,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 15e6230e44065dd498687588013e1610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_233
       rect:
@@ -3749,6 +5153,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2af077c1c59668d4b9ca165479b7ccd3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_234
       rect:
@@ -3763,6 +5173,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0e50a4e5d9ff1c44f851d66199c17e28
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_235
       rect:
@@ -3777,6 +5193,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0e732b868965baf4f912bb4a8ea53c34
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_236
       rect:
@@ -3791,6 +5213,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e443188beeb9d70459c2e557578cef18
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_237
       rect:
@@ -3805,6 +5233,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7fe1667b01765b749897fbdf15a8e28c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_238
       rect:
@@ -3819,6 +5253,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3989a5debe9c1514d96d0ba3e44f3178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_239
       rect:
@@ -3833,6 +5273,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9a8524ff6b311664b896c007e797be59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_240
       rect:
@@ -3847,6 +5293,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 84441ead054851c49acf67d17ebd4dfd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_241
       rect:
@@ -3861,6 +5313,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f87286782d9ba9a48b97ce8c6026cca7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_242
       rect:
@@ -3875,6 +5333,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 10aea18e26c72124081b82713172a401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_243
       rect:
@@ -3889,6 +5353,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9b089e2af9953bd45a07044612ca369c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_244
       rect:
@@ -3903,6 +5373,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2e61820900c51564a80ec64976f281fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_245
       rect:
@@ -3917,6 +5393,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 60bf2c0b224c0824688c41709133caa3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_246
       rect:
@@ -3931,6 +5413,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7f485dca28f9a0a40b8c12f86a56f1e4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_247
       rect:
@@ -3945,6 +5433,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b5c69b97551dd354d93a94623e61f924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_248
       rect:
@@ -3959,6 +5453,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ba45a3bbe6b9eb74785acd5a2f3902a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_249
       rect:
@@ -3973,6 +5473,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 13ec7720f18612c4eb7bde905f38ed53
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_250
       rect:
@@ -3987,6 +5493,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8e238280fe6bf54439aaf6c63ae4bd09
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_251
       rect:
@@ -4001,6 +5513,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e191a259955a98a4a921f80323c40402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_252
       rect:
@@ -4015,6 +5533,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 04f48e0dc387a7e45bfce83dc2948929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_253
       rect:
@@ -4029,6 +5553,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2acd147d293e0b944937e96c9a73bcb2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_254
       rect:
@@ -4043,6 +5573,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7d59efeb9fb3f1f4e848fbe44233d0a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_255
       rect:
@@ -4057,6 +5593,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3c8cdd602cfb7c242971f046ac58f965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_256
       rect:
@@ -4071,6 +5613,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8e4a4d9710ee13447a2b921327cbb796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_257
       rect:
@@ -4085,6 +5633,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 085208b094439b84f9835a2f0a55f85a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_258
       rect:
@@ -4099,6 +5653,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: efcb4bda5fa9b8a42b9a317f4c1d8c8b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_259
       rect:
@@ -4113,6 +5673,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 34475f3904f5d584d94a8508ea0c5301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_260
       rect:
@@ -4127,6 +5693,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7b197af213fcef3489518720812ea1c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_261
       rect:
@@ -4141,6 +5713,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c36bbf151fac53a448b715bdd3758b00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_262
       rect:
@@ -4155,6 +5733,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8839ce0f862ef8744a0b671085f2c04f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_263
       rect:
@@ -4169,6 +5753,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 36417524e365e94408b3c070c2534dff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_264
       rect:
@@ -4183,6 +5773,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: fbb15f92dbd2b4746b41ff08d4936313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_265
       rect:
@@ -4197,6 +5793,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8af0ec1662e10bf4390b626c87948433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_266
       rect:
@@ -4211,6 +5813,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2db329ff01b190c499cac65ed9de9576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_267
       rect:
@@ -4225,6 +5833,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f7110aa905c2cba45abe5cc64eb030f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_268
       rect:
@@ -4239,6 +5853,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 22e9a10382f91b142bcc994e86811a5a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_269
       rect:
@@ -4253,6 +5873,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: df65c1693dc37a34d9c0ac5b64213da9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_270
       rect:
@@ -4267,6 +5893,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 70c922fbc9defd54c82ddcf34f819f0a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_271
       rect:
@@ -4281,6 +5913,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 49b9de591d9e10c46a551527ea7640a7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_272
       rect:
@@ -4295,6 +5933,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: eb6482c484f99154fbfb055aa0f16e3b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_273
       rect:
@@ -4309,6 +5953,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c22e114e5fd1417499ab501346675281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_274
       rect:
@@ -4323,6 +5973,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8e8e129dd7d687b4dbaadefc15f2d8ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_275
       rect:
@@ -4337,6 +5993,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4c06c83aae0cc0a45b3d6647731f8430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_276
       rect:
@@ -4351,6 +6013,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 773ede04ba458c447925ec550c50c6e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_277
       rect:
@@ -4365,6 +6033,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3e46ebd4ec1a9a240bab06fe4f4124f3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_278
       rect:
@@ -4379,6 +6053,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5e41f7ee231ba2848b945a13934c1104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_279
       rect:
@@ -4393,6 +6073,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 71825ce4ec5df634fb4d757796e6e814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_280
       rect:
@@ -4407,6 +6093,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 17565843c22cb4c4f937785d0c8211a1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_281
       rect:
@@ -4421,6 +6113,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b012c0c73a29535488ab1edb50b04b9d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_282
       rect:
@@ -4435,6 +6133,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: acfe9b9a46f6b6e4db9d8c336b6997a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_283
       rect:
@@ -4449,6 +6153,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a4cb14f87a66a7841b2986c9b68881b7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_284
       rect:
@@ -4463,6 +6173,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cd06b94a1edf90f41a6e96920c90a6fc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_285
       rect:
@@ -4477,6 +6193,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 937659a24fbbfc3498f16b7f0f217c85
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_286
       rect:
@@ -4491,6 +6213,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cafba3ad0aec8094f89479613330ed33
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_287
       rect:
@@ -4505,6 +6233,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b3e70d75a405f9b449daba83347d7d8e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_288
       rect:
@@ -4519,6 +6253,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c9900af707e704947a9c9cf72b42c902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_289
       rect:
@@ -4533,6 +6273,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 61197634a04df614eb0195f4bedc6326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_290
       rect:
@@ -4547,6 +6293,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 27be60f94b9f46340845a6cfa54f510d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_291
       rect:
@@ -4561,6 +6313,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9c7b184b8241bae4bb7ffced3a6d613c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_292
       rect:
@@ -4575,6 +6333,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 03d169181ff1e6c40b8010e0d0841e06
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_293
       rect:
@@ -4589,6 +6353,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 42deee2e857599e4ca5681092e3a1e46
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_294
       rect:
@@ -4603,6 +6373,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 65ca76a496b0dbb4684bfec841a55dac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_295
       rect:
@@ -4617,6 +6393,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8adffa1c84ad4c6439b9374204c09441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_296
       rect:
@@ -4631,6 +6413,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 094546674fc4a954b811be1f5d1e4704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_297
       rect:
@@ -4645,6 +6433,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6b1165a8109552a44b08734fe18b0d15
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_298
       rect:
@@ -4659,6 +6453,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2b0b501cd32b07f489aa78c14383a690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_299
       rect:
@@ -4673,6 +6473,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 45ef00da94ee87d41a394649646ec917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_300
       rect:
@@ -4687,6 +6493,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: da3c0380220e9bf4fba37c3f8135ded4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_301
       rect:
@@ -4701,6 +6513,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9ba34797df0ce8b47b6c96d82588c9ee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_302
       rect:
@@ -4715,6 +6533,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7fad4350575ab994ebea8f9e48a7a046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_303
       rect:
@@ -4729,6 +6553,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 40fc5a0a9eaf4d341876b347e803c946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_304
       rect:
@@ -4743,6 +6573,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1b246757106e8af45aa717f6ef4ec328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_305
       rect:
@@ -4757,6 +6593,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 158a28ae7804af947bed8f675b07904e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_306
       rect:
@@ -4771,6 +6613,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: d687093a46400654fb5618875bd76a36
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_307
       rect:
@@ -4785,6 +6633,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: dcd048c868bb2a64f8f7444793b29462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_308
       rect:
@@ -4799,6 +6653,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: d1c76976bb52f2246b96cba626bb4537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_309
       rect:
@@ -4813,6 +6673,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 815de0823c73ff645a0a55c36db38835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_310
       rect:
@@ -4827,6 +6693,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0972126486a34954eac57ac8e7e5c34d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_311
       rect:
@@ -4841,6 +6713,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 35be54ef1f8afbd428b71a1a0162bc1a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_312
       rect:
@@ -4855,6 +6733,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cf63ec3670583dc4f9abd6dad3dd8730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_313
       rect:
@@ -4869,6 +6753,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 44cb4b3e74fd0eb4cba4216d182ce1ac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_314
       rect:
@@ -4883,6 +6773,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 27e752c2d894c2b40b872908b40d6ca1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_315
       rect:
@@ -4897,6 +6793,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5cb6b63f74fd359469c11537123c16f1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_316
       rect:
@@ -4911,6 +6813,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5259d563f708df34685108871bed8d05
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_317
       rect:
@@ -4925,6 +6833,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 87c997f2895f19a438f5213fbc242c31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_318
       rect:
@@ -4939,6 +6853,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: d207beda2955b694e8ba50d18033d92a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_319
       rect:
@@ -4953,6 +6873,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c1b1794319d680343b628be53f978729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_320
       rect:
@@ -4967,6 +6893,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8a6d966f1f36f87478a2976f5bb80095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_321
       rect:
@@ -4981,6 +6913,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ac70f95dcd9f7844f997cdec31ebf828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_322
       rect:
@@ -4995,6 +6933,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e29ba6c95d8fba041a5139584d6dd9c8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_323
       rect:
@@ -5009,6 +6953,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 86cc73c8129d7ba44a7ce50a399d24d6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_324
       rect:
@@ -5023,6 +6973,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 61ace767fe0d1e244b7118c91769b9e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_325
       rect:
@@ -5037,6 +6993,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 58ef39a5fc2c9824896ef05c212705de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_326
       rect:
@@ -5051,6 +7013,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b967e810cd3e1dc41ba464aff40d0f27
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_327
       rect:
@@ -5065,6 +7033,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3c84666bc1d58634dabb4e11cda8e1c2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_328
       rect:
@@ -5079,6 +7053,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b5f0e474e97468c4f9e80f4d0e6bd7bc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_329
       rect:
@@ -5093,6 +7073,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0808e8bfa10dfe945a26c5b6988b5d89
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_330
       rect:
@@ -5107,6 +7093,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b7a59071d736b8e488cd6dd5f8e62ad6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_331
       rect:
@@ -5121,6 +7113,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0f0a1fd8576d13c4a9dc26eaa1b5c365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_332
       rect:
@@ -5135,6 +7133,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: da70aac38366c284090e00d435492e92
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_333
       rect:
@@ -5149,6 +7153,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: adb7509887e174d4ea35bb6b296f0f0b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_334
       rect:
@@ -5163,6 +7173,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 072624c7edb5fd348bd6d5ef1e668307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_335
       rect:
@@ -5177,6 +7193,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c3ae02334ec2ac34e8accf186e088880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_336
       rect:
@@ -5191,6 +7213,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 721f97f23ec54544293058565a171a0c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_337
       rect:
@@ -5205,6 +7233,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9b3dc8d1e81ce5843a28a73df47c34cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_338
       rect:
@@ -5219,6 +7253,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a440a596ce9414b46bc3e47662f7beb2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_339
       rect:
@@ -5233,6 +7273,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e72dc1005b566dc4db293469710c849f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_340
       rect:
@@ -5247,6 +7293,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 29c326b245f7b0745b7f0f0430a72339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_341
       rect:
@@ -5261,6 +7313,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 103bdef1cfcfb744cbd0965338fe1741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_342
       rect:
@@ -5275,6 +7333,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 18cc860bc79ab1a46878c6abc4e21faf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_343
       rect:
@@ -5289,6 +7353,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: fc29b30e9bfbd964f82ed7aa91d17b36
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_344
       rect:
@@ -5303,6 +7373,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 64ef9928c4c8b694e8e77dcdfd604cc7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_345
       rect:
@@ -5317,6 +7393,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cf301ef1b71ab164894a06a57aacae14
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_346
       rect:
@@ -5331,6 +7413,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a58c24137bda93a44bdde21e7873fb52
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_347
       rect:
@@ -5345,6 +7433,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2c8858bade96d444fa97419dcfabc26f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_348
       rect:
@@ -5359,6 +7453,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c035bfcb69026934289194d8ca2b0fa5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_349
       rect:
@@ -5373,6 +7473,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c5051690d1d34da4c9694c7b2d6c30dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_350
       rect:
@@ -5387,6 +7493,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 861e7947e201dad42915ab0b039a92da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_351
       rect:
@@ -5401,6 +7513,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 92d0c379506469241948fc21e5b0ac43
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_352
       rect:
@@ -5415,6 +7533,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8adfd411027e8f44286b07c6fc6deab3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_353
       rect:
@@ -5429,6 +7553,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ff9dd71aa0a60c2459ef6a86d0617769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_354
       rect:
@@ -5443,6 +7573,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 41c041c35e55d584890a5ed9f549cf62
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_355
       rect:
@@ -5457,6 +7593,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 07cd58ca5b6fe2f40afcd4e4fd411c9c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_356
       rect:
@@ -5471,6 +7613,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1de3e399de0df6649b55b1dac25448c5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_357
       rect:
@@ -5485,6 +7633,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 648f8a067c558bf408089321601e7d8a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_358
       rect:
@@ -5499,6 +7653,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cfb2419ca699ad44db3eb47feb866fc8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_359
       rect:
@@ -5513,6 +7673,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 738019506ab3a8843be3e8661dd9ec83
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_360
       rect:
@@ -5527,6 +7693,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b5e6ef8fb3dfd81478be021b46351cfc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_361
       rect:
@@ -5541,6 +7713,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4163f84900f4def4bae12a999d5b2bf8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_362
       rect:
@@ -5555,6 +7733,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e2b49edfe76acfd48a84e4e9d165e08e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_363
       rect:
@@ -5569,6 +7753,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4488a74bcf3c25c49b8666e3af0fb24b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_364
       rect:
@@ -5583,6 +7773,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 89c04e84339099448af27dda984bacf8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_365
       rect:
@@ -5597,6 +7793,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 99a4372a41f9f6549b279eb5bc5a99ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_366
       rect:
@@ -5611,6 +7813,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 211a98e37bd5d5943b23dde80d6e5176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_367
       rect:
@@ -5625,6 +7833,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 410696618134d6c4db03cbca2e6d1d12
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_368
       rect:
@@ -5639,6 +7853,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0afaa852fb5f11244a4d5b7bf411176a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_369
       rect:
@@ -5653,6 +7873,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 36fd89c62aa801443b54168d4a8b002f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_370
       rect:
@@ -5667,6 +7893,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b85a65fb5a2adca43a6802cc79c9e15f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_371
       rect:
@@ -5681,6 +7913,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e5088d0bbd376e9419a618c1ff77486f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_372
       rect:
@@ -5695,6 +7933,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f1730eb82e7728b4e9d8416db445626c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_373
       rect:
@@ -5709,6 +7953,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: aeb03d98fde74784dab8435553064c53
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_374
       rect:
@@ -5723,6 +7973,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c4d007c869286ac4aa6ddab57bc6d6f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_375
       rect:
@@ -5737,6 +7993,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: bdce0c2b9df56a84096ea32cf1b46d91
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_376
       rect:
@@ -5751,6 +8013,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ab0eb821e58be074299150e964957cd0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_377
       rect:
@@ -5765,6 +8033,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6e5f2de47cbf5c04b9ea746a797be78f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_378
       rect:
@@ -5779,6 +8053,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 366f27e4122ecca47a75cf0deee6e4da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_379
       rect:
@@ -5793,6 +8073,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9f78f9affeeb28f478d46d30e071b86d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_380
       rect:
@@ -5807,6 +8093,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3de6b28bcf561424cbf78fa9a0199032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_381
       rect:
@@ -5821,6 +8113,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 58b2cdd282367dd49b5051aebb561c44
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_382
       rect:
@@ -5835,6 +8133,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9197a4af9e0df634b9a13ede3b690a2e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_383
       rect:
@@ -5849,6 +8153,12 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5219a17b7ce3d55408566cc46479cd0e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: sprite_base_addon_2012_12_14_384
       rect:
@@ -5863,9 +8173,23 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a097f035123f8bf41a03d11d3674907b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
+    bones: []
+    spriteID: 
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

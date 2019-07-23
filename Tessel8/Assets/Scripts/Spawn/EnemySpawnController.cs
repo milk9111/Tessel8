@@ -30,6 +30,7 @@ namespace Spawn
 
         private bool _isCooldownFinished;
         private bool _isPaused;
+        private bool _isFinished;
         
         void Awake()
         {
@@ -41,6 +42,7 @@ namespace Spawn
             
             _validSpawnPositions = null;
             _isCooldownFinished = true;
+            _isFinished = false;
 
             if (rounds.Length == 0)
             {
@@ -71,7 +73,11 @@ namespace Spawn
                 _roundIndex++;
                 if (_roundIndex >= rounds.Length)
                 {
-                    if (!_spawnUiController.IsFinished()) _spawnUiController.NewVictory();
+                    if (!_isFinished)
+                    {
+                        _isFinished = true;
+                        _spawnUiController.NewVictory();
+                    }
                     return;
                 }
                 _currRound = rounds[_roundIndex].GetSelectedRound();
@@ -139,15 +145,19 @@ namespace Spawn
             {
                 enemy.MarkAsDead();
             }
+
+            foreach (var round in rounds)
+            {
+                round.GetSelectedRound().ResetRound();
+            }
             
             ClearDeadEnemies();
 
             if (rounds.Length == 0) return;
             _currRound = rounds[0].GetSelectedRound();
-            _currRound.Init(_validSpawnPositions, _enemies, _spawnUiController);
             _roundIndex = 0;
-            _spawnUiController.NewRound(RoundTypesHelper.GetTypeFromName(_currRound.GetName()), 
-                _currRound, _roundIndex + 1);
+            _validSpawnPositions = null;
+            _isFinished = false;
         }
 
         private void ClearDeadEnemies()
