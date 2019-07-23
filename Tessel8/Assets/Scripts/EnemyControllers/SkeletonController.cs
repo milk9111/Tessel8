@@ -49,10 +49,26 @@ namespace EnemyControllers
 
 		    move.x = _direction * _speed * _movementStop;
 
-		    var flipSprite = _spriteRenderer.flipX ? _direction != -1 : _direction != 1;
-		    if (flipSprite && _direction != 0)
+		    bool flipSprite;
+		    if (hasAnimationBones)
 		    {
-			    _spriteRenderer.flipX = !_spriteRenderer.flipX;
+			    flipSprite = _isFlipped ? move.x < 0.0f : move.x > 0.0f;
+		    }
+		    else
+		    {
+			    flipSprite = _spriteRenderer.flipX ? move.x > 0.0f : move.x < 0.0f;
+		    }
+
+		    if (flipSprite)
+		    {
+			    if (hasAnimationBones)
+			    {
+				    FlipSprite(!_isFlipped);
+			    }
+			    else
+			    {
+				    _spriteRenderer.flipX = !_spriteRenderer.flipX;
+			    }
 		    }
         
 		    targetVelocity = move;        

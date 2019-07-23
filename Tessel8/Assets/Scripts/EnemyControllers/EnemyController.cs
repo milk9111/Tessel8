@@ -45,6 +45,10 @@ namespace EnemyControllers
 			{
 				_animator = GetComponent<Animator>();
 			}
+			else
+			{
+				_animator = GetComponentInChildren<Animator>();
+			}
 
 			_collider = GetComponent<CapsuleCollider2D>();
 			

@@ -35,6 +35,7 @@ namespace EnemyStates.SkeletonStates
         
         public void DealDamage(int damage)
         {
+            if (_isDead) return;
             _currHealth -= damage;
 
             healthBar.OnHit(damage / (float)health);
@@ -44,6 +45,7 @@ namespace EnemyStates.SkeletonStates
 
             if (_currHealth <= 0)
             {
+                Debug.Log("enemy dead");
                 _isDead = true;
             }
         }

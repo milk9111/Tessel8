@@ -26,13 +26,17 @@ namespace DefaultNamespace
         public AudioClip playerHitFx;
 
         public HealthBar healthBar;
-        
+
+        [Tooltip("The name of the attack 'state', not the name of the attack 'animation'")]
+        public string attackAnimatorStateName;
 
         private PlayerTeleportController _teleportController;
 
         private PlayerPlatformerController _platformerController;
         
         private bool _isDead;
+
+        private bool _isAttacking;
 
         private int _currHealth;
 
@@ -42,14 +46,20 @@ namespace DefaultNamespace
             _teleportController = GetComponent<PlayerTeleportController>();
             _platformerController = GetComponent<PlayerPlatformerController>();
             _currHealth = health;
+            if (string.IsNullOrEmpty(attackAnimatorStateName))
+            {
+                attackAnimatorStateName = "Player_SpinKick";
+            }
         }
 
         void Update()
         {            
-            if (!animator.GetCurrentAnimatorStateInfo(animator.GetLayerIndex("Base Layer")).IsName("Player_SpinKick")
+            if (!animator.GetCurrentAnimatorStateInfo(animator.GetLayerIndex("Base Layer"))
+                    .IsName(attackAnimatorStateName)
                 && !_teleportController.IsTeleportRangeActivated() && (Input.GetKeyDown(KeyCode.Mouse0) 
                                                                        || Input.GetKeyDown(KeyCode.Q)))
             {
+                _isAttacking = true;
                 animator.SetBool("Attacking", true);
             }
         }
@@ -85,6 +95,7 @@ namespace DefaultNamespace
 
         public void FinishAttack()
         {
+            _isAttacking = false;
             animator.SetBool("Attacking", false);
         }
 

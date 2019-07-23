@@ -142,6 +142,7 @@ namespace Spawn
             
             ClearDeadEnemies();
 
+            if (rounds.Length == 0) return;
             _currRound = rounds[0].GetSelectedRound();
             _currRound.Init(_validSpawnPositions, _enemies, _spawnUiController);
             _roundIndex = 0;

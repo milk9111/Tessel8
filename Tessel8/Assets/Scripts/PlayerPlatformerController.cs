@@ -83,10 +83,26 @@ public class PlayerPlatformerController : PhysicsObject {
             }
         }
 
-        var flipSprite = spriteRenderer.flipX ? move.x > 0.0f : move.x < 0.0f;
+        bool flipSprite;
+        if (hasAnimationBones)
+        {
+            flipSprite = _isFlipped ? move.x > 0.0f : move.x < 0.0f;
+        }
+        else
+        {
+            flipSprite = spriteRenderer.flipX ? move.x > 0.0f : move.x < 0.0f;
+        }
+
         if (flipSprite)
         {
-            spriteRenderer.flipX = !spriteRenderer.flipX;
+            if (hasAnimationBones)
+            {
+                FlipSprite(!_isFlipped);
+            }
+            else
+            {
+                spriteRenderer.flipX = !spriteRenderer.flipX;
+            }
         }
 		
         animator.SetBool("Walking", Mathf.Abs(velocity.x) / maxSpeed > 0);

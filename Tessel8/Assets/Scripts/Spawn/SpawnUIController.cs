@@ -112,6 +112,9 @@ namespace Spawn
                 case SpawnQueueMembers.Wave:
                     isOn = waveText.IsOn();
                     break;
+                case SpawnQueueMembers.Victory:
+                    isOn = false;
+                    break;
                 default:
                     Debug.Log("Invalid spawn type in SpawnUiController: " + _currMember.type);
                     return;

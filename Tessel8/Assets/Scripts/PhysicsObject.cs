@@ -13,6 +13,8 @@ public class PhysicsObject : MonoBehaviour
 	[Tooltip("The velocity of the physics object")]
 	public Vector2 velocity;
 
+	public bool hasAnimationBones;
+
 	protected Vector2 targetVelocity;
 	protected bool grounded;
 	protected Vector2 groundNormal;
@@ -23,6 +25,8 @@ public class PhysicsObject : MonoBehaviour
 
 	protected const float minMoveDistance = 0.001f;
 	protected const float shellRadius = 0.01f;
+
+	protected bool _isFlipped;
 
 	void OnEnable()
 	{
@@ -53,6 +57,19 @@ public class PhysicsObject : MonoBehaviour
 	protected virtual void ChildUpdate()
 	{
 		
+	}
+	
+	protected void FlipSprite(bool isFlipped)
+	{
+		var rotationAmount = 0;
+		if (isFlipped)
+		{
+			rotationAmount = 180;
+		}
+
+		_isFlipped = isFlipped;
+		transform.SetPositionAndRotation(transform.position, new Quaternion(transform.rotation.x, rotationAmount, 
+			transform.rotation.z, transform.rotation.w));
 	}
 
 	void FixedUpdate()
