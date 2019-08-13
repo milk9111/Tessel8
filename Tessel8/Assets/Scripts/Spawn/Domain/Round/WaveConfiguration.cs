@@ -61,6 +61,7 @@ namespace Spawn.Domain.Round
             _isComplete = false;
             _isPaused = false;
             _isCooldownFinished = true;
+            _numberOfSpawnedEnemies = 0;
         }
 
         public EnemyController SpawnEnemy(Vector3 pos)

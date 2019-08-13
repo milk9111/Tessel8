@@ -64,6 +64,7 @@ namespace DefaultNamespace
             pauseMenu.gameObject.SetActive(true);
             _helper.OnPause();
             _spawnController.OnPause();
+            _spawnUiController.OnPause();
             foreach (var tile in _interactiveTiles)
             {
                 tile.GetComponent<FallingTile>().OnPause();
@@ -75,6 +76,7 @@ namespace DefaultNamespace
             pauseMenu.gameObject.SetActive(false);
             _helper.OnPlay();
             _spawnController.OnPlay();
+            _spawnUiController.OnPlay();
             foreach (var tile in _interactiveTiles)
             {
                 tile.GetComponent<FallingTile>().OnPlay();

@@ -76,7 +76,8 @@ namespace EnemyControllers
 	
 		public override bool IsPlayerWithinStoppingDistance()
 		{
-			return ((SkeletonWalking) _stateObjects[States.Walking]).IsTargetWithinXStoppingDistance();
+			return ((SkeletonWalking) _stateObjects[States.Walking]).IsTargetWithinXStoppingDistance() 
+			       && ((SkeletonWalking) _stateObjects[States.Walking]).IsTargetWithinYStoppingDistance();
 		}
 	
 		public override void DealDamage(int damage)

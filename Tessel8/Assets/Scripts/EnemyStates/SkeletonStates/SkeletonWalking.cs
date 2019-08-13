@@ -94,7 +94,7 @@ namespace EnemyStates.SkeletonStates
             return Math.Abs(newX - target.position.x) <= stoppingDistance;
         }
 
-        private bool IsTargetWithinYStoppingDistance()
+        public bool IsTargetWithinYStoppingDistance()
         {
             return Math.Abs(transform.position.y - target.position.y) <= stoppingDistance;
         }
