@@ -50,7 +50,7 @@ namespace EnemyControllers
 				_animator = GetComponentInChildren<Animator>();
 			}
 
-			_collider = GetComponent<CapsuleCollider2D>();
+			_collider = GetComponent<Collider2D>();
 			
 			_childObjects = new List<GameObject>();
 
@@ -65,7 +65,7 @@ namespace EnemyControllers
 		
 			foreach (var state in _stateObjects.Values)
 			{
-				((BaseState) state).enabled = false;
+				state.OnPause();
 			}
 
 			_animator.enabled = false;
@@ -78,7 +78,7 @@ namespace EnemyControllers
 		
 			foreach (var state in _stateObjects.Values)
 			{
-				((BaseState) state).enabled = true;
+				state.OnPlay();
 			}
 		
 			_animator.enabled = true;

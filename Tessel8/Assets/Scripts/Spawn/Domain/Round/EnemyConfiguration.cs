@@ -10,7 +10,7 @@ namespace Spawn.Domain.Round
         [Range(0.01f, 1)]
         public float spawnChance;
 
-        public int maxNumberOfSpawns;
+        //public int maxNumberOfSpawns;
 
         public string GetName()
         {

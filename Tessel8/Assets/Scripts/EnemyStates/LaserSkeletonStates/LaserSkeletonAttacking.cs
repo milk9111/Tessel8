@@ -19,7 +19,11 @@ namespace EnemyStates.LaserSkeletonStates
         [Tooltip("The time in seconds between each attack")]
         public float secondsBetweenAttacks = 1f;
 
+        private float _remainingSecondsOnTimer;
+
         private bool _isReadyToAttack;
+
+        private Coroutine _lastCoroutine;
 
         void Awake()
         {
@@ -33,6 +37,11 @@ namespace EnemyStates.LaserSkeletonStates
                 
         public override void DoAction()
         {
+            if (IsPaused())
+            {
+                return;
+            }
+            
             if (!_isReadyToAttack)
             {
                 _animator.SetBool("Attacking", false);
@@ -45,14 +54,14 @@ namespace EnemyStates.LaserSkeletonStates
 
         public void AttackPlayer()
         {
-            StartCoroutine(AttackCooldown());
+            _lastCoroutine = StartCoroutine(AttackCooldown());
             if (_controller.IsPlayerWithinStoppingDistance())
             {
                 var direction = _controller.GetDirection();
                 
                 var laserWall = Instantiate(laserWallPrefab, 
                     new Vector3(direction < 0 ? transform.position.x - 1 : transform.position.x + 1,
-                        transform.position.y), laserWallPrefab.transform.rotation);
+                        transform.position.y - 0.5f), laserWallPrefab.transform.rotation);
                 var wallController = laserWall.GetComponent<Projectile>();
                 wallController.SetDirection(direction);
                 wallController.SetDamage(damageOutput);
@@ -62,10 +71,29 @@ namespace EnemyStates.LaserSkeletonStates
             _controller.ChangeState(States.Walking);
         }
 
+        public override void OnPause()
+        {
+            base.OnPause();
+            
+            if (_lastCoroutine != null)
+            {
+                StopCoroutine(_lastCoroutine);
+            }
+        }
+
+        public override void OnPlay()
+        {
+            base.OnPlay();
+
+            _lastCoroutine = StartCoroutine(AttackCooldown());
+        }
+
         IEnumerator AttackCooldown()
         {
             _isReadyToAttack = false;
-            yield return new WaitForSeconds(secondsBetweenAttacks);
+            var timerLength = _remainingSecondsOnTimer > 0 ? _remainingSecondsOnTimer : secondsBetweenAttacks;
+            for(_remainingSecondsOnTimer = timerLength; _remainingSecondsOnTimer > 0; _remainingSecondsOnTimer -= Time.deltaTime)
+                yield return null;
             _isReadyToAttack = true;
         }
     }

@@ -24,6 +24,10 @@ namespace EnemyStates.SkeletonStates
                 _controller.SetMovementStop(1);
                 _controller.ChangeState(States.Walking);
             }
+            else
+            {
+                _controller.ChangeState(States.Attacking);
+            }
             
             _controller.SetDirection(_playerTransform.position.x > _controller.GetPosition().x ? 1 : -1);
         }

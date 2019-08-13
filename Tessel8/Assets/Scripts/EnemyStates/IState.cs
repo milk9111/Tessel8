@@ -11,6 +11,10 @@ namespace EnemyStates
         
         void DoAction();
 
+        void OnPause();
+
+        void OnPlay();
+
         void SetupFields(EnemyController controller, Animator animator);
     }
 

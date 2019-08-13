@@ -135,6 +135,9 @@ public class PlayerTeleportController : MonoBehaviour
 	public void DisableTeleport()
 	{
 		_isDisabled = true;
+		teleportSignal.gameObject.SetActive(false);
+		teleportRange.gameObject.SetActive(false);
+		_isTeleportRangeActivated = false;
 	}
 	
 	public void EnableTeleport()

@@ -5,6 +5,10 @@ namespace StateMachineBehaviours
 {
     public class SkeletonDeadBehaviour : StateMachineBehaviour
     {
+        public float deadEventTimeStart = 0.6f;
+
+        public float deadEventTimeEnd = 1f;
+        
         private SkeletonDead _dead;
 
         private bool _hasDied;
@@ -24,7 +28,7 @@ namespace StateMachineBehaviours
         
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
         {
-            if (!_hasDied && animatorStateInfo.normalizedTime >= 0.6f && animatorStateInfo.normalizedTime <= 1f)
+            if (!_hasDied && animatorStateInfo.normalizedTime >= deadEventTimeStart && animatorStateInfo.normalizedTime <= deadEventTimeEnd)
             {
                 _hasDied = true;
                 _dead.FinishDeath();

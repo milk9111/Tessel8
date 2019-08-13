@@ -5,6 +5,10 @@ namespace StateMachineBehaviours
 {
     public class SkeletonHitBehaviour : StateMachineBehaviour
     {
+        public float hitEventTimeStart = 0.8f;
+
+        public float hitEventTimeEnd = 1f;
+    
         private SkeletonHit _hit;
 
         private bool _hasBeenHit;
@@ -24,7 +28,7 @@ namespace StateMachineBehaviours
         
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
         {
-            if (!_hasBeenHit && animatorStateInfo.normalizedTime >= 0.8f && animatorStateInfo.normalizedTime <= 1f)
+            if (!_hasBeenHit && animatorStateInfo.normalizedTime >= hitEventTimeStart && animatorStateInfo.normalizedTime <= hitEventTimeEnd)
             {
                 _hasBeenHit = true;
                 _hit.FinishHit();

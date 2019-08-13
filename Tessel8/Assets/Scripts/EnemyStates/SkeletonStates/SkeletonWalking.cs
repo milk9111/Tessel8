@@ -6,7 +6,6 @@ namespace EnemyStates.SkeletonStates
     public class SkeletonWalking : BaseState
     {
         [Tooltip("The movement speed of the enemy")]
-        [Range(0, 1)]
         public float speed = 0.5f;
 	
         [Tooltip("The speed of the jump take off")]

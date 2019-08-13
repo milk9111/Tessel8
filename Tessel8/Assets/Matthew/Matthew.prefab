@@ -5154,8 +5154,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0032575876, y: 0.25}
-  m_Size: {x: 0.18, y: 0.91}
+  m_Offset: {x: 0.0032575876, y: 0.305965}
+  m_Size: {x: 0.18, y: 0.7980701}
   m_Direction: 0
 --- !u!114 &2468367209854213720
 MonoBehaviour:
@@ -5214,7 +5214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   damageOutput: 20
-  attackRange: 1
+  attackRange: 0.5
   gameController: {fileID: 0}
   animator: {fileID: 2468367209125766006}
   playerHitFx: {fileID: 8300000, guid: 41283cbe59675d74d866eb14aaa74a6a, type: 3}

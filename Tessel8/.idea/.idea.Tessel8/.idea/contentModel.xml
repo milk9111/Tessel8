@@ -247,12 +247,17 @@
           <e p="BackgroundSoundController.cs" t="Include" />
           <e p="DeathBorder.cs" t="Include" />
           <e p="EnemyControllers" t="Include">
+            <e p="AntiTeleportRadius.cs" t="Include" />
             <e p="EnemyController.cs" t="Include" />
             <e p="Projectile.cs" t="Include" />
             <e p="SkeletonController.cs" t="Include" />
             <e p="SkeletonControllerHelper.cs" t="Include" />
           </e>
           <e p="EnemyStates" t="Include">
+            <e p="AntiTeleportStates" t="Include">
+              <e p="AntiTeleportAttacking.cs" t="Include" />
+              <e p="AntiTeleportDead.cs" t="Include" />
+            </e>
             <e p="BaseState.cs" t="Include" />
             <e p="IState.cs" t="Include" />
             <e p="LaserSkeletonStates" t="Include">
@@ -303,6 +308,9 @@
             <e p="SpawnUIController.cs" t="Include" />
           </e>
           <e p="StateMachineBehaviours" t="Include">
+            <e p="AntiTeleportSlimeAttackBehaviour.cs" t="Include" />
+            <e p="AntiTeleportSlimeDeadBehaviour.cs" t="Include" />
+            <e p="LaserSlimeAttackBehaviour.cs" t="Include" />
             <e p="PlayerAttackBehaviour.cs" t="Include" />
             <e p="SkeletonAttackBehaviour.cs" t="Include" />
             <e p="SkeletonDeadBehaviour.cs" t="Include" />

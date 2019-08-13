@@ -99,7 +99,11 @@ namespace Spawn.Domain.Round
 
         public void OnPause()
         {
-            StopCoroutine(_lastCoroutine);
+            if (_lastCoroutine != null)
+            {
+                StopCoroutine(_lastCoroutine);
+            }
+
             _isPaused = true;
             _isCooldownFinished = true;
         }
