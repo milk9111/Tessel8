@@ -9,6 +9,7 @@ TagManager:
   - FallingTile
   - Projectile
   - InteractiveTile
+  - Parallax
   layers:
   - Default
   - TransparentFX

@@ -276,6 +276,7 @@
           <e p="FallingTile.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
           <e p="GameTiles.cs" t="Include" />
+          <e p="ParallaxScrolling.cs" t="Include" />
           <e p="PerfectPixel.cs" t="Include" />
           <e p="PhysicsObject.cs" t="Include" />
           <e p="Player.cs" t="Include" />

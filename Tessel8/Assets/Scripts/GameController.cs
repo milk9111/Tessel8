@@ -3,15 +3,14 @@ using System.Linq;
 using EnemyControllers;
 using Spawn;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DefaultNamespace
 {
     public class GameController : MonoBehaviour
     {
         public PauseMenu pauseMenu;
-
         public GameoverMenu gameOverMenu;
-
         public GameoverMenu victoryMenu;
         
         private EnemySpawnController _spawnController;
@@ -23,6 +22,8 @@ namespace DefaultNamespace
         private Quaternion _playerStartingRotation;
 
         private IList<GameObject> _interactiveTiles;
+        private IList<GameObject> _parallaxScrollingObjects;
+        private IList<Vector3> _parallaxScrollingOriginalPositions;
         
         void Awake()
         {
@@ -36,6 +37,8 @@ namespace DefaultNamespace
                 _player.transform.rotation.y, _player.transform.rotation.z, _player.transform.rotation.w);
 
             _interactiveTiles = GameObject.FindGameObjectsWithTag("InteractiveTile");
+            _parallaxScrollingObjects = GameObject.FindGameObjectsWithTag("Parallax");
+            _parallaxScrollingOriginalPositions = _parallaxScrollingObjects.Select(p => p.transform.position).ToList();
         }
 
         public IList<EnemyController> GetAllEnemiesInGame()
@@ -94,6 +97,12 @@ namespace DefaultNamespace
             foreach (var tile in _interactiveTiles)
             {
                 tile.GetComponent<FallingTile>().OnStart();
+            }
+
+            for (var i = 0; i < _parallaxScrollingObjects.Count; i++)
+            {
+                var p = _parallaxScrollingObjects[i].transform;
+                p.SetPositionAndRotation(_parallaxScrollingOriginalPositions[i], p.rotation);
             }
         }
 
