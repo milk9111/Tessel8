@@ -3,14 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using EnemyControllers;
+using Spawn.Domain.Pickups;
 using UnityEngine;
 
 namespace Spawn.Domain.Round
 {
     public class SurvivalRound : BaseRound
     {
-        public WaveConfiguration[] waveConfigurations;
-
         public float secondsBetweenWaves = 30;
 
         private int _waveIndex;
@@ -22,9 +21,9 @@ namespace Spawn.Domain.Round
         private Coroutine _lastCoroutine;
                 
         public override void Init(HashSet<Vector3> spawnPositions, HashSet<EnemyController> enemies, 
-            SpawnUIController spawnUiController)
+            HashSet<Pickup> pickups, SpawnUIController spawnUiController)
         {
-            base.Init(spawnPositions, enemies, spawnUiController);
+            base.Init(spawnPositions, enemies, pickups, spawnUiController);
             _validSpawnPositions = spawnPositions;
             _enemies = enemies;
             _currWave = waveConfigurations[0];
@@ -72,9 +71,16 @@ namespace Spawn.Domain.Round
             }
 
             var enemy = _currWave.SpawnEnemy(RandomPositionFromValidPositions());
-            if (enemy == null) return;
-            
-            _enemies.Add(enemy);
+            if (enemy != null)
+            {
+                _enemies.Add(enemy);
+            }
+
+            var pickup = _currWave.SpawnPickup(RandomPositionFromValidPositions());
+            if (pickup != null)
+            {
+                _pickups.Add(pickup);
+            }
         }
 
         private void MarkAllEnemiesAsDead()

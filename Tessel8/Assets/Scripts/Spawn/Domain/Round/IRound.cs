@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using EnemyControllers;
+using Spawn.Domain.Pickups;
 using UnityEngine;
 
 namespace Spawn.Domain.Round
@@ -12,7 +13,8 @@ namespace Spawn.Domain.Round
 
         void UpdateRound();
 
-        void Init(HashSet<Vector3> spawnPositions, HashSet<EnemyController> enemies, SpawnUIController spawnUiController);
+        void Init(HashSet<Vector3> spawnPositions, HashSet<EnemyController> enemies, 
+            HashSet<Pickup> pickups, SpawnUIController spawnUiController);
 
         void SetSpawnPositions(HashSet<Vector3> spawnPositions);
 

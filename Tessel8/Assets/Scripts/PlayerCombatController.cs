@@ -82,6 +82,21 @@ namespace DefaultNamespace
             }
         }
 
+        public void Heal(int heal)
+        {
+            if (_isDead) return;
+            
+            var fillAmount = heal;
+            var newHealth = _currHealth + heal;
+            if (newHealth >= health)
+            {
+                fillAmount = health - _currHealth;
+                _currHealth = health;
+            }    
+            
+            healthBar.OnHit(fillAmount / (float)health * -1);
+        }
+
         public void AttackEnemy()
         {
             foreach (var enemy in gameController.GetAllEnemiesInGame())

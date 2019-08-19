@@ -41,8 +41,14 @@ namespace EnemyStates.SkeletonStates
 
         public void AttackPlayer()
         {
+            var isFacingLeft = _controller.GetDirection() < 0;
+            var playerPos = playerCombat.gameObject.transform.position;
+
+            var playerIsOnFacingDirection = isFacingLeft && playerPos.x <= transform.position.x
+                                            || !isFacingLeft && playerPos.x >= transform.position.x;
+            
             StartCoroutine(AttackCooldown());
-            if (_controller.IsPlayerWithinStoppingDistance())
+            if (playerIsOnFacingDirection && _controller.IsPlayerWithinStoppingDistance())
             {
                 playerCombat.DealDamage(damageOutput);
             }

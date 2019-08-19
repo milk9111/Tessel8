@@ -170,7 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.92
   jumpTakeOffSpeed: 5
-  raycastDistance: 0
+  raycastDistance: 0.7
+  raycastOriginYOffset: 0.08
   stoppingDistance: 0.4
   target: {fileID: 0}
   followTarget: 1
@@ -624,6 +625,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 99ff4a1655f04404ebbfebb82b7acb0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 99ff4a1655f04404ebbfebb82b7acb0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 99ff4a1655f04404ebbfebb82b7acb0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 99ff4a1655f04404ebbfebb82b7acb0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 99ff4a1655f04404ebbfebb82b7acb0a, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
@@ -643,22 +660,6 @@ PrefabInstance:
     - target: {fileID: 400014, guid: 99ff4a1655f04404ebbfebb82b7acb0a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.31300002
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 99ff4a1655f04404ebbfebb82b7acb0a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 99ff4a1655f04404ebbfebb82b7acb0a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 99ff4a1655f04404ebbfebb82b7acb0a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 99ff4a1655f04404ebbfebb82b7acb0a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: 99ff4a1655f04404ebbfebb82b7acb0a, type: 3}
       propertyPath: m_SortingLayerID

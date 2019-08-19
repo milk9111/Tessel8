@@ -408,6 +408,7 @@ MonoBehaviour:
   speed: 1
   jumpTakeOffSpeed: 5
   raycastDistance: 0
+  raycastOriginYOffset: 0.08
   stoppingDistance: 5
   target: {fileID: 0}
   followTarget: 1
@@ -454,7 +455,7 @@ MonoBehaviour:
   playerCombat: {fileID: 0}
   laserWallPrefab: {fileID: 1318009563330052, guid: dbd2784de02ff7e4e8405c6a3defacc4,
     type: 3}
-  damageOutput: 60
+  damageOutput: 40
   secondsBetweenAttacks: 5
 --- !u!1 &194425313424737526
 GameObject:

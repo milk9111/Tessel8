@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EnemyControllers;
 using Spawn.Domain;
+using Spawn.Domain.Pickups;
 using Spawn.Domain.Round;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -21,6 +22,7 @@ namespace Spawn
         public Transform[] spawnPoints;
         
         private HashSet<EnemyController> _enemies;
+        private HashSet<Pickup> _pickups;
         private HashSet<Vector3> _validSpawnPositions;
 
         private IRound _currRound;
@@ -37,8 +39,11 @@ namespace Spawn
             _spawnUiController = GetComponent<SpawnUIController>();
             
             _enemies = new HashSet<EnemyController>();
+            _pickups = new HashSet<Pickup>();
             GatherStartingEnemies();
             ClearDeadEnemies();
+            GatherStartingPickups();
+            ClearDeadPickups();
             
             _validSpawnPositions = null;
             _isCooldownFinished = true;
@@ -63,10 +68,11 @@ namespace Spawn
                 GatherValidSpawnPositions();
                 _spawnUiController.NewRound(RoundTypesHelper.GetTypeFromName(_currRound.GetName()), 
                     _currRound, _roundIndex + 1);
-                _currRound.Init(_validSpawnPositions, _enemies, _spawnUiController);
+                _currRound.Init(_validSpawnPositions, _enemies, _pickups, _spawnUiController);
             }
 
             ClearDeadEnemies();
+            ClearDeadPickups();
 
             if (_currRound.IsRoundComplete())
             {
@@ -83,7 +89,7 @@ namespace Spawn
                 _currRound = rounds[_roundIndex].GetSelectedRound();
                 _spawnUiController.NewRound(RoundTypesHelper.GetTypeFromName(_currRound.GetName()), 
                     _currRound, _roundIndex + 1);
-                _currRound.Init(_validSpawnPositions, _enemies, _spawnUiController);
+                _currRound.Init(_validSpawnPositions, _enemies, _pickups, _spawnUiController);
             }
             
             _currRound.UpdateRound();
@@ -106,6 +112,12 @@ namespace Spawn
                 enemy.enabled = false;
             }
 
+            foreach (var pickup in _pickups)
+            {
+                pickup.OnPause();
+                pickup.enabled = false;
+            }
+
             foreach (var bullet in GameObject.FindGameObjectsWithTag("Projectile"))
             {
                 var proj = bullet.GetComponent<Projectile>();
@@ -124,6 +136,12 @@ namespace Spawn
             {
                 enemy.enabled = true;
                 enemy.OnPlay();
+            }
+            
+            foreach (var pickup in _pickups)
+            {
+                pickup.OnPlay();
+                pickup.enabled = true;
             }
             
             foreach (var bullet in GameObject.FindGameObjectsWithTag("Projectile"))
@@ -146,12 +164,18 @@ namespace Spawn
                 enemy.MarkAsDead();
             }
 
+            foreach (var pickup in _pickups)
+            {
+                pickup.MarkAsDead();
+            }
+
             foreach (var round in rounds)
             {
                 round.GetSelectedRound().ResetRound();
             }
             
             ClearDeadEnemies();
+            ClearDeadPickups();
 
             if (rounds.Length == 0) return;
             _currRound = rounds[0].GetSelectedRound();
@@ -177,12 +201,38 @@ namespace Spawn
             }
         }
 
+        private void ClearDeadPickups()
+        {
+            IList<Pickup> deadPickups = new List<Pickup>();
+            foreach (var pickup in _pickups)
+            {
+                if (!pickup.HasDied()) continue;
+
+                deadPickups.Add(pickup);
+            }
+
+            foreach (var pickup in deadPickups)
+            {
+                _pickups.Remove(pickup);
+                Destroy(pickup.gameObject);
+            }
+        }
+
         private void GatherStartingEnemies()
         {
             var result = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (var enemy in result)
             {
                 _enemies.Add(enemy.GetComponent<EnemyController>());
+            }
+        }
+        
+        private void GatherStartingPickups()
+        {
+            var result = GameObject.FindGameObjectsWithTag("Pickup");
+            foreach (var pickup in result)
+            {
+                _pickups.Add(pickup.GetComponent<Pickup>());
             }
         }
 

@@ -8,6 +8,8 @@ namespace EnemyControllers
 {
     public class SkeletonController : EnemyController
     {
+	    private SkeletonHit _enemyHealth;
+	    
 	    protected override void ChildAwake()
 	    {
 		    GatherStates();
@@ -17,6 +19,11 @@ namespace EnemyControllers
 	    protected override void ChildUpdate()
 		{
 			if (_isPaused) return;
+
+			if (_enemyHealth != null && _enemyHealth.health <= 0)
+			{
+				MarkAsDead();
+			}
 			
 			switch (_currState)
 			{
@@ -32,6 +39,7 @@ namespace EnemyControllers
 					_stateObjects[_currState].DoAction();
 					break;
 				case States.Hit:
+					_enemyHealth = (SkeletonHit) _stateObjects[_currState];
 					_stateObjects[_currState].DoAction();
 					break;
 				case States.Dead:

@@ -13,6 +13,9 @@ namespace EnemyStates.SkeletonStates
 	
         [Tooltip("The distance of the forward ground detection ray cast")]
         public float raycastDistance = 5f;
+
+        [Tooltip("The y amount to offset the origin of the raycast from")]
+        public float raycastOriginYOffset = 0.08f;
 	
         [Tooltip("The distance the enemy stops from the target")]
         public float stoppingDistance = 0.1f;
@@ -42,14 +45,14 @@ namespace EnemyStates.SkeletonStates
         public override void DoAction()
         {
             _controller.SetSpeed(speed);
-            
-            _foundHit = Physics2D.Raycast(transform.position, transform.right, raycastDistance, 1<<LayerMask.NameToLayer("Ground"));
-            if (_foundHit && _controller.isGrounded())
+
+            var direction = transform.right;
+            if (_controller.GetDirection() < 0)
             {
-                _controller.velocity.y = jumpTakeOffSpeed;
+                direction *= -1;
             }
             
-            _foundHit = Physics2D.Raycast(transform.position, transform.right * -1, raycastDistance, 1<<LayerMask.NameToLayer("Ground"));
+            _foundHit = Physics2D.Raycast(transform.position + new Vector3(0, raycastOriginYOffset, 0), direction, raycastDistance, 1<<LayerMask.NameToLayer("Ground"));
             if (_foundHit && _controller.isGrounded())
             {
                 _controller.velocity.y = jumpTakeOffSpeed;

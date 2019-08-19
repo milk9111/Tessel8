@@ -50,6 +50,7 @@ namespace UserInterface
             var localScale = _healthBarRect.localScale;
             var newXScaleVal = localScale.x - _healthBarStartingXScale * damagePercent;
             newXScaleVal = newXScaleVal >= 0 ? newXScaleVal : 0;
+            newXScaleVal = newXScaleVal > _healthBarStartingXScale ? _healthBarStartingXScale : newXScaleVal;
             localScale = new Vector3(newXScaleVal, localScale.y, localScale.z);
             _healthBarRect.localScale = localScale;
 

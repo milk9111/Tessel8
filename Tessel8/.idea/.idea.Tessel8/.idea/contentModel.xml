@@ -288,8 +288,9 @@
           <e p="Side.cs" t="Include" />
           <e p="Spawn" t="Include">
             <e p="Domain" t="Include">
-              <e p="Editor" t="Include">
-                <e p="RoundEditor.cs" t="Include" />
+              <e p="Pickups" t="Include">
+                <e p="HealthPickup.cs" t="Include" />
+                <e p="Pickup.cs" t="Include" />
               </e>
               <e p="Round" t="Include">
                 <e p="BaseRound.cs" t="Include" />
@@ -297,6 +298,7 @@
                 <e p="IRound.cs" t="Include" />
                 <e p="NormalRound.cs" t="Include" />
                 <e p="OnceRound.cs" t="Include" />
+                <e p="PickupConfiguration.cs" t="Include" />
                 <e p="SurvivalRound.cs" t="Include" />
                 <e p="TimedWaveRound.cs" t="Include" />
                 <e p="WaveConfiguration.cs" t="Include" />

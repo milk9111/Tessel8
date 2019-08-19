@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using EnemyControllers;
+using Spawn.Domain.Pickups;
 using UnityEngine;
 
 namespace Spawn.Domain.Round
 {
     public class BaseRound : MonoBehaviour, IRound
     {
+        public WaveConfiguration[] waveConfigurations;
         protected bool _isComplete;
         protected bool _isPaused;
         
@@ -15,6 +17,7 @@ namespace Spawn.Domain.Round
         protected HashSet<Vector3> _validSpawnPositions;
 
         protected HashSet<EnemyController> _enemies;
+        protected HashSet<Pickup> _pickups;
 
         protected SpawnUIController _spawnUiController;
 
@@ -38,10 +41,12 @@ namespace Spawn.Domain.Round
         }
 
         public virtual void Init(HashSet<Vector3> spawnPositions, HashSet<EnemyController> enemies, 
-            SpawnUIController spawnUiController)
+            HashSet<Pickup> pickups, SpawnUIController spawnUiController)
         {
             _isPaused = false;
             _isComplete = false;
+            _enemies = enemies;
+            _pickups = pickups;
             _spawnUiController = spawnUiController;
         }
         

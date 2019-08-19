@@ -72,6 +72,11 @@ namespace DefaultNamespace
             {
                 tile.GetComponent<FallingTile>().OnPause();
             }
+
+            foreach (var scroll in _parallaxScrollingObjects)
+            {
+                scroll.GetComponent<ParallaxScrolling>().OnPause();
+            }
         }
 
         public void ResumeGame()
@@ -83,6 +88,11 @@ namespace DefaultNamespace
             foreach (var tile in _interactiveTiles)
             {
                 tile.GetComponent<FallingTile>().OnPlay();
+            }
+            
+            foreach (var scroll in _parallaxScrollingObjects)
+            {
+                scroll.GetComponent<ParallaxScrolling>().OnPause();
             }
         }
 
