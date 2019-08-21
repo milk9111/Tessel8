@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using EnemyControllers;
 using Spawn;
 using UnityEngine;
@@ -12,6 +14,8 @@ namespace DefaultNamespace
         public PauseMenu pauseMenu;
         public GameoverMenu gameOverMenu;
         public GameoverMenu victoryMenu;
+
+        public string backgroundMusicName;
         
         private EnemySpawnController _spawnController;
         private SpawnUIController _spawnUiController;
@@ -24,6 +28,9 @@ namespace DefaultNamespace
         private IList<GameObject> _interactiveTiles;
         private IList<GameObject> _parallaxScrollingObjects;
         private IList<Vector3> _parallaxScrollingOriginalPositions;
+
+        private AudioManager _audioManager;
+        private Guid _audioGuid;
         
         void Awake()
         {
@@ -39,6 +46,17 @@ namespace DefaultNamespace
             _interactiveTiles = GameObject.FindGameObjectsWithTag("InteractiveTile");
             _parallaxScrollingObjects = GameObject.FindGameObjectsWithTag("Parallax");
             _parallaxScrollingOriginalPositions = _parallaxScrollingObjects.Select(p => p.transform.position).ToList();
+
+            _audioManager = FindObjectOfType<AudioManager>();
+            _audioGuid = _audioManager.PrepareSound(backgroundMusicName);
+        }
+
+        void Start()
+        {
+            if (!_audioManager.IsPlaying(_audioGuid))
+            {
+                _audioManager.Play(_audioGuid);
+            }
         }
 
         public IList<EnemyController> GetAllEnemiesInGame()
@@ -98,6 +116,10 @@ namespace DefaultNamespace
 
         public void StartGame()
         {
+            if (!_audioManager.IsPlaying(_audioGuid))
+            {
+                _audioManager.Play(_audioGuid);
+            }
             gameOverMenu.gameObject.SetActive(false);
             pauseMenu.gameObject.SetActive(false);
             victoryMenu.gameObject.SetActive(false);

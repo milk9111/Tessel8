@@ -29,7 +29,8 @@ namespace EnemyControllers
 			{
 				case States.Idle:
 					((SkeletonIdle)_stateObjects[_currState]).SetInStoppingDistance(
-						((SkeletonWalking) _stateObjects[States.Walking]).IsTargetWithinXStoppingDistance());
+						((SkeletonWalking) _stateObjects[States.Walking]).IsTargetWithinXStoppingDistance()
+						&& ((SkeletonWalking) _stateObjects[States.Walking]).IsTargetWithinYStoppingDistance());
 					_stateObjects[_currState].DoAction();
 					break;
 				case States.Walking:

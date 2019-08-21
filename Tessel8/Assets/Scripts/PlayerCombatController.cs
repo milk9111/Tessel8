@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
+using Audio;
 using EnemyControllers;
-using EnemyStates;
 using UnityEngine;
-using Hellmade.Sound;
 using UserInterface;
 
 namespace DefaultNamespace
@@ -23,7 +21,9 @@ namespace DefaultNamespace
         
         public Animator animator;
 
-        public AudioClip playerHitFx;
+        public string attackFxName;
+        public string hitFxName;
+        public string healFxName;
 
         public HealthBar healthBar;
 
@@ -40,6 +40,11 @@ namespace DefaultNamespace
 
         private int _currHealth;
 
+        private AudioManager _audioManager;
+        private Guid _hitFxAudioGuid;
+        private Guid _attackFxAudioGuid;
+        private Guid _healFxAudioGuid;
+
         void Awake()
         {
             _isDead = false;
@@ -50,6 +55,15 @@ namespace DefaultNamespace
             {
                 attackAnimatorStateName = "Player_SpinKick";
             }
+
+            _audioManager = FindObjectOfType<AudioManager>();
+        }
+
+        void Start()
+        {
+            _hitFxAudioGuid = _audioManager.PrepareSound(hitFxName);
+            _attackFxAudioGuid = _audioManager.PrepareSound(attackFxName);
+            _healFxAudioGuid = _audioManager.PrepareSound(healFxName);
         }
 
         void Update()
@@ -74,7 +88,7 @@ namespace DefaultNamespace
             
             healthBar.OnHit(damage / (float)health);
             
-            EazySoundManager.PlaySound(playerHitFx, false);
+            _audioManager.Play(_hitFxAudioGuid);
             
             if (_currHealth <= 0)
             {
@@ -84,6 +98,8 @@ namespace DefaultNamespace
 
         public void Heal(int heal)
         {
+            _audioManager.Play(_healFxAudioGuid);
+            
             if (_isDead) return;
             
             var fillAmount = heal;
@@ -99,6 +115,7 @@ namespace DefaultNamespace
 
         public void AttackEnemy()
         {
+            _audioManager.Play(_attackFxAudioGuid);
             foreach (var enemy in gameController.GetAllEnemiesInGame())
             {
                 if (enemy != null && IsWithinAttackRange(enemy))

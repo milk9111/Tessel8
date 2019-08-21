@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -13,6 +14,9 @@ public class PlayerPlatformerController : PhysicsObject {
     [Range(1, 100)]
     public int pausedFrames = 50;
 
+    public string walkingFxName;
+    public float secondsBetweenWalkingFx = 0.55f;
+
     public SpriteRenderer spriteRenderer;
     public Animator animator;
     
@@ -23,6 +27,19 @@ public class PlayerPlatformerController : PhysicsObject {
     private int _currPausedFrame;
 
     private GameObject _lastHit;
+
+    private AudioManager _audioManager;
+    private Guid _walkingFxAudioGuid;
+    private bool _canPlayWalkingFx = true;
+    private Coroutine _walkingFxCoroutine;
+
+    private float _remainingSecondsOnTimer;
+
+    void Awake()
+    {
+        _audioManager = FindObjectOfType<AudioManager>();
+        _walkingFxAudioGuid = _audioManager.PrepareSound(walkingFxName);
+    }
 
     protected override void ChildUpdate()
     {
@@ -107,17 +124,27 @@ public class PlayerPlatformerController : PhysicsObject {
         }
 		
         animator.SetBool("Walking", Mathf.Abs(velocity.x) / maxSpeed > 0);
-        
+
+        if (Math.Abs(move.x) > 0 && _canPlayWalkingFx && !_audioManager.IsPlaying(_walkingFxAudioGuid))
+        {
+            _walkingFxCoroutine = StartCoroutine(WalkingFxCooldown());
+            _audioManager.Play(_walkingFxAudioGuid);
+        }
         targetVelocity = move * maxSpeed;        
     }
 
     public void DisableMovement()
     {
+        if (_walkingFxCoroutine != null)
+        {
+            StopCoroutine(_walkingFxCoroutine);
+        }
         _isDisabled = true;
     }
     
     public void EnableMovement()
     {
+        _walkingFxCoroutine = StartCoroutine(WalkingFxCooldown());
         _isDisabled = false;
     }
 
@@ -135,7 +162,18 @@ public class PlayerPlatformerController : PhysicsObject {
         _hasEndedPause = true;
         _isPaused = false;
     }
-    
+
+    private IEnumerator WalkingFxCooldown()
+    {
+        _canPlayWalkingFx = false;
+        var timerLength = _remainingSecondsOnTimer > 0 ? _remainingSecondsOnTimer : secondsBetweenWalkingFx;
+        for (_remainingSecondsOnTimer = timerLength;
+            _remainingSecondsOnTimer > 0;
+            _remainingSecondsOnTimer -= Time.deltaTime)
+            yield return null;
+        _canPlayWalkingFx = true;
+    }
+
     private IEnumerator PausePlayerMotion()
     {
         var lastVelocity = velocity;

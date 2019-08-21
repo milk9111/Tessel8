@@ -16,6 +16,8 @@ namespace EnemyStates
         void OnPlay();
 
         void SetupFields(EnemyController controller, Animator animator);
+
+        void Delete();
     }
 
 }

@@ -131,6 +131,10 @@ namespace EnemyControllers
 
 		public void MarkAsDead()
 		{
+			foreach (var state in _stateObjects.Values)
+			{
+				state.Delete();
+			}
 			_isDead = true;
 		}
 	}

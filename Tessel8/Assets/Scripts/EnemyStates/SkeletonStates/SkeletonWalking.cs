@@ -17,8 +17,11 @@ namespace EnemyStates.SkeletonStates
         [Tooltip("The y amount to offset the origin of the raycast from")]
         public float raycastOriginYOffset = 0.08f;
 	
-        [Tooltip("The distance the enemy stops from the target")]
-        public float stoppingDistance = 0.1f;
+        [Tooltip("The distance the enemy stops from the target on the X axis")]
+        public float stoppingXDistance = 0.1f;
+
+        [Tooltip("The distance the enemy stops from the target on the Y axis")]
+        public float stoppingYDistance = 1f;
         
         [Tooltip("The target transform to follow. The default target is the GameObject with the tag 'Player'.")]
         public Transform target;
@@ -39,11 +42,13 @@ namespace EnemyStates.SkeletonStates
 
         public override void Init()
         {
+            base.Init();
             _controller.SetSpeed(speed);
         }
 
         public override void DoAction()
         {
+            PlaySoundFx();
             _controller.SetSpeed(speed);
 
             var direction = transform.right;
@@ -94,12 +99,12 @@ namespace EnemyStates.SkeletonStates
         public bool IsTargetWithinXStoppingDistance()
         {
             var newX = MoveTowardsX();
-            return Math.Abs(newX - target.position.x) <= stoppingDistance;
+            return Math.Abs(newX - target.position.x) <= stoppingXDistance;
         }
 
         public bool IsTargetWithinYStoppingDistance()
         {
-            return Math.Abs(transform.position.y - target.position.y) <= stoppingDistance;
+            return Math.Abs(transform.position.y - target.position.y) <= stoppingYDistance;
         }
     }
 }

@@ -41,6 +41,7 @@ namespace EnemyStates.SkeletonStates
 
         public void AttackPlayer()
         {
+            PlaySoundFx();
             var isFacingLeft = _controller.GetDirection() < 0;
             var playerPos = playerCombat.gameObject.transform.position;
 

@@ -226,25 +226,15 @@
             </e>
           </e>
         </e>
-        <e p="Hellmade" t="Include">
-          <e p="Eazy Sound Manager" t="Include">
-            <e p="Demo" t="Include">
-              <e p="Scripts" t="Include">
-                <e p="EazySoundManagerDemo.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="Audio.cs" t="Include" />
-              <e p="EazySoundManager.cs" t="Include" />
-            </e>
-          </e>
-        </e>
         <e p="Materials" t="Include">
           <e p="DefaultRayCast.shader" t="Include" />
           <e p="Greyscale.shader" t="Include" />
         </e>
         <e p="Scripts" t="Include">
-          <e p="BackgroundSoundController.cs" t="Include" />
+          <e p="Audio" t="Include">
+            <e p="AudioManager.cs" t="Include" />
+            <e p="Sound.cs" t="Include" />
+          </e>
           <e p="DeathBorder.cs" t="Include" />
           <e p="EnemyControllers" t="Include">
             <e p="AntiTeleportRadius.cs" t="Include" />

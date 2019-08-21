@@ -1,5 +1,4 @@
 using System.Collections;
-using Hellmade.Sound;
 using UnityEngine;
 using UserInterface;
 
@@ -9,8 +8,6 @@ namespace EnemyStates.SkeletonStates
     {
         [Tooltip("The health of the enemy")]
         public int health = 30;
-
-        public AudioClip enemyHitFx;
 
         public HealthBar healthBar;
 
@@ -38,9 +35,9 @@ namespace EnemyStates.SkeletonStates
             if (_isDead) return;
             _currHealth -= damage;
 
+            PlaySoundFx();
             healthBar.OnHit(damage / (float)health);
             
-            EazySoundManager.PlaySound(enemyHitFx, false);
             _controller.ChangeState(States.Hit);
 
             if (_currHealth <= 0)

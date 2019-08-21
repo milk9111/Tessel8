@@ -18,6 +18,7 @@ namespace EnemyStates.SkeletonStates
 
         public void FinishDeath()
         {
+            PlaySoundFx();
             _controller.MarkAsDead();
         }
     }

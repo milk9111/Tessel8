@@ -156,6 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409443e1a82996941be90cacddee68c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: 
+  secondsBetweenFx: 0
 --- !u!114 &4614961183629104221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,11 +170,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638f5a899f0a4707a25e74651a39827e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: SlimeWalking
+  secondsBetweenFx: 0.55
   speed: 0.92
   jumpTakeOffSpeed: 5
   raycastDistance: 0.7
   raycastOriginYOffset: 0.08
-  stoppingDistance: 0.4
+  stoppingXDistance: 0.4
+  stoppingYDistance: 0.4
   target: {fileID: 0}
   followTarget: 1
 --- !u!114 &2717068318308987488
@@ -187,6 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef71f45e1a364d68b804e84e0b63bb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: SlimeAttack
+  secondsBetweenFx: 0
   playerCombat: {fileID: 0}
   damageOutput: 10
   secondsBetweenAttacks: 1
@@ -202,8 +209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88066e8f9d844cd88146094850b55ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: SlimeHit
+  secondsBetweenFx: 0
   health: 30
-  enemyHitFx: {fileID: 8300000, guid: a582a6ac04224304f9cc53f5db5af588, type: 3}
   healthBar: {fileID: 1316365634905048470}
 --- !u!114 &4916176700808133436
 MonoBehaviour:
@@ -217,6 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ad43e69e094468a60921b5eb3590b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: SlimeDead
+  secondsBetweenFx: 0
   isImmortal: 0
 --- !u!212 &4845219392067819473
 SpriteRenderer:
