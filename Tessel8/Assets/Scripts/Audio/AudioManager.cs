@@ -56,6 +56,12 @@ namespace Audio
 
         public Guid PrepareSound(string soundName)
         {
+            if (_sounds == null)
+            {
+                Debug.LogError("Sounds is null!");
+                return Guid.Empty;
+            }
+            
             Sound sound;
             if (!_sounds.TryGetValue(soundName, out sound))
             {

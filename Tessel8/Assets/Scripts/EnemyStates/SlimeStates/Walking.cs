@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace EnemyStates.SkeletonStates
+namespace EnemyStates.SlimeStates
 {
-    public class SkeletonWalking : BaseState
+    public class Walking : BaseState
     {
         [Tooltip("The movement speed of the enemy")]
         public float speed = 0.5f;
@@ -29,8 +29,7 @@ namespace EnemyStates.SkeletonStates
         [Tooltip("Follow target debug. Defaults to right direction.")]
         public bool followTarget;
 	        
-        private bool _foundHit;
-        
+        private bool _foundHit;        
         
         void Awake ()
         {
@@ -48,16 +47,12 @@ namespace EnemyStates.SkeletonStates
 
         public override void DoAction()
         {
+            _animator.SetBool("Walking", true);
+            
             PlaySoundFx();
             _controller.SetSpeed(speed);
-
-            var direction = transform.right;
-            if (_controller.GetDirection() < 0)
-            {
-                direction *= -1;
-            }
             
-            _foundHit = Physics2D.Raycast(transform.position + new Vector3(0, raycastOriginYOffset, 0), direction, raycastDistance, 1<<LayerMask.NameToLayer("Ground"));
+            _foundHit = Physics2D.Raycast(transform.position + new Vector3(0, raycastOriginYOffset, 0), new Vector2(_controller.GetDirection(), 0), raycastDistance, 1<<LayerMask.NameToLayer("Ground"));
             if (_foundHit && _controller.isGrounded())
             {
                 _controller.velocity.y = jumpTakeOffSpeed;
@@ -70,17 +65,10 @@ namespace EnemyStates.SkeletonStates
             }
 
             var newX = MoveTowardsX();
-            if (IsTargetWithinXStoppingDistance())
+            if (IsTargetWithinXStoppingDistance() && IsTargetWithinYStoppingDistance())
             {
                 _controller.SetMovementStop(0);
-                if (IsTargetWithinYStoppingDistance())
-                {
-                    _controller.ChangeState(States.Attacking);
-                }
-                else
-                {
-                    _controller.ChangeState(States.Idle);
-                }
+                _controller.ChangeState(States.Idle);
             }
             else
             {

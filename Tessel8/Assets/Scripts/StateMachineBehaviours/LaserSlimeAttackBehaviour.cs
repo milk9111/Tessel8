@@ -1,11 +1,11 @@
-using EnemyStates.LaserSkeletonStates;
+using EnemyStates.LaserStates;
 using UnityEngine;
 
 namespace StateMachineBehaviours
 {
     public class LaserSlimeAttackBehaviour : StateMachineBehaviour
     {
-        private LaserSkeletonAttacking _attacking;
+        private LaserAttacking _attacking;
 
         private bool _hasAttacked;
 
@@ -14,10 +14,10 @@ namespace StateMachineBehaviours
             _hasAttacked = false;
             if (_attacking == null)
             {
-                _attacking = animator.gameObject.GetComponentInParent<LaserSkeletonAttacking>();
+                _attacking = animator.gameObject.GetComponentInParent<LaserAttacking>();
                 if (_attacking == null)
                 {
-                    _attacking = animator.gameObject.GetComponent<LaserSkeletonAttacking>();
+                    _attacking = animator.gameObject.GetComponent<LaserAttacking>();
                 }
             }
         }

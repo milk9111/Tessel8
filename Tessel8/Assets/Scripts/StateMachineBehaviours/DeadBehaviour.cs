@@ -1,15 +1,15 @@
-using EnemyStates.SkeletonStates;
+using EnemyStates.SlimeStates;
 using UnityEngine;
 
 namespace StateMachineBehaviours
 {
-    public class SkeletonDeadBehaviour : StateMachineBehaviour
+    public class DeadBehaviour : StateMachineBehaviour
     {
         public float deadEventTimeStart = 0.6f;
 
         public float deadEventTimeEnd = 1f;
         
-        private SkeletonDead _dead;
+        private Dead _dead;
 
         private bool _hasDied;
 
@@ -18,10 +18,10 @@ namespace StateMachineBehaviours
             _hasDied = false;
             if (_dead == null)
             {
-                _dead = animator.gameObject.GetComponentInParent<SkeletonDead>();
+                _dead = animator.gameObject.GetComponentInParent<Dead>();
                 if (_dead == null)
                 {
-                    _dead = animator.gameObject.GetComponent<SkeletonDead>();
+                    _dead = animator.gameObject.GetComponent<Dead>();
                 }
             }
         }

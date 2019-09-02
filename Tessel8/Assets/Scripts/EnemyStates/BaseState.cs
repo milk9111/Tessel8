@@ -23,7 +23,7 @@ namespace EnemyStates
         private bool _canPlayFx = true;
         private AudioManager _audioManager;
         private Guid _audioGuid;
-        
+
         public virtual void Init() { }
         
         public virtual void DoAction() { }

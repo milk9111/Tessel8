@@ -13,6 +13,8 @@ namespace Spawn
 {
     public class EnemySpawnController : MonoBehaviour
     {
+        public bool useRounds = true;
+        
         public RoundHolder[] rounds;
 
         [Tooltip("The grid that contains all the platform tiles for the enemies to spawn on. Only works if useDesignatedSpawnPoints = false.")]
@@ -60,7 +62,7 @@ namespace Spawn
 
         void Update()
         {
-            if (_isPaused) return;
+            if (_isPaused || !useRounds) return;
             
             if (_validSpawnPositions == null)
             {

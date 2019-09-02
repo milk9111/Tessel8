@@ -65,14 +65,14 @@ GameObject:
   m_Component:
   - component: {fileID: 7402869453959204534}
   - component: {fileID: 5882884140626617124}
-  - component: {fileID: 993894699782097512}
-  - component: {fileID: 7895733436264673610}
-  - component: {fileID: 4614961183629104221}
-  - component: {fileID: 2717068318308987488}
-  - component: {fileID: 8810503654423842381}
-  - component: {fileID: 4916176700808133436}
   - component: {fileID: 4845219392067819473}
   - component: {fileID: 6812771531569863777}
+  - component: {fileID: 117722601}
+  - component: {fileID: 117722602}
+  - component: {fileID: 117722603}
+  - component: {fileID: 117722604}
+  - component: {fileID: 117722605}
+  - component: {fileID: 117722606}
   m_Layer: 0
   m_Name: Slime_1
   m_TagString: Enemy
@@ -117,117 +117,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &993894699782097512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4848518791790582606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc4167ca67ae401bad462ef914bb2d6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minGroundNormalY: 0.65
-  gravityModifier: 1
-  velocity: {x: 0, y: 0}
-  hasAnimationBones: 1
-  states:
-  - stateType: 0
-    className: SkeletonStates.SkeletonIdle
-  - stateType: 1
-    className: SkeletonStates.SkeletonWalking
-  - stateType: 2
-    className: SkeletonStates.SkeletonAttacking
-  - stateType: 3
-    className: SkeletonStates.SkeletonHit
-  - stateType: 4
-    className: SkeletonStates.SkeletonDead
---- !u!114 &7895733436264673610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4848518791790582606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 409443e1a82996941be90cacddee68c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundFxName: 
-  secondsBetweenFx: 0
---- !u!114 &4614961183629104221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4848518791790582606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 638f5a899f0a4707a25e74651a39827e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundFxName: SlimeWalking
-  secondsBetweenFx: 0.55
-  speed: 0.92
-  jumpTakeOffSpeed: 5
-  raycastDistance: 0.7
-  raycastOriginYOffset: 0.08
-  stoppingXDistance: 0.4
-  stoppingYDistance: 0.4
-  target: {fileID: 0}
-  followTarget: 1
---- !u!114 &2717068318308987488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4848518791790582606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef71f45e1a364d68b804e84e0b63bb0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundFxName: SlimeAttack
-  secondsBetweenFx: 0
-  playerCombat: {fileID: 0}
-  damageOutput: 10
-  secondsBetweenAttacks: 1
---- !u!114 &8810503654423842381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4848518791790582606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b88066e8f9d844cd88146094850b55ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundFxName: SlimeHit
-  secondsBetweenFx: 0
-  health: 30
-  healthBar: {fileID: 1316365634905048470}
---- !u!114 &4916176700808133436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4848518791790582606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20ad43e69e094468a60921b5eb3590b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundFxName: SlimeDead
-  secondsBetweenFx: 0
-  isImmortal: 0
 --- !u!212 &4845219392067819473
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -302,6 +191,117 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.293272, y: 0.1532293}
   m_EdgeRadius: 0
+--- !u!114 &117722601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848518791790582606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6254eb60ed3d404fbbc5f249b609e18d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFxName: SlimeDead
+  secondsBetweenFx: 0
+  isImmortal: 0
+--- !u!114 &117722602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848518791790582606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5cc866f9f346dc833a91ce685f1a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFxName: SlimeHit
+  secondsBetweenFx: 0
+  health: 30
+  healthBar: {fileID: 1316365634905048470}
+--- !u!114 &117722603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848518791790582606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177291cce7d84fa9b4c0713e5bef8e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFxName: SlimeAttack
+  secondsBetweenFx: 0
+  playerCombat: {fileID: 0}
+  damageOutput: 10
+  secondsBetweenAttacks: 1
+--- !u!114 &117722604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848518791790582606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa6eadd1c574ff59114e27a14c32cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFxName: SlimeWalking
+  secondsBetweenFx: 0.55
+  speed: 0.92
+  jumpTakeOffSpeed: 5
+  raycastDistance: 0.7
+  raycastOriginYOffset: 0.08
+  stoppingXDistance: 0.4
+  stoppingYDistance: 0.4
+  target: {fileID: 0}
+  followTarget: 1
+--- !u!114 &117722605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848518791790582606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c4bd8827b14eb8891995f5121ea385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFxName: 
+  secondsBetweenFx: 0
+--- !u!114 &117722606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848518791790582606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e3b61ac025430fb43735aa43215b2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minGroundNormalY: 0.65
+  gravityModifier: 1
+  velocity: {x: 0, y: 0}
+  hasAnimationBones: 1
+  states:
+  - stateType: 0
+    className: SlimeStates.Idle
+  - stateType: 1
+    className: SlimeStates.Walking
+  - stateType: 2
+    className: SlimeStates.Attacking
+  - stateType: 3
+    className: SlimeStates.Hit
+  - stateType: 4
+    className: SlimeStates.Dead
 --- !u!1 &5049959086428288490
 GameObject:
   m_ObjectHideFlags: 0

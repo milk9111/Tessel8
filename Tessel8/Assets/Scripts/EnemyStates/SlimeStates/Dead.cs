@@ -1,9 +1,9 @@
 
 using UnityEngine;
 
-namespace EnemyStates.SkeletonStates
+namespace EnemyStates.SlimeStates
 {
-    public class SkeletonDead : BaseState
+    public class Dead : BaseState
     {
         public bool isImmortal;
 

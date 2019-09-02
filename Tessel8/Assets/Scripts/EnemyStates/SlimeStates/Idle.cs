@@ -1,9 +1,9 @@
 
 using UnityEngine;
 
-namespace EnemyStates.SkeletonStates
+namespace EnemyStates.SlimeStates
 {
-    public class SkeletonIdle : BaseState
+    public class Idle : BaseState
     {
         private bool _inStoppingDistance;
 
@@ -17,7 +17,7 @@ namespace EnemyStates.SkeletonStates
         public override void DoAction()
         {
             _controller.SetMovementStop(0);
-            _animator.SetBool("Walking", !_inStoppingDistance);
+            _animator.SetBool("Walking", false);
             
             if (!_inStoppingDistance)
             {
@@ -28,8 +28,9 @@ namespace EnemyStates.SkeletonStates
             {
                 _controller.ChangeState(States.Attacking);
             }
-            
-            _controller.SetDirection(_playerTransform.position.x > _controller.GetPosition().x ? 1 : -1);
+
+            var dir = _playerTransform.position.x > _controller.GetPosition().x ? 1 : -1;
+            _controller.SetDirection(dir);
         }
 
         public void SetInStoppingDistance(bool inStoppingDistance)

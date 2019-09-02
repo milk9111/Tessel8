@@ -1,15 +1,15 @@
-using EnemyStates.SkeletonStates;
+using EnemyStates.SlimeStates;
 using UnityEngine;
 
 namespace StateMachineBehaviours
 {
-    public class SkeletonHitBehaviour : StateMachineBehaviour
+    public class HitBehaviour : StateMachineBehaviour
     {
         public float hitEventTimeStart = 0.8f;
 
         public float hitEventTimeEnd = 1f;
     
-        private SkeletonHit _hit;
+        private Hit _hit;
 
         private bool _hasBeenHit;
 
@@ -18,10 +18,10 @@ namespace StateMachineBehaviours
             _hasBeenHit = false;
             if (_hit == null)
             {
-                _hit = animator.gameObject.GetComponentInParent<SkeletonHit>();
+                _hit = animator.gameObject.GetComponentInParent<Hit>();
                 if (_hit == null)
                 {
-                    _hit = animator.gameObject.GetComponent<SkeletonHit>();
+                    _hit = animator.gameObject.GetComponent<Hit>();
                 }
             }
         }

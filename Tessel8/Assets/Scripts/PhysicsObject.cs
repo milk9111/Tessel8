@@ -28,6 +28,8 @@ public class PhysicsObject : MonoBehaviour
 
 	protected bool _isFlipped;
 
+	private bool init = false;
+
 	void OnEnable()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
@@ -44,9 +46,20 @@ public class PhysicsObject : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		if (!init)
+		{
+			Init();
+			init = true;
+		}
+		
 		targetVelocity = Vector2.zero;
 		ComputeVelocity();
 		ChildUpdate();
+	}
+
+	protected virtual void Init()
+	{
+		
 	}
 
 	protected virtual void ComputeVelocity()

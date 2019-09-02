@@ -241,8 +241,8 @@
             <e p="AntiTeleportRadius.cs" t="Include" />
             <e p="EnemyController.cs" t="Include" />
             <e p="Projectile.cs" t="Include" />
-            <e p="SkeletonController.cs" t="Include" />
-            <e p="SkeletonControllerHelper.cs" t="Include" />
+            <e p="SlimeController.cs" t="Include" />
+            <e p="SlimeControllerHelper.cs" t="Include" />
           </e>
           <e p="EnemyStates" t="Include">
             <e p="AntiTeleportStates" t="Include">
@@ -251,15 +251,15 @@
             </e>
             <e p="BaseState.cs" t="Include" />
             <e p="IState.cs" t="Include" />
-            <e p="LaserSkeletonStates" t="Include">
-              <e p="LaserSkeletonAttacking.cs" t="Include" />
+            <e p="LaserStates" t="Include">
+              <e p="LaserAttacking.cs" t="Include" />
             </e>
-            <e p="SkeletonStates" t="Include">
-              <e p="SkeletonAttacking.cs" t="Include" />
-              <e p="SkeletonDead.cs" t="Include" />
-              <e p="SkeletonHit.cs" t="Include" />
-              <e p="SkeletonIdle.cs" t="Include" />
-              <e p="SkeletonWalking.cs" t="Include" />
+            <e p="SlimeStates" t="Include">
+              <e p="Attacking.cs" t="Include" />
+              <e p="Dead.cs" t="Include" />
+              <e p="Hit.cs" t="Include" />
+              <e p="Idle.cs" t="Include" />
+              <e p="Walking.cs" t="Include" />
             </e>
             <e p="StateHolder.cs" t="Include" />
             <e p="States.cs" t="Include" />
@@ -304,11 +304,11 @@
           <e p="StateMachineBehaviours" t="Include">
             <e p="AntiTeleportSlimeAttackBehaviour.cs" t="Include" />
             <e p="AntiTeleportSlimeDeadBehaviour.cs" t="Include" />
+            <e p="AttackBehaviour.cs" t="Include" />
+            <e p="DeadBehaviour.cs" t="Include" />
+            <e p="HitBehaviour.cs" t="Include" />
             <e p="LaserSlimeAttackBehaviour.cs" t="Include" />
             <e p="PlayerAttackBehaviour.cs" t="Include" />
-            <e p="SkeletonAttackBehaviour.cs" t="Include" />
-            <e p="SkeletonDeadBehaviour.cs" t="Include" />
-            <e p="SkeletonHitBehaviour.cs" t="Include" />
           </e>
           <e p="UserInterface" t="Include">
             <e p="ArenaOption.cs" t="Include" />

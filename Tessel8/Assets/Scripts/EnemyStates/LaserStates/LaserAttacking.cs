@@ -3,9 +3,9 @@ using DefaultNamespace;
 using EnemyControllers;
 using UnityEngine;
 
-namespace EnemyStates.LaserSkeletonStates
+namespace EnemyStates.LaserStates
 {
-    public class LaserSkeletonAttacking : BaseState
+    public class LaserAttacking : BaseState
     {
         [Tooltip("The player's health component")]
         public PlayerCombatController playerCombat;
@@ -45,7 +45,7 @@ namespace EnemyStates.LaserSkeletonStates
             if (!_isReadyToAttack)
             {
                 _animator.SetBool("Attacking", false);
-                _controller.ChangeState(States.Walking);
+                _controller.ChangeState(States.Idle);
                 return;
             }
             
@@ -55,21 +55,20 @@ namespace EnemyStates.LaserSkeletonStates
         public void AttackPlayer()
         {
             _lastCoroutine = StartCoroutine(AttackCooldown());
-            if (_controller.IsPlayerWithinStoppingDistance())
-            {
-                PlaySoundFx();
-                var direction = _controller.GetDirection();
-                
-                var laserWall = Instantiate(laserWallPrefab, 
-                    new Vector3(direction < 0 ? transform.position.x - 1 : transform.position.x + 1,
-                        transform.position.y - 0.5f), laserWallPrefab.transform.rotation);
-                var wallController = laserWall.GetComponent<Projectile>();
-                wallController.SetDirection(direction);
-                wallController.SetDamage(damageOutput);
-            }
+            
+            PlaySoundFx();
+            var direction = _controller.GetDirection();
+            
+            var laserWall = Instantiate(laserWallPrefab, 
+                new Vector3(direction < 0 ? transform.position.x - 1 : transform.position.x + 1,
+                    transform.position.y - 0.5f), laserWallPrefab.transform.rotation);
+            var wallController = laserWall.GetComponent<Projectile>();
+            wallController.SetDirection(direction);
+            wallController.SetDamage(damageOutput);
+            
 
             _animator.SetBool("Attacking", false);
-            _controller.ChangeState(States.Walking);
+            _controller.ChangeState(States.Idle);
         }
 
         public override void OnPause()

@@ -2,9 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UserInterface;
 
-namespace EnemyStates.SkeletonStates
+namespace EnemyStates.SlimeStates
 {
-    public class SkeletonHit : BaseState
+    public class Hit : BaseState
     {
         [Tooltip("The health of the enemy")]
         public int health = 30;

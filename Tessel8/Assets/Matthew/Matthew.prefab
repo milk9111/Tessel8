@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &34395841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 34395842}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &34395842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34395841}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.418, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2468367209854213727}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &791596976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 791596977}
+  m_Layer: 0
+  m_Name: CeilingCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &791596977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791596976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.91, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2468367209854213727}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2468367208821541326
 GameObject:
   m_ObjectHideFlags: 0
@@ -5096,6 +5156,7 @@ GameObject:
   - component: {fileID: 2468367209854213722}
   - component: {fileID: 2468367209854213717}
   - component: {fileID: 1456742211}
+  - component: {fileID: 1456742213}
   m_Layer: 0
   m_Name: Matthew
   m_TagString: Player
@@ -5118,6 +5179,8 @@ Transform:
   - {fileID: 2468367209157987725}
   - {fileID: 2468367210282160013}
   - {fileID: 2468367209235588341}
+  - {fileID: 34395842}
+  - {fileID: 791596977}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5129,9 +5192,9 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2468367209854213716}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 1
+  m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -5152,7 +5215,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: e52c63726466daf47a044bfc2171f460, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0032575876, y: 0.305965}
@@ -5170,17 +5233,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8cbe6a3a6e4faab40f22a7170d5ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minGroundNormalY: 0.65
-  gravityModifier: 1
-  velocity: {x: 0, y: 0}
-  hasAnimationBones: 1
-  maxSpeed: 3
-  jumpTakeOffSpeed: 5
+  maxSpeed: 20
+  jumpTakeOffSpeed: 350
+  gravityModifier: 2
   pausedFrames: 50
   walkingFxName: PlayerWalking
   secondsBetweenWalkingFx: 0.1
-  spriteRenderer: {fileID: 2468367210558231038}
   animator: {fileID: 2468367209125766006}
+  controller: {fileID: 1456742213}
 --- !u!114 &2468367209854213723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5245,7 +5305,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2468367209854213716}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 41283cbe59675d74d866eb14aaa74a6a, type: 3}
@@ -5334,6 +5394,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1456742213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2468367209854213716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8016d4cef4d7e1c4aa6094943fb02c0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_JumpForce: 200
+  m_CrouchSpeed: 0.36
+  m_MovementSmoothing: 0.05
+  m_AirControl: 1
+  m_WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  m_GroundCheck: {fileID: 34395842}
+  m_CeilingCheck: {fileID: 791596977}
+  m_CrouchDisableCollider: {fileID: 0}
+  OnLandEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnCrouchEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CharacterController2D+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2468367209856678055
 GameObject:
   m_ObjectHideFlags: 0
@@ -6205,21 +6297,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9dbaa1197c0b254c9647a483d78ac82, type: 3}
---- !u!4 &2468367210579425262 stripped
+--- !u!4 &2468367210579425234 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400026, guid: b9dbaa1197c0b254c9647a483d78ac82,
-    type: 3}
-  m_PrefabInstance: {fileID: 2468367210579029364}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2468367210579425260 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400024, guid: b9dbaa1197c0b254c9647a483d78ac82,
-    type: 3}
-  m_PrefabInstance: {fileID: 2468367210579029364}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2468367210579425250 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400022, guid: b9dbaa1197c0b254c9647a483d78ac82,
+  m_CorrespondingSourceObject: {fileID: 400038, guid: b9dbaa1197c0b254c9647a483d78ac82,
     type: 3}
   m_PrefabInstance: {fileID: 2468367210579029364}
   m_PrefabAsset: {fileID: 0}
@@ -6235,27 +6315,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2468367210579029364}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &2468367210558231038 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 21200010, guid: b9dbaa1197c0b254c9647a483d78ac82,
-    type: 3}
-  m_PrefabInstance: {fileID: 2468367210579029364}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2468367210579061716 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: b9dbaa1197c0b254c9647a483d78ac82,
     type: 3}
   m_PrefabInstance: {fileID: 2468367210579029364}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2468367210579425234 stripped
+--- !u!4 &2468367210579425260 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400038, guid: b9dbaa1197c0b254c9647a483d78ac82,
+  m_CorrespondingSourceObject: {fileID: 400024, guid: b9dbaa1197c0b254c9647a483d78ac82,
     type: 3}
   m_PrefabInstance: {fileID: 2468367210579029364}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2468367210579425232 stripped
+--- !u!4 &2468367210579425262 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400036, guid: b9dbaa1197c0b254c9647a483d78ac82,
+  m_CorrespondingSourceObject: {fileID: 400026, guid: b9dbaa1197c0b254c9647a483d78ac82,
+    type: 3}
+  m_PrefabInstance: {fileID: 2468367210579029364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2468367210579425236 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400032, guid: b9dbaa1197c0b254c9647a483d78ac82,
     type: 3}
   m_PrefabInstance: {fileID: 2468367210579029364}
   m_PrefabAsset: {fileID: 0}
@@ -6265,9 +6345,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2468367210579029364}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2468367210579425236 stripped
+--- !u!4 &2468367210579425232 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400032, guid: b9dbaa1197c0b254c9647a483d78ac82,
+  m_CorrespondingSourceObject: {fileID: 400036, guid: b9dbaa1197c0b254c9647a483d78ac82,
+    type: 3}
+  m_PrefabInstance: {fileID: 2468367210579029364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2468367210579425250 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400022, guid: b9dbaa1197c0b254c9647a483d78ac82,
     type: 3}
   m_PrefabInstance: {fileID: 2468367210579029364}
   m_PrefabAsset: {fileID: 0}

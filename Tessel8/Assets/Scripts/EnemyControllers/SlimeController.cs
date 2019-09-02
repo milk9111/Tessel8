@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using EnemyStates;
-using EnemyStates.SkeletonStates;
+using EnemyStates.SlimeStates;
 using UnityEngine;
 
 namespace EnemyControllers
 {
-    public class SkeletonController : EnemyController
+    public class SlimeController : EnemyController
     {
-	    private SkeletonHit _enemyHealth;
+	    private Hit _enemyHealth;
 	    
 	    protected override void ChildAwake()
 	    {
@@ -28,9 +28,7 @@ namespace EnemyControllers
 			switch (_currState)
 			{
 				case States.Idle:
-					((SkeletonIdle)_stateObjects[_currState]).SetInStoppingDistance(
-						((SkeletonWalking) _stateObjects[States.Walking]).IsTargetWithinXStoppingDistance()
-						&& ((SkeletonWalking) _stateObjects[States.Walking]).IsTargetWithinYStoppingDistance());
+					((Idle)_stateObjects[_currState]).SetInStoppingDistance(IsPlayerWithinStoppingDistance());
 					_stateObjects[_currState].DoAction();
 					break;
 				case States.Walking:
@@ -40,7 +38,7 @@ namespace EnemyControllers
 					_stateObjects[_currState].DoAction();
 					break;
 				case States.Hit:
-					_enemyHealth = (SkeletonHit) _stateObjects[_currState];
+					_enemyHealth = (Hit) _stateObjects[_currState];
 					_stateObjects[_currState].DoAction();
 					break;
 				case States.Dead:
@@ -51,12 +49,13 @@ namespace EnemyControllers
 					break;
 			}
 		}
+
 	    
 	    protected override void ComputeVelocity()
 	    {
 		    var move = Vector2.zero;
 
-		    move.x = _direction * _speed * _movementStop;
+		    move.x = _direction * _speed;
 
 		    bool flipSprite;
 		    if (hasAnimationBones)
@@ -79,19 +78,20 @@ namespace EnemyControllers
 				    _spriteRenderer.flipX = !_spriteRenderer.flipX;
 			    }
 		    }
-        
+
+		    move *= _movementStop;
 		    targetVelocity = move;        
 	    }
 	
 		public override bool IsPlayerWithinStoppingDistance()
 		{
-			return ((SkeletonWalking) _stateObjects[States.Walking]).IsTargetWithinXStoppingDistance() 
-			       && ((SkeletonWalking) _stateObjects[States.Walking]).IsTargetWithinYStoppingDistance();
+			return ((Walking) _stateObjects[States.Walking]).IsTargetWithinXStoppingDistance() 
+			       && ((Walking) _stateObjects[States.Walking]).IsTargetWithinYStoppingDistance();
 		}
 	
 		public override void DealDamage(int damage)
 		{
-			((SkeletonHit)_stateObjects[States.Hit]).DealDamage(damage);
+			((Hit)_stateObjects[States.Hit]).DealDamage(damage);
 		}
 		
 		private void GatherStates()

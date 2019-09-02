@@ -30,12 +30,14 @@ namespace EnemyControllers
 		protected bool _isPaused;
 
 		protected bool _isDead;
+		
+		private bool _canAttack;
 
-		private int _lastMovingDirection;
+		protected int _lastMovingDirection;
 
 		private IList<GameObject> _childObjects;
 	
-		void Awake ()
+		protected override void Init ()
 		{
 			_movementStop = 1;
 			
@@ -103,6 +105,16 @@ namespace EnemyControllers
 			}
 
 			_direction = direction;
+		}
+		
+		public void SetCanAttack(bool canAttack)
+		{
+			_canAttack = canAttack;
+		}
+
+		public bool CanAttack()
+		{
+			return _canAttack;
 		}
 
 		public void SetMovementStop(int movement)

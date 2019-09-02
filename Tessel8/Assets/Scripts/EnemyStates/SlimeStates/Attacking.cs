@@ -3,9 +3,9 @@ using DefaultNamespace;
 using EnemyStates;
 using UnityEngine;
 
-namespace EnemyStates.SkeletonStates
+namespace EnemyStates.SlimeStates
 {
-    public class SkeletonAttacking : BaseState
+    public class Attacking : BaseState
     {
         [Tooltip("The player's health component")]
         public PlayerCombatController playerCombat;
@@ -61,8 +61,10 @@ namespace EnemyStates.SkeletonStates
         IEnumerator AttackCooldown()
         {
             _isReadyToAttack = false;
+            _controller.SetCanAttack(_isReadyToAttack);
             yield return new WaitForSeconds(secondsBetweenAttacks);
             _isReadyToAttack = true;
+            _controller.SetCanAttack(_isReadyToAttack);
         }
     }
 }

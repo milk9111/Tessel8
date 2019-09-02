@@ -1,11 +1,11 @@
-using EnemyStates.SkeletonStates;
+using EnemyStates.SlimeStates;
 using UnityEngine;
 
 namespace StateMachineBehaviours
 {
-    public class SkeletonAttackBehaviour : StateMachineBehaviour
+    public class AttackBehaviour : StateMachineBehaviour
     {
-        private SkeletonAttacking _attacking;
+        private Attacking _attacking;
 
         private bool _hasAttacked;
 
@@ -14,10 +14,10 @@ namespace StateMachineBehaviours
             _hasAttacked = false;
             if (_attacking == null)
             {
-                _attacking = animator.gameObject.GetComponentInParent<SkeletonAttacking>();
+                _attacking = animator.gameObject.GetComponentInParent<Attacking>();
                 if (_attacking == null)
                 {
-                    _attacking = animator.gameObject.GetComponent<SkeletonAttacking>();
+                    _attacking = animator.gameObject.GetComponent<Attacking>();
                 }
             }
         }
