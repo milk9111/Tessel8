@@ -15,7 +15,11 @@ namespace Audio
 
         private IDictionary<string, Sound> _sounds;
 
-        private IDictionary<Guid, GameObject> _currentSources;
+        private IDictionary<Guid, GameObject> _currentMusicSources;
+        private IDictionary<Guid, GameObject> _currentSoundFxSources;
+
+        private bool _musicEnabled;
+        private bool _soundFxEnabled;
 
         void Awake()
         {
@@ -30,8 +34,12 @@ namespace Audio
             }
             
             DontDestroyOnLoad(gameObject);
+
+            _musicEnabled = true;
+            _soundFxEnabled = true;
             
-            _currentSources = new Dictionary<Guid, GameObject>();
+            _currentMusicSources = new Dictionary<Guid, GameObject>();
+            _currentSoundFxSources = new Dictionary<Guid, GameObject>();
             
             _sounds = new Dictionary<string, Sound>();
             foreach (var sound in sounds)
@@ -58,7 +66,25 @@ namespace Audio
             var source = BuildAudioSource(sound);
             var guid = Guid.NewGuid();
             source.name = soundName + "_" + guid;
-            _currentSources.Add(guid, source);
+            _currentSoundFxSources.Add(guid, source);
+            source.transform.parent = gameObject.transform;
+
+            return guid;
+        }
+        
+        public Guid PrepareMusic(string soundName)
+        {
+            Sound sound;
+            if (!_sounds.TryGetValue(soundName, out sound))
+            {
+                Debug.LogWarning("Sound '" + soundName + "' doesn't exist");
+                return Guid.Empty;
+            }
+
+            var source = BuildAudioSource(sound);
+            var guid = Guid.NewGuid();
+            source.name = soundName + "_" + guid;
+            _currentMusicSources.Add(guid, source);
             source.transform.parent = gameObject.transform;
 
             return guid;
@@ -66,7 +92,15 @@ namespace Audio
 
         public void Play(Guid guid)
         {
-            GetAudioSource(guid).Play();
+            var source = GetAudioSource(guid);
+
+            if (source == null)
+            {
+                
+                return;
+            }
+            
+            source.Play();
         }
 
         public bool IsPlaying(Guid guid)
@@ -87,13 +121,13 @@ namespace Audio
         public void Destroy(Guid guid)
         {
             GameObject source;
-            if (!_currentSources.TryGetValue(guid, out source))
+            if (!_currentSoundFxSources.TryGetValue(guid, out source))
             {
                 return;
             }
             
             Destroy(source);
-            _currentSources.Remove(guid);
+            _currentSoundFxSources.Remove(guid);
         }
 
         public void Resume(Guid guid)
@@ -114,6 +148,36 @@ namespace Audio
             source.Stop();
         }
 
+        public void ToggleSoundFx()
+        {
+            _soundFxEnabled = !_soundFxEnabled;
+            
+            foreach (var source in _currentSoundFxSources.Values)
+            {
+                if (!_soundFxEnabled)
+                {
+                    source.GetComponent<AudioSource>().Stop();
+                }
+            }
+        }
+        
+        public void ToggleMusic()
+        {
+            _musicEnabled = !_musicEnabled;
+            
+            foreach (var source in _currentMusicSources.Values)
+            {
+                if (!_musicEnabled)
+                {
+                    source.GetComponent<AudioSource>().Pause();
+                }
+                else
+                {
+                    source.GetComponent<AudioSource>().UnPause();
+                }
+            }
+        }
+
         private Sound GetSound(string soundName)
         {
             Sound sound;
@@ -129,9 +193,20 @@ namespace Audio
         private AudioSource GetAudioSource(Guid guid)
         {
             GameObject source;
-            if (!_currentSources.TryGetValue(guid, out source))
+            var isMusic = false;
+            if (!_currentSoundFxSources.TryGetValue(guid, out source))
             {
-                Debug.LogError("AudioSource for '" + guid + "' doesn't exist");
+                if (!_currentMusicSources.TryGetValue(guid, out source))
+                {
+                    Debug.LogError("AudioSource for '" + guid + "' doesn't exist");
+                    return null;
+                }
+
+                isMusic = true;
+            }
+
+            if (!_soundFxEnabled && !isMusic || !_musicEnabled && isMusic)
+            {
                 return null;
             }
 

@@ -34,7 +34,12 @@ namespace EnemyStates
             {
                 StopCoroutine(_soundFxCoroutine);
             }
-            _audioManager.Pause(_audioGuid);
+
+            if (_audioManager != null)
+            {
+                _audioManager.Pause(_audioGuid);
+            }
+
             _isPaused = true;
         }
 
@@ -44,13 +49,18 @@ namespace EnemyStates
             {
                 _soundFxCoroutine = StartCoroutine(SoundFxCooldown());
             }
-            _audioManager.Resume(_audioGuid);
+
+            if (_audioManager != null)
+            {
+                _audioManager.Resume(_audioGuid);
+            }
+
             _isPaused = false;
         }
 
         protected void PlaySoundFx()
         {            
-            if (_canPlayFx && !_audioManager.IsPlaying(_audioGuid))
+            if (_canPlayFx && _audioManager != null && !_audioManager.IsPlaying(_audioGuid))
             {
                 _audioManager.Play(_audioGuid);
                 _soundFxCoroutine = StartCoroutine(SoundFxCooldown());

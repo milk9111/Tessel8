@@ -57,6 +57,7 @@ namespace EnemyStates.LaserSkeletonStates
             _lastCoroutine = StartCoroutine(AttackCooldown());
             if (_controller.IsPlayerWithinStoppingDistance())
             {
+                PlaySoundFx();
                 var direction = _controller.GetDirection();
                 
                 var laserWall = Instantiate(laserWallPrefab, 

@@ -393,6 +393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409443e1a82996941be90cacddee68c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: 
+  secondsBetweenFx: 0
 --- !u!114 &194425313354202826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,11 +407,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638f5a899f0a4707a25e74651a39827e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: LaserSlimeWalking
+  secondsBetweenFx: 0
   speed: 1
   jumpTakeOffSpeed: 5
   raycastDistance: 0
   raycastOriginYOffset: 0.08
-  stoppingDistance: 5
+  stoppingXDistance: 0.1
+  stoppingYDistance: 1
   target: {fileID: 0}
   followTarget: 1
 --- !u!114 &194425313354202825
@@ -424,8 +429,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88066e8f9d844cd88146094850b55ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: LaserSlimeHit
+  secondsBetweenFx: 0
   health: 30
-  enemyHitFx: {fileID: 8300000, guid: a582a6ac04224304f9cc53f5db5af588, type: 3}
   healthBar: {fileID: 194425312074837470}
 --- !u!114 &194425313354202818
 MonoBehaviour:
@@ -439,6 +445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ad43e69e094468a60921b5eb3590b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: LaserSlimeDead
+  secondsBetweenFx: 0
   isImmortal: 0
 --- !u!114 &194425313354202817
 MonoBehaviour:
@@ -452,6 +460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01526bb88c8bde42ac00bcc7f792053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: LaserSlimeAttacking
+  secondsBetweenFx: 0
   playerCombat: {fileID: 0}
   laserWallPrefab: {fileID: 1318009563330052, guid: dbd2784de02ff7e4e8405c6a3defacc4,
     type: 3}

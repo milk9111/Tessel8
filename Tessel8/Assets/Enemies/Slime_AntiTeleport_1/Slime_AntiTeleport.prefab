@@ -331,6 +331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409443e1a82996941be90cacddee68c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: 
+  secondsBetweenFx: 0
 --- !u!114 &3099122022169276739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,11 +345,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638f5a899f0a4707a25e74651a39827e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: SlimeWalking
+  secondsBetweenFx: 0
   speed: 1
   jumpTakeOffSpeed: 5
   raycastDistance: 0
   raycastOriginYOffset: 0.08
-  stoppingDistance: 1.5
+  stoppingXDistance: 0.1
+  stoppingYDistance: 1
   target: {fileID: 0}
   followTarget: 1
 --- !u!114 &3099122022169276736
@@ -362,8 +367,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88066e8f9d844cd88146094850b55ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: SlimeHit
+  secondsBetweenFx: 0
   health: 30
-  enemyHitFx: {fileID: 8300000, guid: a582a6ac04224304f9cc53f5db5af588, type: 3}
   healthBar: {fileID: 3099122021847011377}
 --- !u!114 &3099122022169276742
 MonoBehaviour:
@@ -377,6 +383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418c97239fdb4bb298dd7edf916e29f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: AntiTeleportSlimeAttacking
+  secondsBetweenFx: 0
   antiTeleportRadiusPrefab: {fileID: 7832224927770906593}
   radiusSize: 2.5
   secondsBetweenAttacks: 3
@@ -392,6 +400,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277e2c9d272543749a624c8b09ea1035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFxName: SlimeDead
+  secondsBetweenFx: 0
   antiTeleportRadiusPrefab: {fileID: 7832224927770906593}
   isImmortal: 0
 --- !u!1 &3099122022240964627

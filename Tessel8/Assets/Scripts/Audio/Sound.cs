@@ -17,6 +17,7 @@ namespace Audio
         [Range(0f, 1f)] 
         public float spatialBlend;
 
+        public bool isMusic;
         public bool loop;
 
         [HideInInspector]

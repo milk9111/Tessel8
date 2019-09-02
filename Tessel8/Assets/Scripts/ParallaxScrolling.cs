@@ -22,7 +22,7 @@ namespace DefaultNamespace
             if (_isPaused) return;
             
             var movement = new Vector3(
-                speed * (player.velocity.x * -1),
+                speed * (player.Velocity().x * -1),
                 0,
                 0);
 

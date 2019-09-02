@@ -48,7 +48,7 @@ namespace DefaultNamespace
             _parallaxScrollingOriginalPositions = _parallaxScrollingObjects.Select(p => p.transform.position).ToList();
 
             _audioManager = FindObjectOfType<AudioManager>();
-            _audioGuid = _audioManager.PrepareSound(backgroundMusicName);
+            _audioGuid = _audioManager.PrepareMusic(backgroundMusicName);
         }
 
         void Start()
@@ -78,6 +78,16 @@ namespace DefaultNamespace
         public void ClosePauseMenu()
         {
             pauseMenu.OnPlay();
+        }
+
+        public void ToggleMusic()
+        {
+            _audioManager.ToggleMusic();
+        }
+
+        public void ToggleSoundFx()
+        {
+            _audioManager.ToggleSoundFx();
         }
 
         public void PauseGame()

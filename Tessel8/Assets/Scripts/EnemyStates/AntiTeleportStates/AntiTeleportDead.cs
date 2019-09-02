@@ -20,6 +20,7 @@ namespace EnemyStates.AntiTeleportStates
 
         public void FinishDeath()
         {
+            PlaySoundFx();
             antiTeleportRadiusPrefab.GetComponent<AntiTeleportRadius>().ReleasePlayer();
             antiTeleportRadiusPrefab.SetActive(false);
             _controller.MarkAsDead();

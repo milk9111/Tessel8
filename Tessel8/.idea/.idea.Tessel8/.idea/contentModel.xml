@@ -235,6 +235,7 @@
             <e p="AudioManager.cs" t="Include" />
             <e p="Sound.cs" t="Include" />
           </e>
+          <e p="CharacterController2D.cs" t="Include" />
           <e p="DeathBorder.cs" t="Include" />
           <e p="EnemyControllers" t="Include">
             <e p="AntiTeleportRadius.cs" t="Include" />

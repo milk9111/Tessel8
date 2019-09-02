@@ -6,10 +6,11 @@ using Audio;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PlayerPlatformerController : PhysicsObject {
+public class PlayerPlatformerController : MonoBehaviour {
 
     public float maxSpeed = 7;
     public float jumpTakeOffSpeed = 15;
+    public float gravityModifier = 2f;
     
     [Range(1, 100)]
     public int pausedFrames = 50;
@@ -17,10 +18,8 @@ public class PlayerPlatformerController : PhysicsObject {
     public string walkingFxName;
     public float secondsBetweenWalkingFx = 0.55f;
 
-    public SpriteRenderer spriteRenderer;
     public Animator animator;
     
-    private bool _gravMultHasBeenApplied;
     private bool _hasEndedPause;
     private bool _isPaused;
     private bool _isDisabled;
@@ -34,14 +33,72 @@ public class PlayerPlatformerController : PhysicsObject {
     private Coroutine _walkingFxCoroutine;
 
     private float _remainingSecondsOnTimer;
+    
+    public CharacterController2D controller;
+
+    private float _horizontalMove;
+    private bool _jump;
 
     void Awake()
     {
         _audioManager = FindObjectOfType<AudioManager>();
         _walkingFxAudioGuid = _audioManager.PrepareSound(walkingFxName);
+        
+        controller.SetJumpForce(jumpTakeOffSpeed);
+        controller.SetGravityModifier(gravityModifier);
     }
 
-    protected override void ChildUpdate()
+    void Update()
+    {
+        if (_isDisabled) return;
+        
+        if (Grounded())
+        {
+            TouchFallingTiles();
+        }
+        
+        _horizontalMove = Input.GetAxisRaw("Horizontal") * maxSpeed;
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            _jump = true;
+        }
+        
+        if (_isPaused)
+        {
+            _currPausedFrame++;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (_isPaused || _isDisabled)
+        {
+            return;
+        }
+        
+        controller.Move(_horizontalMove * Time.fixedDeltaTime, false, _jump);
+        _jump = false;
+        
+        animator.SetBool("Walking", Mathf.Abs(Velocity().x) / maxSpeed > 0);
+
+        if (Math.Abs(_horizontalMove) > 0 && _canPlayWalkingFx && !_audioManager.IsPlaying(_walkingFxAudioGuid))
+        {
+            _walkingFxCoroutine = StartCoroutine(WalkingFxCooldown());
+            _audioManager.Play(_walkingFxAudioGuid);
+        }
+    }
+
+    private void TouchFallingTiles()
+    {
+        var foundHit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 0.1f), transform.up * -1, 0.7f, 1<<LayerMask.NameToLayer("Ground"));
+        if (foundHit.rigidbody != null && foundHit.rigidbody.gameObject != null && string.Equals(foundHit.rigidbody.gameObject.name, "FallingTile"))
+        {
+            foundHit.rigidbody.gameObject.GetComponent<FallingTile>().Touch();
+        }
+    }
+
+    /*protected override void ChildUpdate()
     {
         if (_isDisabled) return;
 
@@ -75,9 +132,9 @@ public class PlayerPlatformerController : PhysicsObject {
         {
             _currPausedFrame++;
         }
-    }
+    }*/
 
-    protected override void ComputeVelocity()
+    /*protected override void ComputeVelocity()
     {
         var move = Vector2.zero;
 
@@ -93,13 +150,6 @@ public class PlayerPlatformerController : PhysicsObject {
             //animator.SetTrigger("Jumping");
             velocity.y = jumpTakeOffSpeed;
         } 
-        /*else if (Input.GetButtonUp("Jump"))
-        {
-            if (velocity.y > 0)
-            {
-                velocity.y = velocity.y * 0.5f;
-            }
-        }*/
 
         bool flipSprite;
         if (hasAnimationBones)
@@ -131,6 +181,18 @@ public class PlayerPlatformerController : PhysicsObject {
             _audioManager.Play(_walkingFxAudioGuid);
         }
         targetVelocity = move * maxSpeed;        
+    }*/
+
+    public void OnPause()
+    {
+        DisableMovement();
+        FreezePosition(true, true);
+    }
+
+    public void OnPlay()
+    {
+        EnableMovement();
+        FreezePosition(false, false);
     }
 
     public void DisableMovement()
@@ -150,11 +212,16 @@ public class PlayerPlatformerController : PhysicsObject {
 
     public void StartPlayerMotionPause()
     {
-        if (grounded) return;
+        if (Grounded()) return;
         _isPaused = true;
         _hasEndedPause = false;
         _currPausedFrame = 0;
         StartCoroutine(PausePlayerMotion());
+    }
+
+    public bool Grounded()
+    {
+        return controller.Grounded();
     }
 
     public void StopPlayerMotionPause()
@@ -176,15 +243,45 @@ public class PlayerPlatformerController : PhysicsObject {
 
     private IEnumerator PausePlayerMotion()
     {
-        var lastVelocity = velocity;
-        velocity = Vector2.zero;
+        var lastVelocity = Velocity();
+        SetVelocity(Vector2.zero);
         
-        var lastGrav = gravityModifier;
-        gravityModifier = 0;
+        FreezePosition(true, true);
         
         yield return new WaitUntil(() => _currPausedFrame >= pausedFrames || _hasEndedPause );
         StopPlayerMotionPause();
-        velocity = lastVelocity;
-        gravityModifier = lastGrav;
+        SetVelocity(lastVelocity);
+        FreezePosition(false, false);
+    }
+    
+    public Vector2 Velocity()
+    {
+        var vel = controller.Velocity();
+        if (Mathf.Abs(vel.x) / maxSpeed <= 0.01f)
+        {
+            vel.x = 0;
+        }
+
+        if (Mathf.Abs(vel.y) / jumpTakeOffSpeed <= 0.01f)
+        {
+            vel.y = 0;
+        }
+
+        return vel;
+    }
+
+    public void SetVelocity(Vector2 velocity)
+    {
+        controller.SetVelocity(velocity);
+    }
+
+    public float Gravity()
+    {
+        return controller.Gravity();
+    }
+
+    public void FreezePosition(bool freezeX, bool freezeY)
+    {
+        controller.FreezePosition(freezeX, freezeY);
     }
 }

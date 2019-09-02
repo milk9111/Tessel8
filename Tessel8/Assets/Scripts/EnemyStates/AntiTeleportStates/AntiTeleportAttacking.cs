@@ -46,6 +46,7 @@ namespace EnemyStates.AntiTeleportStates
 
         public void AttackPlayer()
         {
+            PlaySoundFx();
             _lastCoroutine = StartCoroutine(AttackCooldown());
             antiTeleportRadiusPrefab.SetActive(true);
             _radius.SetRadiusSize(radiusSize);
