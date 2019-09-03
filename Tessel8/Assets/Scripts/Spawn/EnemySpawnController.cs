@@ -196,6 +196,12 @@ namespace Spawn
                 deadEnemies.Add(enemy);
             }
 
+            var deadEnemiesNames = string.Join(",", deadEnemies.Select(e => e.name).ToArray());
+            if (!string.IsNullOrEmpty(deadEnemiesNames))
+            {
+                Debug.Log("Clearing these enemies: " + deadEnemiesNames);
+            }
+
             foreach (var enemy in deadEnemies)
             {
                 _enemies.Remove(enemy);

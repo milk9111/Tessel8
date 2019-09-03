@@ -19,6 +19,7 @@ namespace EnemyStates.SlimeStates
         public void FinishDeath()
         {
             PlaySoundFx();
+            Debug.Log("Marking enemy for death: " + gameObject.name);
             _controller.MarkAsDead();
         }
     }

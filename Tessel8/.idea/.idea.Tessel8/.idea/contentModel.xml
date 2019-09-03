@@ -233,6 +233,7 @@
         <e p="Scripts" t="Include">
           <e p="Audio" t="Include">
             <e p="AudioManager.cs" t="Include" />
+            <e p="BackgroundMusicController.cs" t="Include" />
             <e p="Sound.cs" t="Include" />
           </e>
           <e p="CharacterController2D.cs" t="Include" />

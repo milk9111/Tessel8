@@ -1,3 +1,5 @@
+using System;
+using Audio;
 using DefaultNamespace;
 using UnityEngine;
 
@@ -18,6 +20,8 @@ namespace Spawn.Domain.Pickups
             {
                 return;
             }
+            
+            PlaySoundFx();
             
             other.gameObject.GetComponent<PlayerCombatController>().Heal(healAmount);
             MarkAsDead();

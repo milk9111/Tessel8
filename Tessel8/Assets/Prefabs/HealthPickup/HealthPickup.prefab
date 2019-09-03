@@ -76,6 +76,7 @@ MonoBehaviour:
   gravityModifier: 1
   velocity: {x: 0, y: 0}
   hasAnimationBones: 0
+  pickupFxName: PlayerHeal
   healAmount: 10
 --- !u!50 &2409564511504309137
 Rigidbody2D:

@@ -240,11 +240,6 @@ GameObject:
   - component: {fileID: 194425313354202831}
   - component: {fileID: 194425313354202830}
   - component: {fileID: 194425313354202829}
-  - component: {fileID: 194425313354202827}
-  - component: {fileID: 194425313354202826}
-  - component: {fileID: 194425313354202825}
-  - component: {fileID: 194425313354202818}
-  - component: {fileID: 194425313354202817}
   - component: {fileID: 1403169367}
   - component: {fileID: 1403169368}
   - component: {fileID: 1403169369}
@@ -359,92 +354,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.011247158, y: -0.0004183054}
   m_Size: {x: 0.37822628, y: 0.4866197}
   m_Direction: 0
---- !u!114 &194425313354202827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194425313354202824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 409443e1a82996941be90cacddee68c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundFxName: 
-  secondsBetweenFx: 0
---- !u!114 &194425313354202826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194425313354202824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 638f5a899f0a4707a25e74651a39827e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundFxName: LaserSlimeWalking
-  secondsBetweenFx: 0
-  speed: 1
-  jumpTakeOffSpeed: 5
-  raycastDistance: 0
-  raycastOriginYOffset: 0.08
-  stoppingXDistance: 4
-  stoppingYDistance: 1
-  target: {fileID: 0}
-  followTarget: 1
---- !u!114 &194425313354202825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194425313354202824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b88066e8f9d844cd88146094850b55ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundFxName: LaserSlimeHit
-  secondsBetweenFx: 0
-  health: 30
-  healthBar: {fileID: 194425312074837470}
---- !u!114 &194425313354202818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194425313354202824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20ad43e69e094468a60921b5eb3590b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundFxName: LaserSlimeDead
-  secondsBetweenFx: 0
-  isImmortal: 0
---- !u!114 &194425313354202817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194425313354202824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c01526bb88c8bde42ac00bcc7f792053, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundFxName: LaserSlimeAttacking
-  secondsBetweenFx: 0
-  playerCombat: {fileID: 0}
-  laserWallPrefab: {fileID: 1318009563330052, guid: dbd2784de02ff7e4e8405c6a3defacc4,
-    type: 3}
-  damageOutput: 40
-  secondsBetweenAttacks: 5
 --- !u!114 &1403169367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,6 +404,7 @@ MonoBehaviour:
   secondsBetweenFx: 0
   health: 30
   healthBar: {fileID: 194425312074837470}
+  _currHealth: 0
 --- !u!114 &1403169370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,14 +417,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa6eadd1c574ff59114e27a14c32cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFxName: LaserSlimeWalking
+  soundFxName: 
   secondsBetweenFx: 0
   speed: 1
   jumpTakeOffSpeed: 5
   raycastDistance: 0
   raycastOriginYOffset: 0.08
-  stoppingXDistance: 4
-  stoppingYDistance: 1
+  stoppingXDistance: 6
+  stoppingYDistance: 20
   target: {fileID: 0}
   followTarget: 1
 --- !u!114 &1403169371
@@ -651,18 +561,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &194425313719303459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194425313548441628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40c7cae928434da18edfd58cf3ffbfb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &194425313548541628
 PrefabInstance:
   m_ObjectHideFlags: 0

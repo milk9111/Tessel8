@@ -98,7 +98,7 @@ namespace DefaultNamespace
 
         public void Heal(int heal)
         {
-            _audioManager.Play(_healFxAudioGuid);
+            //_audioManager.Play(_healFxAudioGuid);
             
             if (_isDead) return;
             

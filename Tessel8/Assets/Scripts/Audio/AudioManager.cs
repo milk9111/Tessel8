@@ -54,6 +54,16 @@ namespace Audio
             }
         }
 
+        public IList<string> GetAllMusic()
+        {
+            if (_sounds == null)
+            {
+                return null;
+            }
+
+            return _sounds.Where(p => p.Value.isMusic).Select(p => p.Key).ToList();
+        }
+
         public Guid PrepareSound(string soundName)
         {
             if (_sounds == null)
@@ -167,7 +177,7 @@ namespace Audio
             }
         }
         
-        public void ToggleMusic()
+        public bool ToggleMusic()
         {
             _musicEnabled = !_musicEnabled;
             
@@ -182,6 +192,8 @@ namespace Audio
                     source.GetComponent<AudioSource>().UnPause();
                 }
             }
+
+            return _musicEnabled;
         }
 
         private Sound GetSound(string soundName)

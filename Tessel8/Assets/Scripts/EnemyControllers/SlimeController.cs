@@ -20,9 +20,9 @@ namespace EnemyControllers
 		{
 			if (_isPaused) return;
 
-			if (_enemyHealth != null && _enemyHealth.health <= 0)
+			if (_enemyHealth != null && _enemyHealth.GetCurrentHealth() <= 0)
 			{
-				MarkAsDead();
+				_currState = States.Dead;
 			}
 			
 			switch (_currState)
@@ -35,6 +35,7 @@ namespace EnemyControllers
 					_stateObjects[_currState].DoAction();
 					break;
 				case States.Attacking:
+					
 					_stateObjects[_currState].DoAction();
 					break;
 				case States.Hit:

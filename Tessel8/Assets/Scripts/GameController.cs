@@ -14,11 +14,10 @@ namespace DefaultNamespace
         public PauseMenu pauseMenu;
         public GameoverMenu gameOverMenu;
         public GameoverMenu victoryMenu;
-
-        public string backgroundMusicName;
         
         private EnemySpawnController _spawnController;
         private SpawnUIController _spawnUiController;
+        private BackgroundMusicController _backgroundMusicController;
 
         private GameObject _player;
         private PlayerControllerHelper _helper;
@@ -30,12 +29,12 @@ namespace DefaultNamespace
         private IList<Vector3> _parallaxScrollingOriginalPositions;
 
         private AudioManager _audioManager;
-        private Guid _audioGuid;
         
         void Awake()
         {
             _spawnController = GetComponent<EnemySpawnController>();
             _spawnUiController = GetComponent<SpawnUIController>();
+            _backgroundMusicController = GetComponent<BackgroundMusicController>();
             _player = GameObject.FindWithTag("Player");
             _helper = _player.GetComponent<PlayerControllerHelper>();
             _playerStartingPosition = new Vector3(_player.transform.position.x, 
@@ -46,17 +45,7 @@ namespace DefaultNamespace
             _interactiveTiles = GameObject.FindGameObjectsWithTag("InteractiveTile");
             _parallaxScrollingObjects = GameObject.FindGameObjectsWithTag("Parallax");
             _parallaxScrollingOriginalPositions = _parallaxScrollingObjects.Select(p => p.transform.position).ToList();
-
             _audioManager = FindObjectOfType<AudioManager>();
-            _audioGuid = _audioManager.PrepareMusic(backgroundMusicName);
-        }
-
-        void Start()
-        {
-            if (!_audioManager.IsPlaying(_audioGuid))
-            {
-                _audioManager.Play(_audioGuid);
-            }
         }
 
         public IList<EnemyController> GetAllEnemiesInGame()
@@ -82,7 +71,7 @@ namespace DefaultNamespace
 
         public void ToggleMusic()
         {
-            _audioManager.ToggleMusic();
+            _backgroundMusicController.ToggleMusic();
         }
 
         public void ToggleSoundFx()
@@ -126,15 +115,12 @@ namespace DefaultNamespace
 
         public void StartGame()
         {
-            if (!_audioManager.IsPlaying(_audioGuid))
-            {
-                _audioManager.Play(_audioGuid);
-            }
             gameOverMenu.gameObject.SetActive(false);
             pauseMenu.gameObject.SetActive(false);
             victoryMenu.gameObject.SetActive(false);
             _spawnController.OnStart();
             _spawnUiController.OnStart();
+            _backgroundMusicController.OnStart();
             _helper.OnStart(_playerStartingPosition, _playerStartingRotation);
             foreach (var tile in _interactiveTiles)
             {

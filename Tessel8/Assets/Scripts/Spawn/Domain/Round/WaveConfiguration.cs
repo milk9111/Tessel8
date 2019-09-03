@@ -97,6 +97,7 @@ namespace Spawn.Domain.Round
             var enemyConfig = GetEnemyConfiguration((float)Math.Round(UnityEngine.Random.Range(0.01f, 1f), 2));
             
             var newEnemy = Instantiate(enemyConfig.enemyPrefab, pos, enemyConfig.enemyPrefab.transform.rotation);
+            newEnemy.name += "-" + Guid.NewGuid();
 
             _numberOfSpawnedEnemies++;
             if (!_overrideNumberOfEnemies && _numberOfSpawnedEnemies >= numberOfEnemies)

@@ -15,7 +15,7 @@ namespace EnemyStates.SlimeStates
 
         private bool _hasBeenHit;
 
-        private int _currHealth;
+        public int _currHealth;
 
 
         public override void Init()
@@ -44,6 +44,11 @@ namespace EnemyStates.SlimeStates
             {
                 _isDead = true;
             }
+        }
+        
+        public int GetCurrentHealth()
+        {
+            return _currHealth;
         }
 
         public void FinishHit()

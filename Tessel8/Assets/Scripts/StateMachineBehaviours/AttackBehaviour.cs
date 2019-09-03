@@ -5,6 +5,9 @@ namespace StateMachineBehaviours
 {
     public class AttackBehaviour : StateMachineBehaviour
     {
+        public float attackEventTimeStart = 0.6f;
+        public float attackEventTimeEnd = 1f;
+        
         private Attacking _attacking;
 
         private bool _hasAttacked;
@@ -24,7 +27,7 @@ namespace StateMachineBehaviours
         
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
         {
-            if (!_hasAttacked && animatorStateInfo.normalizedTime >= 0.6f && animatorStateInfo.normalizedTime <= 1f)
+            if (!_hasAttacked && animatorStateInfo.normalizedTime >= attackEventTimeStart && animatorStateInfo.normalizedTime <= attackEventTimeEnd)
             {
                 _hasAttacked = true;
                 _attacking.AttackPlayer();
