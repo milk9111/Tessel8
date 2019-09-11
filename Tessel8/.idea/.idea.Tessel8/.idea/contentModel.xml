@@ -314,6 +314,7 @@
           <e p="UserInterface" t="Include">
             <e p="ArenaOption.cs" t="Include" />
             <e p="ArenaSelection.cs" t="Include" />
+            <e p="Credits.cs" t="Include" />
             <e p="FadingText.cs" t="Include" />
             <e p="GameoverMenu.cs" t="Include" />
             <e p="HealthBar.cs" t="Include" />

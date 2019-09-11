@@ -7,6 +7,7 @@ namespace UserInterface
     {
         public GameObject startScreen;
         public GameObject arenaSelection;
+        public Credits credits;
 
         void Awake()
         {
@@ -17,12 +18,22 @@ namespace UserInterface
         {
             startScreen.SetActive(false);
             arenaSelection.SetActive(true);
+            credits.gameObject.SetActive(false);
+        }
+
+        public void OnCredits()
+        {
+            startScreen.SetActive(false);
+            arenaSelection.SetActive(false);
+            credits.gameObject.SetActive(true);
+            credits.StartCredits();
         }
 
         public void OnBack()
         {
             startScreen.SetActive(true);
             arenaSelection.SetActive(false);
+            credits.gameObject.SetActive(false);
         }
         
         public void OnExit()
