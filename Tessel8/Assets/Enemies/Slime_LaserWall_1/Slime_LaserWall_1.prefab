@@ -457,6 +457,7 @@ MonoBehaviour:
   gravityModifier: 1
   velocity: {x: 0, y: 0}
   hasAnimationBones: 1
+  pointValue: 40
   states:
   - stateType: 0
     className: SlimeStates.Idle

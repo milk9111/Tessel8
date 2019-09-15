@@ -107,8 +107,10 @@ namespace DefaultNamespace
             if (newHealth >= health)
             {
                 fillAmount = health - _currHealth;
-                _currHealth = health;
+                newHealth = health;
             }    
+            
+            _currHealth = newHealth;
             
             healthBar.OnHit(fillAmount / (float)health * -1);
         }

@@ -23,7 +23,7 @@ namespace EnemyStates.AntiTeleportStates
             PlaySoundFx();
             antiTeleportRadiusPrefab.GetComponent<AntiTeleportRadius>().ReleasePlayer();
             antiTeleportRadiusPrefab.SetActive(false);
-            _controller.MarkAsDead();
+            _controller.MarkingAsDead();
         }
     }
 }

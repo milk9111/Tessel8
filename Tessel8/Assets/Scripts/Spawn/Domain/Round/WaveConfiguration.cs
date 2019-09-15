@@ -95,6 +95,7 @@ namespace Spawn.Domain.Round
             if (_isComplete || !_isEnemyCooldownFinished || _isPaused) return null;
 
             var enemyConfig = GetEnemyConfiguration((float)Math.Round(UnityEngine.Random.Range(0.01f, 1f), 2));
+            if (enemyConfig == null || enemyConfig.enemyPrefab == null) return null;
             
             var newEnemy = Instantiate(enemyConfig.enemyPrefab, pos, enemyConfig.enemyPrefab.transform.rotation);
             newEnemy.name += "-" + Guid.NewGuid();

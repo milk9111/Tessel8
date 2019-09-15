@@ -318,6 +318,7 @@
             <e p="FadingText.cs" t="Include" />
             <e p="GameoverMenu.cs" t="Include" />
             <e p="HealthBar.cs" t="Include" />
+            <e p="Highscore.cs" t="Include" />
             <e p="MainMenu.cs" t="Include" />
             <e p="PauseMenu.cs" t="Include" />
             <e p="StaminaBar.cs" t="Include" />

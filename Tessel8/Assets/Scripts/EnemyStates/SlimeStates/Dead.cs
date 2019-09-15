@@ -20,7 +20,7 @@ namespace EnemyStates.SlimeStates
         {
             PlaySoundFx();
             Debug.Log("Marking enemy for death: " + gameObject.name);
-            _controller.MarkAsDead();
+            _controller.MarkingAsDead();
         }
     }
 }

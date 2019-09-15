@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DefaultNamespace;
 using EnemyStates;
 using UnityEngine;
+using UserInterface;
 
 namespace EnemyControllers
 {
 	public class EnemyController : PhysicsObject
 	{
+		[Tooltip("The amount to be added to the high score when this enemy is killed")]
+		public int pointValue = 10;
+		
 		[Tooltip("The list of states for this enemy. It MUST have the names of the state classes")]
 		public StateHolder[] states;
 
@@ -36,9 +41,14 @@ namespace EnemyControllers
 		protected int _lastMovingDirection;
 
 		private IList<GameObject> _childObjects;
+
+		private GameController _gameController;
+		
 	
 		protected override void Init ()
 		{
+			_gameController = FindObjectOfType<GameController>();
+			
 			_movementStop = 1;
 			
 			_spriteRenderer = GetComponent<SpriteRenderer> ();
@@ -139,6 +149,12 @@ namespace EnemyControllers
 		public bool HasDied()
 		{
 			return _isDead;
+		}
+
+		public void MarkingAsDead()
+		{
+			_gameController.UpdateScore(pointValue);
+			MarkAsDead();
 		}
 
 		public void MarkAsDead()

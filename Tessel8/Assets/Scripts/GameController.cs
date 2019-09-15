@@ -5,7 +5,9 @@ using Audio;
 using EnemyControllers;
 using Spawn;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UserInterface;
 
 namespace DefaultNamespace
 {
@@ -14,10 +16,13 @@ namespace DefaultNamespace
         public PauseMenu pauseMenu;
         public GameoverMenu gameOverMenu;
         public GameoverMenu victoryMenu;
+        public Text yourScoreText;
+        public Text highScoreText;
         
         private EnemySpawnController _spawnController;
         private SpawnUIController _spawnUiController;
         private BackgroundMusicController _backgroundMusicController;
+        private HighScore _highScore;
 
         private GameObject _player;
         private PlayerControllerHelper _helper;
@@ -35,6 +40,11 @@ namespace DefaultNamespace
             _spawnController = GetComponent<EnemySpawnController>();
             _spawnUiController = GetComponent<SpawnUIController>();
             _backgroundMusicController = GetComponent<BackgroundMusicController>();
+            _highScore = GetComponent<HighScore>();
+            _highScore.ResetScore();
+            yourScoreText.text = "Your Score: " + _highScore.GetCurrentScore();
+            highScoreText.text = "High Score: " + _highScore.GetScoreForArena(SceneManager.GetActiveScene().name);
+            
             _player = GameObject.FindWithTag("Player");
             _helper = _player.GetComponent<PlayerControllerHelper>();
             _playerStartingPosition = new Vector3(_player.transform.position.x, 
@@ -115,6 +125,10 @@ namespace DefaultNamespace
 
         public void StartGame()
         {
+            _highScore.ResetScore();
+            yourScoreText.text = "Your Score: " + _highScore.GetCurrentScore();
+            highScoreText.text = "High Score: " + _highScore.GetScoreForArena(SceneManager.GetActiveScene().name);
+            
             gameOverMenu.gameObject.SetActive(false);
             pauseMenu.gameObject.SetActive(false);
             victoryMenu.gameObject.SetActive(false);
@@ -138,6 +152,13 @@ namespace DefaultNamespace
         {
             if (victoryMenu.gameObject.activeInHierarchy) return;
             gameOverMenu.gameObject.SetActive(true);
+            _highScore.GameOver();
+        }
+
+        public void UpdateScore(int value)
+        {
+            _highScore.AddToScore(value);
+            yourScoreText.text = "Your Score: " + _highScore.GetCurrentScore();
         }
     }
 }
